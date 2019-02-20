@@ -1,0 +1,11 @@
+h1 {
+    font-size: 3em;
+    font-family: "Arial";
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+}
