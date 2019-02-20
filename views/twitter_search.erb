@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style/styles.css">
+        <title>THIS IS A TEST</title>
+        <meta http-equiv="refresh" content="120">
+    </head>
+    <body>
+        <h1>THIS IS A TEST</h1>
+        
+        <form method="get">
+            Search:<input type="text" name="search" value="<%=h params[:search] %>"/>
+            <input type="submit" name="submit" value="Update"/>
+        </form>
+        <br />
+        <% unless @tweets.nil? %>
+            <% if @tweets.length == 0 %>
+                <p>No tweets found.</p>
+            <% else %>
+                <br />
+                <table border="1">
+                    <tr>
+                        <th>User</th>
+                        <th>Tweet</th>
+                        <th>Reply</th>
+                        <th>Warn</th>
+                        <th>Block</th>
+                    </tr>
+                    <% @tweets.each do |tweet| %>
+                        <tr>
+                            <td>
+                                <a href="<%= tweet.user.uri %>" target="_blank">
+                                    <%= tweet.user.screen_name %>
+                                </a>
+                            </td>
+                            <td>
+                                <%= tweet.text %>
+                            </td>
+                            <td align="center">
+                                <a href="<%= tweet.uri %>" target="_blank">
+                                    <input type="button" value="Reply to @<%= tweet.user.screen_name %>" align="middle"/>
+                                </a>
+                            </td>
+                            <td align="center">
+                                <a href="">
+                                    <input type="button" value="Warn @<%= tweet.user.screen_name %>" align="middle"/>
+                                    <%# sends an automated warning tweet to user, then shows a messagebox %>
+                                </a>
+                            </td>
+                            <td align="center">
+                                <a href="">
+                                    <input type="button" value="Block @<%= tweet.user.screen_name %>" align="middle"/>
+                                    <%# blocks user, followed by message box %>
+                                </a>
+                            </td>
+                        </tr>
+                    <% end %>
+                </table>
+            <% end %>
+        <% end %>
+        <br />
+    <%= erb :footer %>
