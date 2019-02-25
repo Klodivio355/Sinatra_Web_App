@@ -3,6 +3,24 @@ h1 {
     font-family: "Arial";
 }
 
+table, th, td {
+    padding: 0;
+    
+    
+}
+
+#dropdownButton {
+    border: none;
+    background-color: lightgray;
+}
+.dropdownOptions {
+    display: none;
+    position: absolute;
+}
+.showOptions {
+    display:block;
+}
+
 footer {
   position: fixed;
   left: 0;

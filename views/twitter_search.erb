@@ -2,11 +2,12 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/searchpage.css">
-        <title>THIS IS A TEST</title>
+        <script src="js/table_menu.js"></script>
+        <title>Incoming Tweets</title>
         <meta http-equiv="refresh" content="120">
     </head>
     <body>
-        <h1>THIS IS A TEST</h1>
+        <h1>Administrator System</h1>
         
         <form method="get">
             Search:<input type="text" name="search" value="<%=h params[:search] %>"/>
@@ -20,11 +21,9 @@
                 <br />
                 <table border="1">
                     <tr>
-                        <th>User</th>
-                        <th>Tweet</th>
-                        <th>Reply</th>
-                        <th>Warn</th>
-                        <th>Block</th>
+                        <th width="120">User</th>
+                        <th width="600">Tweet</th>
+                        <th>Options</th>
                     </tr>
                     <% @tweets.each do |tweet| %>
                         <tr>
@@ -37,21 +36,14 @@
                                 <%= tweet.text %>
                             </td>
                             <td align="center">
-                                <a href="<%= tweet.uri %>" target="_blank">
-                                    <input type="button" value="Reply to @<%= tweet.user.screen_name %>" align="middle"/>
-                                </a>
-                            </td>
-                            <td align="center">
-                                <a href="">
-                                    <input type="button" value="Warn @<%= tweet.user.screen_name %>" align="middle"/>
-                                    <%# sends an automated warning tweet to user, then shows a messagebox %>
-                                </a>
-                            </td>
-                            <td align="center">
-                                <a href="">
-                                    <input type="button" value="Block @<%= tweet.user.screen_name %>" align="middle"/>
-                                    <%# blocks user, followed by message box %>
-                                </a>
+                                <div>
+                                    <button onClick="showDropdown()" id="dropdownButton">&#9660;</button>
+                                    <div id="dropdownMenu" class="dropdownOptions">
+                                        <a href="<%= tweet.uri %>">Reply</a>
+                                        <a>Warn</a>
+                                        <a>Block</a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     <% end %>
