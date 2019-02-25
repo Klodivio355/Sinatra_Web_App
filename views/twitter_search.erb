@@ -24,6 +24,7 @@
                         <th width="120">User</th>
                         <th width="600">Tweet</th>
                         <th width="200">Time</th>
+                        <th width="200">Location</th>
                         <th>Options</th>
                     </tr>
                     <% @tweets.each do |tweet| %>
@@ -38,6 +39,9 @@
                             </td>
                             <td>
                                 <%= tweet.created_at %>
+                            </td>
+                            <td>
+                                <%= tweet.place.name %>
                             </td>
                             <td align="center">
                                 <div>
