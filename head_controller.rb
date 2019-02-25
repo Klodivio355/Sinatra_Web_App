@@ -4,6 +4,7 @@
 require 'sinatra'
 require 'twitter'
 require 'erb'
+require 'sqlite3'
 set :bind, '0.0.0.0'
 
 include ERB::Util
@@ -20,7 +21,7 @@ end
 
 #views
 get '/' do
-
+    erb :home
 end
 
 get '/twitter_search' do

@@ -19,10 +19,11 @@
                 <p>No tweets found.</p>
             <% else %>
                 <br />
-                <table border="1">
+                <table>
                     <tr>
                         <th width="120">User</th>
                         <th width="600">Tweet</th>
+                        <th width="200">Time</th>
                         <th>Options</th>
                     </tr>
                     <% @tweets.each do |tweet| %>
@@ -35,19 +36,20 @@
                             <td>
                                 <%= tweet.text %>
                             </td>
+                            <td>
+                                <%= tweet.created_at %>
+                            </td>
                             <td align="center">
                                 <div>
-                                    <button onClick="showDropdown()" id="dropdownButton">&#9660;</button>
-                                    <div id="dropdownMenu" class="dropdownOptions">
-                                        <a href="<%= tweet.uri %>">Reply</a>
-                                        <a>Warn</a>
-                                        <a>Block</a>
-                                    </div>
+                                    <select onchange="goToTweet(this.options(this.selectedIndex).value)">
+                                        <option selected>Select...</option>
+                                        <option value="<%= tweet.uri %>">Reply</option>
+                                    </select>
                                 </div>
                             </td>
                         </tr>
                     <% end %>
-                </table>
+                </table>   
             <% end %>
         <% end %>
         <br />
