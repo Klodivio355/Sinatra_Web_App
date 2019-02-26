@@ -9,10 +9,14 @@
     <body>
         <h1>Homepage</h1>
         <marquee id="scrollbar" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4">Someone WILL finish this page!</marquee>
-        <br /><br /><br /><br />
-        <p>Login section will go here.</p>
-        <br /><br /><br /><br />
-        <p>Use details here.</p>
+        <% if session[:logged_in] %>
+            <br /><br /><br /><br />
+            <p>You are logged in since <%= session[:logged_time].strftime("%d-%m-%Y %H:%M:%S") %></p>
+            <a href="/session_clear">Log Out</a>
+        <% else %>
+            <br /><br /><br /><br />
+            <%= erb :login %>
+        <% end %>
         <br /><br /><br /><br />
         <a href="/twitter_search">Admin Search Page</a>
     <%= erb :footer %>

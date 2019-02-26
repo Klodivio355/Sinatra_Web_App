@@ -1,11 +1,13 @@
 # COM1001 Team 07 application controller
 
 #Default setup code
+
 require 'sinatra'
 require 'twitter'
 require 'erb'
 require 'sqlite3'
 require_relative 'error_handling'
+require_relative 'account'
 set :bind, '0.0.0.0'
 
 include ERB::Util
