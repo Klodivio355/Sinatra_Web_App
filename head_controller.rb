@@ -29,8 +29,7 @@ get '/twitter_search' do
     unless params[:search].nil?
         search_string = params[:search]
         results = @client.search(search_string)
-        @tweets = results.take(15)
+        @tweets = results.take(20)
     end
-    
     erb :twitter_search
 end
