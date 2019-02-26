@@ -5,6 +5,7 @@ require 'sinatra'
 require 'twitter'
 require 'erb'
 require 'sqlite3'
+require_relative 'error_handling'
 set :bind, '0.0.0.0'
 
 include ERB::Util
