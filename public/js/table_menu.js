@@ -1,5 +1,8 @@
-function goToTweet(url) {
-    if(url!="") {
-       .open(url);
+function goToTweet(selectObj) {
+    var x = selectObj.selectedIndex;
+    var url = selectObj.options[x].value;
+    if(url != "") {
+       window.open(url);
     }
+    selectObj.selected = selectObj.options[0];
 }
