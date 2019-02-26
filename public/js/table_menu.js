@@ -4,5 +4,5 @@ function goToTweet(selectObj) {
     if(url != "") {
        window.open(url);
     }
-    selectObj.selected = selectObj.options[0];
+    selectObj.selectedIndex = 0;
 }
