@@ -1,1 +1,11 @@
 SQL
+
+Use the statements as and when needed, anywhere with a "#" replace with the variable name/data required
+presume all fields are text unless otherwise stated
+
+Adding user to database:
+INSERT INTO user_details VALUES ("#twitter handle","#email","#password",0);
+
+Find all users (to test they added correctly):
+SELECT * FROM user_details;
+
