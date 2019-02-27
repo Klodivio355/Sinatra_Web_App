@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <script src="js/table_menu.js"></script>
         <title>Homepage</title>
         <meta http-equiv="refresh" content="120">
     </head>
+    
     <body>
         <h1>Homepage</h1>
         <marquee id="scrollbar" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4">Someone WILL finish this page!</marquee>
+        
         <% if session[:logged_in] %>
             <br /><br /><br /><br />
             <p>You are logged in since <%= session[:logged_time].strftime("%d-%m-%Y %H:%M:%S") %></p>
@@ -17,6 +20,9 @@
             <br /><br /><br /><br />
             <%= erb :login %>
         <% end %>
+        
         <br /><br /><br /><br />
+        
         <a href="/twitter_search">Admin Search Page</a>
+        
     <%= erb :footer %>
