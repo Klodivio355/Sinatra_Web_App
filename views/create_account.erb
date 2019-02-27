@@ -11,10 +11,10 @@
         <p> create an account</p>
         <form action="makeaccount" method= "post">
             <label for="Fname">Twitter screename: </label>
-            <input type="text" name="username" id="Fname"  maxlength="10" value="" placeholder="input user name.....">
+            <input type="text" name="username" id="Fname"  maxlength="10" value="<%=h params[:username]%>" placeholder="input user name.....">
             <br>
             <label for="pass"> Password: </label>
-            <input type="password" name="password" id="pass"  maxlength="20" placeholder="input password....">
+            <input type="password" name="password" id="pass"  maxlength="20" value="<%=h params[:password]%>" placeholder="input password....">
             <br>
             <input type="submit" value="submit">      
         </form>
