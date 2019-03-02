@@ -9,3 +9,19 @@ INSERT INTO user_details VALUES ("#twitter handle","#email","#password",0);
 Find all users (to test they added correctly):
 SELECT * FROM user_details;
 
+User log in (Find if user exists and return password to check if correct)
+SELECT password FROM user_details WHERE email = "#email";
+
+Admin log in
+SELECT password FROM admin_details WHERE email = "#email";
+
+
+Adding car
+INSERT INTO car_details VALUES ("#car reg","#type","#base price",0);
+
+Searching cars
+SELECT * FROM car_details;
+
+
+
+

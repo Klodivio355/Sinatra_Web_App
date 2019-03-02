@@ -9,7 +9,7 @@
     </head>
     
     <body>
-        <h1>Homepage</h1>
+        <%= erb :header %>
         <marquee id="scrollbar" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4">Someone WILL finish this page!</marquee>
         
         <% if session[:logged_in] %>
