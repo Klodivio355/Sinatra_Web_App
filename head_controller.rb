@@ -24,7 +24,7 @@ end
 
 #views
 get '/' do
-    erb :home
+    erb :login
 end
 
 get '/twitter_search' do
@@ -34,4 +34,8 @@ get '/twitter_search' do
         @tweets = results.take(20)
     end
     erb :twitter_search
+end
+
+get '/home' do
+    erb :home
 end

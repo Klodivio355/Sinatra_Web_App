@@ -24,3 +24,8 @@ footer {
   width: 100%;
   font-family: "Arial";
 }
+
+.loginBox {
+    float:right;
+    padding-right:5%;
+}
