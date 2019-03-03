@@ -1,0 +1,21 @@
+main {
+	margin-left: 30%;
+	font-size: 1.8em;
+}
+
+input {
+	height: 1.7rem;
+	font-size: 1.4rem;
+}
+
+table th {
+	text-align: left;
+}
+
+table td {
+	padding-left: 3%;
+}
+
+table tr {
+	height: 1.7rem;
+}

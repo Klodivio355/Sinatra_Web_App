@@ -36,6 +36,10 @@ get '/twitter_search' do
     erb :twitter_search
 end
 
+get '/personalInformationPage' do
+    erb :personalInformationPage
+end
+
 get '/home' do
     erb :home
 end

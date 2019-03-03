@@ -8,14 +8,6 @@
     <body>
         <h1>Login</h1>
        
-<<<<<<< HEAD
-<form action="login" method="post">
-    <label for="logger">Username:<input type="text" name="userlog" value="" id="logger" maxlength="20"></label><br>
-    <label for="pass1">Password:<input type="password" name="password1" id="pass1" maxlength="20" value=""></label><br>
-    <input type="submit" value="submit">   
-</form>
-<p><a href="/create_account">Create an account</a><p>
-=======
         <form action="login" method="post">
             <label for="logger">Username:<input type="text" name="userlog" value="<%=h params[:userlog]%>" id="logger" maxlength="20"></label><br>
             <label for="pass1">Password:<input type="password" name="password1" value="<%=h params[:password1]%>" id="pass1" maxlength="20" value=""></label><br>
@@ -24,4 +16,3 @@
         <p><a href="/create_account">create an account</a><p>
         
          <%= erb :footer %>
->>>>>>> d05c6eaaf0c75b85a040f155d7d770b6cad826e4

@@ -17,14 +17,6 @@ h1 {
     margin: none;
 }
 
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 10px;
-  width: 100%;
-  font-family: "Arial";
-}
-
 .loginBox {
     float:right;
     padding-right:5%;
