@@ -1,0 +1,117 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+   display:grid;
+   grid-template-columns: repeat(12,[col-start]1fr);
+   grid-template-rows:50px repeat(2,1fr);
+}
+
+h1{
+   text-align:center;
+   grid-column:col-start 1/span 12;
+   grid-row:1;
+     
+}
+
+section{
+    border:solid 1px red;
+    text-align:space-evenly;
+    grid-column:col-start 3/span 3;
+    grid-row:2;
+    width:100%;
+    height:100%;
+    margin:130px 40px 10px 10px;
+}
+
+button{
+    position:absolute;
+    top:55%;
+    background-color:blue;
+    border-radius:4px;
+    height:6%;
+    width:7%;
+    right:60%;
+}
+
+section p{
+   text-align:justify;
+}
+
+form{
+    position:relative;
+    top:50%;
+    border:solid 1px red;
+    grid-column:col-start 7/span 4;
+    grid-row:2;
+    border-radius:50px;
+    width:100%;
+    height:100%;
+    margin:130px 40px 10px 10px;
+}
+
+
+label{
+    position:relative;
+    padding-left:50px;
+    font-size:50px;
+    top:90px;
+}
+
+div{
+    position:relative;
+    top:80px;
+    padding-left:50px;
+    padding-left:50px;
+    height:50px;
+}
+#lab2{
+    top:80px;
+}
+
+input[type=text],input[type=password]{ 
+    width:80%;
+    height:80%;
+  margin:8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing:border-box;
+}
+
+input[type=submit]{
+   position:relative;
+    top:80%;
+    width:25%;
+    height:100%;
+    border-radius: 4px;
+    background-color:green;
+}
+
+input[name=register]{
+   position:relative;
+    top:80%;
+    left:2%;
+    width:25%;
+    height:100%;
+    border-radius: 4px;
+    background-color:green;
+}
+
+input[name=guest]{
+   position:relative;
+    top:80%;
+    left:5%;
+    width:25%;
+    height:100%;
+    border-radius: 4px;
+    background-color:green;
+}
+
+
+a:link{
+    color:black;
+    text-decoration:none;
+}
