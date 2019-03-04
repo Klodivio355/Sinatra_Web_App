@@ -9,8 +9,8 @@
         <h1>Login</h1>
        
         <form action="login" method="post">
-            <label for="logger">Email:<input type="email" name="userlog" value="<%=h params[:userlog]%>" id="logger" maxlength="40"></label><br>
-            <label for="pass1">Password:<input type="password" name="password1" value="<%=h params[:password1]%>" id="pass1" maxlength="20" value=""></label><br>
+            <label for="logger">Email:<input type="email" name="userEmail" value="<%=h params[:useremail]%>" id="logger" maxlength="40"></label><br>
+            <label for="pass1">Password:<input type="password" name="password1" value="<%=h params[:password]%>" id="pass1" maxlength="20" value=""></label><br>
             <input type="submit" value="submit">   
         </form>
         <p><a href="/create_account">create an account</a><p>

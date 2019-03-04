@@ -10,12 +10,12 @@
         <main class="loginBox">
         <p> create an account</p>
         <form action="makeaccount" method= "post">
-            <label for="Fname">Twitter handle: </label>
-            <input type="text" name="username" id="Fname"  maxlength="15" value="<%=h params[:username]%>" placeholder="Input Twitter Handle...">
+            <label for="userhandle">Twitter handle: </label>
+            <input type="text" name="userhandle" id="userhandle"  maxlength="15" value="<%=h params[:userhandle]%>" placeholder="Input Twitter Handle...">
 
             <br>
-            <label for="pass"> Email: </label>
-            <input type="email" name="email" id="mail"  maxlength="40" value="<%=h params[:email]%>" placeholder="Input E-mail....">
+            <label for="email"> Email: </label>
+            <input type="email" name="email" id="email"  maxlength="40" value="<%=h params[:email]%>" placeholder="Input E-mail....">
             <br>
             
             <label for="pass"> Password: </label>

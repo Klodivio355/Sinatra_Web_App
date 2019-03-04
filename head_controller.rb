@@ -1,7 +1,5 @@
 # COM1001 Team 07 application controller
-
 #Default setup code
-
 require 'sinatra'
 require 'twitter'
 require 'erb'
