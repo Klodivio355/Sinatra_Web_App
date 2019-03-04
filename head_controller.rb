@@ -1,7 +1,5 @@
 # COM1001 Team 07 application controller
-
 #Default setup code
-
 require 'sinatra'
 require 'twitter'
 require 'erb'
@@ -24,6 +22,7 @@ end
 
 #views
 get '/' do
+    @wrong = false
     erb :login
 end
 
@@ -34,10 +33,6 @@ get '/twitter_search' do
         @tweets = results.take(20)
     end
     erb :twitter_search
-end
-
-get '/personalInformationPage' do
-    erb :personalInformationPage
 end
 
 get '/home' do
