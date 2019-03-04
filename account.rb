@@ -15,7 +15,7 @@ end
 post '/makeaccount' do
     @query = 'INSERT INTO user_details 
               VALUES (? , ? , ? ,0);'
-    @database.execute query, params[:userhandle], params[:email], params[:password]
+    @database.execute @query, params[:userhandle], params[:email], params[:password]
     redirect '/'
 end
 
