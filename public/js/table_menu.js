@@ -1,4 +1,4 @@
-function goToTweet(selectObj) {
+function menuChange(selectObj) {
     var x = selectObj.selectedIndex;
     var url = selectObj.options[x].value;
     if(url != "") {

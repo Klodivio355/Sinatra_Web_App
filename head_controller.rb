@@ -23,7 +23,7 @@ end
 #views
 get '/' do
     @wrong = false
-    erb :login
+    erb :home
 end
 
 get '/twitter_search' do

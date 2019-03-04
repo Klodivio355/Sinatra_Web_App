@@ -20,13 +20,13 @@ header {
 	background-size:cover;
 }
 
-header div ol {
+header div ul {
 	margin-top:0;
 	padding-right:2%;
 	text-align:right;
 }
 
-header div ol li{
+header div ul li{
 	height:100%;
 	padding:15px;
 	display: inline;
