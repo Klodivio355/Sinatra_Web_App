@@ -1,12 +1,5 @@
 SQL
 
-
-IMPORTANT!!!!!!! some of these may be changed tonight(monday 4th), i will update slack when you can use these sql statments again
-and i will remove this message.
-
-
-
-
 Use the statements as and when needed, anywhere with a "#" replace with the variable name/data required
 presume all fields are text unless otherwise stated
 
@@ -22,8 +15,8 @@ SELECT password FROM user_details WHERE email = "#email";
 ->Admin log in
 SELECT password FROM admin_details WHERE email = "#email";
 
-->Adding car (base price is number in form 0.00)
-INSERT INTO car_details VALUES ("#car reg","#type","#base price",0);
+->Adding car (base price is number in form 0.00, seats is integer)
+INSERT INTO car_details VALUES ("#car reg","#type","#base price",0,"#number of seats");
 
 ->Searching cars
 SELECT * FROM car_details;
