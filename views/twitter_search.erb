@@ -48,10 +48,12 @@
                                 <%= tweet.place.name %>
                             </td>
                             <td align="center">
-                                <div>
-                                    <select onchange="goToTweet(this)">
+                                <div id="menu">
+                                    <select onchange="menuChange(this)">
                                         <option selected>Select...</option>
-                                        <option value="<%= tweet.uri %>">Reply</option>
+                                        <option id="reply" value="<%= tweet.uri %>">Reply (External)</option>
+                                        <option id="warn" value="">Apply Warning</option>
+                                        <option id="block" value="">Block User</option>
                                     </select>
                                 </div>
                             </td>
