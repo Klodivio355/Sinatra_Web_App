@@ -1,25 +1,47 @@
 require 'tilt/erubis'
+require 'sqlite3'
 enable :sessions
 set :session_secret, 'super secret'
 
+before do 
+    @database = SQLite3::Database.new './database.sqlite'
+end
+
 get '/create_account' do
     erb :create_account unless session[:logged_in]
+    erb :create_account
 end
 
 post '/makeaccount' do
-    $username=params[:username]
-    $pass=params[:password]
+    query = 'INSERT INTO user_details 
+              VALUES (? , ? , ? ,0);'
+    @database.execute query, params[:username], params[:email], params[:password]
     redirect '/'
 end
 
 post '/login' do
-    #TODO: Add database query and matching here
-    if params[:userlog]==$username && params[:password1]==$pass then
-        session[:logged_in]=true
-        session[:logged_time]=Time.now
-        redirect '/twitter_search'
+    @user_email = params[:userlog]
+    check_count = @database.get_first_value('SELECT COUNT(*) FROM user_details WHERE email = ?',[@user_email])
+    if check_count == 1 
+        pass = @database.get_first_value('SELECT password FROM user_details WHERE email = ? ;',[@user_email])
+        if pass == params[:password1]
+            session[:logged_in]=true
+            session[:logged_time]=Time.now
+            redirect '/home'
+        end
     else
-        redirect '/'
+        check_admin_count = @database.get_first_value('SELECT COUNT(*) FROM admin_details WHERE email = ?',[@user_email])
+        if check_admin_count == 1 
+            pass = @database.get_first_value('SELECT password FROM admin_details WHERE email = ? ;',[@user_email])
+            if pass == params[:password1]
+                session[:logged_in]=true
+                session[:logged_time]=Time.now
+                #TODO: add admin functionality
+                redirect '/twitter_search'
+            end
+        else
+            redirect '/'
+        end
     end
 end
     

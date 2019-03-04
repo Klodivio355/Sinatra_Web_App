@@ -6,21 +6,25 @@
           <link rel="stylesheet" href="./style/_account.css">
 
     </head>
-    <body class="loginBox">
+    <body>
+        <main class="loginBox">
         <p> create an account</p>
         <form action="makeaccount" method= "post">
             <label for="Fname">Twitter handle: </label>
-            <input type="text" name="username" id="Fname"  maxlength="10" value="<%=h params[:username]%>" placeholder="input user name.....">
+            <input type="text" name="username" id="Fname"  maxlength="15" value="<%=h params[:username]%>" placeholder="Input Twitter Handle...">
 
             <br>
+            <label for="pass"> Email: </label>
+            <input type="email" name="email" id="mail"  maxlength="40" value="<%=h params[:email]%>" placeholder="Input E-mail....">
+            <br>
+            
             <label for="pass"> Password: </label>
-            <input type="password" name="password" id="pass"  maxlength="20" value="<%=h params[:password]%>" placeholder="input password....">
+            <input type="password" name="password" id="pass"  maxlength="20" value="<%=h params[:password]%>" placeholder="Input Password....">
             <br>
             <input type="submit" value="submit">      
         </form>
         
             <p><a href="/">login into your account</a></p>
-            
-    </body>
-</html>
+        </main>
+        <%= erb :footer %>
     
