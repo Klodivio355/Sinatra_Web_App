@@ -1,0 +1,62 @@
+<!-- build by Junfan Chen in 04/03/2019 based on twitter search page -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/homepage_style.css">
+		<link rel="stylesheet" href="css/historyPage.css">
+
+		<title></title>
+	</head>
+	<body>
+
+		<main>
+            <%= erb :header %>
+            
+            
+            <p>You need to <a href="/login">login</a> your account.</p>
+            
+            
+            <!-- this condition should be session is not log in, for output the last sentence
+                    otherwise, even we are login, this sentence will display, too.    -->
+            
+            
+            <% if session[:logged_in] %>
+			<br />
+			<table style="margin:0 auto;">
+				<tr align="center">
+					<th>Time</th>
+					<th>Driver</th>
+					<th>Start Location</th>
+					<th>End Location</th>
+					<th>Others</th>
+
+				</tr>
+
+                 <!-- in this case we could use list todo by database 
+                       such as
+                        the information list.each do |history|
+                   -->
+				<tr align="center">
+					<td>
+						history.time
+					</td>
+					<td>
+                        history.drivername
+					</td>
+					<td>
+						history.startLocation
+					</td>
+					<td>
+						history.endLocation
+					</td>
+					<td>
+                        history.others
+					</td>
+				</tr>
+			</table>
+			<% end %>
+			<br />
+		</main>
+            <%= erb :footer %>

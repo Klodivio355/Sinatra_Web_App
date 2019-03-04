@@ -42,3 +42,7 @@ end
 get '/login' do
     erb :login
 end
+
+get '/historyPage' do
+    erb :historyPage
+end

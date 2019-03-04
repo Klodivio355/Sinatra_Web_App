@@ -1,0 +1,29 @@
+h1 {
+    font-size: 3em;
+    font-family: "Arial";
+}
+
+table, th, td {
+    padding: 0;
+    border: 1px solid #b7b7b7;
+    
+}
+
+#dropdownButton {
+    border: none;
+    background-color: lightgray;
+}
+.dropdownOptions {
+    display: none;
+    position: absolute;
+}
+.showOptions {
+    display:block;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+}

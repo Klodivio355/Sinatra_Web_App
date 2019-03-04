@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    background-color: #FFCC99;
+    /*junfan chen changed in 04/03/2019 deleted the background color */
 }
 
 h1 {
@@ -29,5 +29,5 @@ footer {
   left: 0;
   bottom: 10px;
   width: 100%;
-  background-color: #FFCC99;
+    /*junfan chen changed in 04/03/2019 deleted the background color */
 }
