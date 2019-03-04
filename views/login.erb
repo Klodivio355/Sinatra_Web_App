@@ -1,21 +1,64 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <title>Login Page</title>
-    </head>
+<html lang="en">
     
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./style/login.css">
+            <title>LOGIN</title>
+    </head>
     <body>
-        <h1>Login</h1>
-       
-        <form action="login" method="post">
-            <label for="logger">Email:<input type="email" name="userEmail" value="<%=h params[:useremail]%>" id="logger" maxlength="40"></label><br>
-            <label for="pass1">Password:<input type="password" name="password1" value="<%=h params[:password]%>" id="pass1" maxlength="20" value=""></label><br>
-            <input type="submit" value="submit">   
-        </form>
-        <% if @wrong %>
-            <p id = "warning">Wrong information. Please try again</p>
-        <% end %>
-        <p><a href="/create_account">create an account</a><p>
         
-        <%= erb :footer %>
+        <h1>Login page</h1>
+        
+        
+        <section>
+            <p>The application is used for booking a taxi based on individual preferences.<br>
+                We ensure safe transfer of data and password protection when you sign up to be part of us.<br>
+                By clicking register,you agree to our terms.How we collect your data and share your information within our policy.  
+            </p>
+            
+            <button name="intro" onclick=>link to intro</button>
+        </section>
+       
+        <form action="makeaccount" method="post">
+            
+            <!--<label id=lab1 for="logger">Username</label><br>-->
+            
+            <div class="in">
+                <input type="text" name="userlog" value="" placeholder="Username" id="logger" maxlength=""><br>
+            </div>                                  
+
+            <!--<label id=lab2 for="pass1">Password</label><br>-->
+            
+            <div class="in1">
+               <input type="password" name="password1" placeholder="password"
+                      id="pass1" maxlength="" value=""><br> 
+            </div>
+            
+            <div class="allnav">
+                <input type="submit" value="login">  
+               <input type="button" name="register" value="Register" onclick="create_account()">
+                <input type="button" name="guest" value="Guest" onclick="guest()">
+            </div>
+                
+        </form>
+       
+        
+        <script>
+            function create_account(){
+                window.location.href="create_account";
+            }
+            
+            function guest(){
+                window.location.href="guest";
+            }
+            
+            function intro(){
+                window.location.href="intro";
+            }
+            
+        </script>
+        
+         
+    </body>
+</html>
