@@ -21,3 +21,11 @@ h1 {
     float:right;
     padding-right:5%;
 }
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+  background-color: #FFCC99;
+}

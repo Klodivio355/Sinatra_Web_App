@@ -15,17 +15,17 @@ end
 post '/makeaccount' do
     @query = 'INSERT INTO user_details 
               VALUES (? , ? , ? ,0);'
-    @database.execute @query, params[:username], params[:email], params[:password]
+    @database.execute query, params[:userhandle], params[:email], params[:password]
     redirect '/'
 end
 
 post '/login' do
-    @user_email = params[:userlog]
+    @user_email = params[:useremail]
     @check_count = @database.get_first_value('SELECT COUNT(*) FROM user_details WHERE email = ?',[@user_email])
     @check_admin_count = @database.get_first_value('SELECT COUNT(*) FROM admin_details WHERE email = ?',[@user_email])
     if @check_count == 1 
         pass = @database.get_first_value('SELECT password FROM user_details WHERE email = ? ;',[@user_email])
-        if pass == params[:password1]
+        if pass == params[:password]
             session[:logged_in]=true
             session[:logged_email]=@user_email
             session[:logged_time]=Time.now
