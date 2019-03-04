@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
       <head>
-          <title> THINGS ON POINT</title>
+          <title> Create account</title>
           <meta charset="UTF-8">
-          <link rel="stylesheet" type="text/css" href="css/create_account.css">
+          <link rel="stylesheet" href="./style/create_account.css">
 
     </head>
     <body>
-        <main class="loginBox">
-        <p> create an account</p>
-        <form action="makeaccount" method= "post">
-            <label for="userhandle">Twitter handle: </label>
-            <input type="text" name="userhandle" id="userhandle"  maxlength="15" value="<%=h params[:userhandle]%>" placeholder="Input Twitter Handle...">
-
-            <br>
-            <label for="email"> Email: </label>
-            <input type="email" name="email" id="email"  maxlength="40" value="<%=h params[:email]%>" placeholder="Input E-mail....">
-            <br>
+        
+        <h1>create account</h1>
+        
+        <form action="login" method= "post">
             
-            <label for="pass"> Password: </label>
-            <input type="password" name="password" id="pass"  maxlength="20" value="<%=h params[:password]%>" placeholder="Input Password....">
-            <br>
-            <input type="submit" value="submit">      
+       <input type="text" name="Twittername" id="Fname"  maxlength="" value=""
+                                              placeholder="input twitter screen name....."><br>
+            
+       <input type="text" name="Username" id="uname"  maxlength="" value=""
+                                              placeholder="input user name....."><br>
+           
+        <input type="password" name="password" id="pass"  maxlength="20"
+                                           placeholder="input password...."><br>
+            
+            
+            <input type="submit" value="submit">
+            
+            <button name="login" onclick="login()">login page</button>
+            
         </form>
         
-            <p><a href="/">login into your account</a></p>
-        </main>
-        <%= erb :footer %>
+        
+        
+       <script>
+           
+           function login(){
+               window.location.href="login";
+           }
+           
+        </script>
+            
+    </body>
+</html>
     
