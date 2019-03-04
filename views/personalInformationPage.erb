@@ -3,17 +3,17 @@
     
     <head>
         <link rel="stylesheet" href="./css/personal.css">
-        <title>Personal inforamtion</title>
+        <title>Personal information</title>
     </head>
     
     <body>
         <%= erb :header %>
         <main>
-			<form action="*****">
+			<form action="changeinfo" method = "post">
 				<table>
 					<tr>
-						<th>User name:</th>
-						<td><input type="text" name="username" value="aaaaaaa"></td>
+						<th>Twitter Handle:</th>
+						<td><input type="text" name="username" value="<%=h @user_handle %>"></td>
 					</tr>
 					<tr>
 						<th> </th>
@@ -21,7 +21,7 @@
 					</tr>
 					<tr>
 						<th>Password:</th>
-						<td><input type="text" name="password" value="123456"></td>
+						<td><input type="text" name="password" value="<%=h @user_pass %>"></td>
 					</tr>
 					<tr>
 						<th> </th>
@@ -29,7 +29,7 @@
 					</tr>
 					<tr>
 						<th>Email:</th>
-						<td><input type="text" name="email" value="******@sheffield.ac.uk"></td>
+						<td><input type="text" name="email" value="<%=h @user_email %>"></td>
 					</tr>
 				</table>
 				<br>

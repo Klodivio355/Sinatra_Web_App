@@ -13,6 +13,9 @@
             <label for="pass1">Password:<input type="password" name="password1" value="<%=h params[:password]%>" id="pass1" maxlength="20" value=""></label><br>
             <input type="submit" value="submit">   
         </form>
+        <% if @wrong %>
+            <p id = "warning">Wrong information. Please try again</p>
+        <% end %>
         <p><a href="/create_account">create an account</a><p>
         
         <%= erb :footer %>

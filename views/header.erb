@@ -1,12 +1,16 @@
 <link rel="stylesheet" href="./css/AfterLogHeader.css">
 <header>
 	<div>
-		<ol class = "nav-mask">
+		<ul class = "nav-mask">
             <li class="HomeUpperHeadBox"><a href="/home">Home</a></li>
 			<li class="HomeUpperHeadBox"><a href="*****">Help</a></li>
 			<li class="HomeUpperHeadBox"><a href="*****">My History</a></li>
-			<li><img src = "imgs/accountNickPhoto.jpg" alt="accountNickPhoto" width = "35px"> 
-			<a href="/personalInformationPage">Personal information</a></li>
-			</ol>
+            <% if session[:logged_in] %>   
+            <li>
+                <img src = "imgs/accountNickPhoto.jpg" alt="accountNickPhoto" width = "35px"> 
+                <a href="/personalInformationPage">Personal information</a>
+            </li>
+            <% end %>
+		</ul>
 		</div>
 	</header>
