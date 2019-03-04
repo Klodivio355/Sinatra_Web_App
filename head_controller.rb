@@ -23,6 +23,10 @@ end
 #views
 get '/' do
     @wrong = false
+    erb :login
+end
+
+get '/home' do
     erb :home
 end
 
@@ -35,6 +39,6 @@ get '/twitter_search' do
     erb :twitter_search
 end
 
-get '/home' do
-    erb :home
+get '/login' do
+    erb :login
 end
