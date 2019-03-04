@@ -1,27 +1,66 @@
 SQL
 
+
+IMPORTANT!!!!!!! some of these may be changed tonight(monday 4th), i will update slack when you can use these sql statments again
+and i will remove this message.
+
+
+
+
 Use the statements as and when needed, anywhere with a "#" replace with the variable name/data required
 presume all fields are text unless otherwise stated
 
-Adding user to database:
+->Adding user to database:
 INSERT INTO user_details VALUES ("#twitter handle","#email","#password",0);
 
-Find all users (to test they added correctly):
+->Find all users (to test they added correctly):
 SELECT * FROM user_details;
 
-User log in (Find if user exists and return password to check if correct)
+->User log in (Find if user exists and return password to check if correct)
 SELECT password FROM user_details WHERE email = "#email";
 
-Admin log in
+->Admin log in
 SELECT password FROM admin_details WHERE email = "#email";
 
-
-Adding car
+->Adding car (base price is number in form 0.00)
 INSERT INTO car_details VALUES ("#car reg","#type","#base price",0);
 
-Searching cars
+->Searching cars
 SELECT * FROM car_details;
 
+->Adding admin (admin id is integer)
+SELECT COUNT(*) FROM admin_details;
+INSERT INTO admin_details VALUES("#returned count + 1","#first name","#surname","#email","#password");
 
+->Update user password
+UPDATE user_details SET password = "#new password" WHERE twitter_handle = "#twit handle";
+
+->update user email
+UPDATE user_details SET email = "#new email" WHERE twitter_handle = "#twit hand";
+
+->increment user ride count (ride count is integer)
+SELECT ride_count FROM user_details WHERE twitter_handle = "#twit hand";
+UPDATE user_details SET ride_count = "#count + 1" WHERE twitter_handle = "#twit hand";
+
+->add ride to ride history  (date is text in form dd-mm-yyyy) (price again is 0.00)
+INSERT INTO ride_history VALUES ("#admin id","#twit hand","#car reg","#start point","#end point","#date","#price");
+
+->Find all previous rides
+SELECT * FROM ride_history;
+
+->User ride history
+SELECT * FROM ride_history WHERE twitter_handle = "#twit hand";
+
+->update admin email
+UPDATE admin_details SET email = "#new email" WHERE admin id = "#admin id";
+
+->update admin password
+UPDATE admin_details SET password = "new password" WHERE admin_id = "#admin id";
+
+->set taxi in use (1 MEANS IN USE 0 IS AVAILABLE)
+UPDATE car_details SET availability = 1 WHERE car_registration = "#car reg";
+
+->set taxi to available
+UPDATE car_details SET availability = 0 WHERE car_registration = "#car reg";
 
 
