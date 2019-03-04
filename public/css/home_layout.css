@@ -1,3 +1,5 @@
+/* LAYOUT OF HOMEPAGE ONLY */
+
 .item1 { grid-area: header; }
 .item2 { grid-area: Activities; }
 .item3 { grid-area: main; }
