@@ -43,6 +43,7 @@ get '/login' do
     erb :login
 end
 
+# Junfan Chen, 04/03/2019 7.00 add one handler fot historyPage
 get '/historyPage' do
     erb :historyPage
 end

@@ -29,6 +29,7 @@ post '/login' do
             session[:logged_in]=true
             session[:logged_email]=@user_email
             session[:logged_time]=Time.now
+            session[:logged_isadmin]=false
             redirect '/home'
         else
             @wrong = true
@@ -40,6 +41,7 @@ post '/login' do
             session[:logged_in]=true
             session[:logged_email]=@user_email
             session[:logged_time]=Time.now
+            session[:logged_isadmin]=true
             redirect '/twitter_search'
         else
             @wrong = true
