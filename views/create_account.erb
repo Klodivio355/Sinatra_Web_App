@@ -10,25 +10,26 @@
         
         <h1>create account</h1>
         
-        <form action="login" method= "post">
+        <form action="makeaccount" method= "post">
             
-       <input type="text" name="Twittername" id="Fname"  maxlength="" value=""
+       <input type="text" name="userhandle" id="Fname"  maxlength="" value=""
                                               placeholder="input twitter screen name....."><br>
             
-       <input type="text" name="Username" id="uname"  maxlength="" value=""
-                                              placeholder="input user name....."><br>
+       <input type="text" name="email" id="uname"  maxlength="" value=""
+                                              placeholder="input email....."><br>
            
-        <input type="password" name="password" id="pass"  maxlength="20"
+        <input type="password" name="password" id="pass"  maxlength=""
                                            placeholder="input password...."><br>
+            
+        <input type="password" name="repeat_password" id="pass2"  maxlength=""
+                                           placeholder="repeat password...."><br>
             
             
             <input type="submit" value="submit">
+            <input type="button" name="logger" value="login" onclick="login()">  
             
-            <button name="backtologin" onclick="login()">login page</button>
             
         </form>
-        
-        
         
        <script>
            
