@@ -3,16 +3,35 @@ require 'sqlite3'
 enable :sessions
 set :session_secret, 'super secret'
 
+include ERB::Util
+
+VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+
 before do 
     @database = SQLite3::Database.new './database.sqlite'
 end
 
 get '/create_account' do
-    erb :create_account unless session[:logged_in]
-    erb :create_account
+     @submitted = false
+    erb :create_account 
 end
 
 post '/makeaccount' do
+  @firstname = params[:userhandle].strip
+  @password = params[:password].strip
+  @email_address = params[:email].strip
+    
+     @firstname_ok =
+    !@firstname.nil? && @firstname != ""
+     @password_ok = !
+    @password.nil? && @password != ""
+  @email_ok =
+    !@email.nil? && @email =~ VALID_EMAIL_REGEX
+
+  @all_ok = @firstname_ok && @password_ok && @email_ok
+    
+
+
     @query = 'INSERT INTO user_details 
               VALUES (? , ? , ? ,0);'
     @database.execute @query, params[:userhandle], params[:email], params[:password]
