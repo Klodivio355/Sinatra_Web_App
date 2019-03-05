@@ -13,7 +13,8 @@
         <%= erb :header %>
             <main>
                 <div class="marqueeBox">
-                    <marquee id="scrollbar" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="" width="100%">Someone WILL finish this page!</marquee>
+                    <marquee id="scrollbar" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="" width="100%">
+                        <img src="imgs/car.png" height="70px" style="margin-top:1px"></marquee>
                 </div>
         
             <% if session[:logged_in] %>
@@ -34,8 +35,8 @@
                                     <p>2</p>
                                 </div>
                             </div>
-                            <div class="item3">
-                                <figure class="bookingArea"><img src="imgs/bookingArea.jpg" width = "100%">
+                            <div class="item3" style= "padding-top:0;">
+                                <figure class="bookingArea"><img src="imgs/bookingArea.png" width = "100%">
                                 <figcaption><a href="/bookingArea" >Booking</a></figcaption></figure>
                             </div>
                             
