@@ -47,3 +47,7 @@ end
 get '/historyPage' do
     erb :historyPage
 end
+
+get '/contact' do
+    erb :contact
+end
