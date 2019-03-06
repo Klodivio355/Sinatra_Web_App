@@ -1,0 +1,33 @@
+/* CREATE CONTACT PAGE LAYOUT ONLY */
+
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    padding-right:300px;
+    background-color:#FECA7C;
+    
+}
+
+body h1 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-align:center;
+}
+
+
+p {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-align:center;
+    
+}
+
+#contact_form{
+    background-color:#FEB03B;
+    position: relative;
+    width:30%;
+    height:130%;
+    border:solid 1px red;
+    left:35%
+}

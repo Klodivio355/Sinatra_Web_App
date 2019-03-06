@@ -2,7 +2,7 @@
 <html>
     
     <head>
-        <link rel="stylesheet" type="text/css" href="css/contact.css">
+        <link rel="stylesheet" href="css/contact.css">
         <title>Contact Page</title>
         <meta http-equiv="refresh" content="120">
     </head>
@@ -11,11 +11,11 @@
         <%= erb :header %>
         <main>
         
-    <h2>Help us to get feedback about our website. In this form, include everything you think might assist us.</h2>
+    <h1>Help us to get feedback about our website. In this form, include everything you think might assist us.</h1>
             <br>
         
-    <p>2. A Form to send comments about our website</p>
-        <form action="mailto:mfontana1@sheffield.ac.uk" method="post" enctype="text/plain">
+    <p>A Form to send comments about our website</p>
+        <form action="mailto:mfontana1@sheffield.ac.uk" method="post" enctype="text/plain" id="contact_form">
         Name:<br>
         <input type="text" name="name" placeholder="Your name goes here..."><br>
         E-mail:<br>
