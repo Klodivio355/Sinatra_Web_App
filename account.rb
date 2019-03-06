@@ -16,26 +16,44 @@ get '/create_account' do
     erb :create_account 
 end
 
-post '/makeaccount' do
-  @firstname = params[:userhandle].strip
-  @password = params[:password].strip
-  @email_address = params[:email].strip
-    
-     @firstname_ok =
-    !@firstname.nil? && @firstname != ""
-     @password_ok = !
-    @password.nil? && @password != ""
-  @email_ok =
-    !@email.nil? && @email =~ VALID_EMAIL_REGEX
 
+get 'login'do
+    erb :login
+end
+
+post '/makeaccount' do
+  @submitted=true
+  @firstname = params[:userhandle].strip
+  @email = params[:email].strip
+  @password = params[:password].strip
+  @password_c = params[:repeat_password].strip
+  
+  
+   
+    
+  @firstname_ok = !@firstname.nil? && @firstname != ""
+    
+  @email_ok =!@email.nil? && @email =~ VALID_EMAIL_REGEX
+    
+  @password_ok = !@password.nil? && @password != "" && @password == @password_c
+    
   @all_ok = @firstname_ok && @password_ok && @email_ok
     
-
-
+    
+   
+    
+   if @submitted && @all_ok 
+    puts 'all ok'  
     @query = 'INSERT INTO user_details 
               VALUES (? , ? , ? ,0);'
     @database.execute @query, params[:userhandle], params[:email], params[:password]
+       
     redirect '/'
+   else   
+    puts @password_ok
+    erb :create_account
+   end
+   
 end
 
 post '/login' do
@@ -56,7 +74,7 @@ post '/login' do
         end
     elsif @check_admin_count == 1 
         @pass = @database.get_first_value('SELECT password FROM admin_details WHERE email = ? ;',[@user_email])
-        if @pass == params[:password1]
+        if @pass == params[:password]
             session[:logged_in]=true
             session[:logged_email]=@user_email
             session[:logged_time]=Time.now
