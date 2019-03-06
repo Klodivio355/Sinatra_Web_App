@@ -10,27 +10,51 @@
         
         <h1>create account</h1>
         
-        <form action="makeaccount" method= "post">
+        
+        <form action="makeaccount" method="post">
             
-       <input type="text" name="userhandle" id="Fname"  maxlength="" value=""
+            
+        <% if @submitted && !@firstname_ok %> 
+            <style>
+                input[name=userhandle]::placeholder{color:red;}
+            </style>
+         <%end%>
+       <input type="text" name="userhandle" id="Fname"  maxlength="" value="<%=h @firstname if @submitted %>"
                                               placeholder="input twitter screen name....."><br>
+        
             
-       <input type="text" name="email" id="uname"  maxlength="" value=""
+         <% if @submitted && !@email_ok %>
+            <style>input[name=email]::placeholder{color:red;}</style>
+    <% end %>
+       <input type="text" name="email" id="uname" value="<%=h @email_address if @submitted %>"
                                               placeholder="input email....."><br>
-           
-        <input type="password" name="password" id="pass"  maxlength=""
-                                           placeholder="input password...."><br>
             
-        <input type="password" name="repeat_password" id="pass2"  maxlength=""
-                                           placeholder="repeat password...."><br>
+            
+            
+         <% if @submitted && !@password_ok %>
+            <style>input[name=password]::placeholder{color:red;}</style>
+    <% end %>
+
+        <input type="password" name="password" id="pass"  value="<%=h @password if @submitted %>"
+                                           placeholder="input password...." required><br>
+            
+          <% if @password_c!=@password %>
+           <style>input[name=repeat_password],input[name=password]::placeholder{color:red;}</style>
+            <%= @password=null %>
+            <%= @password_check=null %>
+            <% end %>
+            
+       <input type="password" name="repeat_password" id="pass2"  value=""
+                                           placeholder="repeat password...." required><br>
             
             
             <input type="submit" value="submit">
-            <input type="button" name="logger" value="login" onclick="login()">  
+            <input type="button" name="logger" value="login page" onclick="login()">  
             
             
         </form>
         
+            
        <script>
            
            function login(){
