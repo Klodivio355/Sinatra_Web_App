@@ -6,8 +6,7 @@
 }
 
 body {
-    padding-right:300px;
-    background-color:#FECA7C;
+    background-color:#FFCC99;
     
 }
 
@@ -24,10 +23,11 @@ p {
 }
 
 #contact_form{
-    background-color:#FEB03B;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    background-color:#FFCC99;
     position: relative;
     width:30%;
-    height:130%;
     border:solid 1px red;
-    left:35%
+    left:35%;
+    padding: 10px;
 }

@@ -11,16 +11,6 @@ before do
     @database = SQLite3::Database.new './database.sqlite'
 end
 
-get '/create_account' do
-     @submitted = false
-    erb :create_account 
-end
-
-
-get 'login'do
-    erb :login
-end
-
 post '/makeaccount' do
   @submitted=true
   @firstname = params[:userhandle].strip
@@ -28,19 +18,10 @@ post '/makeaccount' do
   @password = params[:password].strip
   @password_c = params[:repeat_password].strip
   
-  
-   
-    
-  @firstname_ok = !@firstname.nil? && @firstname != ""
-    
+  @firstname_ok = !@firstname.nil? && @firstname != ""    
   @email_ok =!@email.nil? && @email =~ VALID_EMAIL_REGEX
-    
   @password_ok = !@password.nil? && @password != "" && @password == @password_c
-    
   @all_ok = @firstname_ok && @password_ok && @email_ok
-    
-    
-   
     
    if @submitted && @all_ok 
     puts 'all ok'  
@@ -79,7 +60,7 @@ post '/login' do
             session[:logged_email]=@user_email
             session[:logged_time]=Time.now
             session[:logged_isadmin]=true
-            redirect '/twitter_search'
+            redirect '/home'
         else
             @wrong = true
             erb :login
@@ -89,25 +70,21 @@ post '/login' do
     end
 end
     
-
-get '/personalInformationPage' do
+get '/accountInfo' do
     if session[:logged_in] 
         @user_pass = @database.get_first_value('SELECT password FROM user_details WHERE email = ? ;',[session[:logged_email]])
         @user_handle = @database.get_first_value('SELECT twitter_handle FROM user_details WHERE email = ? ;',[session[:logged_email]])
         @user_email = session[:logged_email]
-        erb :personalInformationPage
+        erb :accountInfo
     else
         redirect '/'
     end
 end
+
 post '/changeinfo' do
     @query = 'UPDATE user_details 
              SET twitter_handle = ?,email = ?,password = ?
              WHERE email = ?;'
     @database.execute @query, params[:username], params[:email], params[:password], session[:logged_email]
     redirect '/session_clear'
-end
-get '/session_clear' do
-    session.clear
-    redirect '/'
 end

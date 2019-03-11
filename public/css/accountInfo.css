@@ -1,0 +1,21 @@
+body {
+	text-align: left;
+	min-width: 1300px;
+}
+
+.informationBar {
+	width: 25%;
+	float: left;
+	text-align: center;
+	margin: 3% 10% 1% 8%;
+	border: solid;
+	height: 100%;
+}
+
+table {
+    padding-top: 5%;
+}
+
+tr {
+	height: 40px;
+}

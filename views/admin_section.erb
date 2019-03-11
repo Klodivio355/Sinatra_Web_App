@@ -9,7 +9,6 @@
     </head>
     <body>
         <%= erb :header %>
-        <a href="../">Back to Home Page</a>
         <h1>Administrator System</h1>
         <form method="get">
             Search:<input type="text" name="search" value="<%=h params[:search] %>"/>
@@ -26,7 +25,6 @@
                         <th width="120">User</th>
                         <th width="600">Tweet</th>
                         <th width="200">Time</th>
-                        <th width="200">Location</th>
                         <th>Options</th>
                     </tr>
                     <% @tweets.each do |tweet| %>
@@ -42,13 +40,11 @@
                             <td>
                                 <%= tweet.created_at %>
                             </td>
-                            <td>
-                                <%= tweet.place.name %>
-                            </td>
                             <td align="center">
                                 <div id="menu">
                                     <select onchange="menuChange(this)">
                                         <option selected>Select...</option>
+                                        <option id="book" value="">Book Ride</option>
                                         <option id="reply" value="<%= tweet.uri %>">Reply (External)</option>
                                         <option id="warn" value="">Apply Warning</option>
                                         <option id="block" value="">Block User</option>

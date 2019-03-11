@@ -3,60 +3,37 @@
     
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/login.css">
-            <title>LOGIN</title>
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+            <title>Login</title>
     </head>
     <body>
         
-        <h1>Login page</h1>
+        <h1>Login</h1>
         
         
         <section>
-            <p>The application is used for booking a taxi based on individual preferences.<br>
-                We ensure safe transfer of data and password protection when you sign up to be part of us.<br>
+            <p> We ensure safe transfer of data and password protection when you sign up to be part of us.<br>
                 By clicking register,you agree to our terms.How we collect your data and share your information within our policy.  
             </p>
-            <button name="intro" onclick=>link to intro</button>
+            <button name="intro" onClick="window.location.href='/home'">Home without Login</button>
         </section>
        
         <form action="login" method="post">
             
-            <!--<label id=lab1 for="logger">Username</label><br>-->
             
-            <div class="in">
-                <input type="text" name="useremail" value="" placeholder="Email Address" id="logger" maxlength="" reqiured><br>
+            <div class="emailDiv">
+                <input type="text" name="useremail" placeholder="Email Address" id="idEmail" maxlength="" value="" required><br>
             </div>                                  
-
-            <!--<label id=lab2 for="pass1">Password</label><br>-->
             
-            <div class="in1">
-               <input type="password" name="password" placeholder="Password"
-                      id="pass1" maxlength="" value="" reqiured><br> 
+            <div class="passDiv">
+               <input type="password" name="password" placeholder="Password" id="idPass" maxlength="" value="" required><br> 
             </div>
             
-            <div class="allnav">
-                <input type="submit" value="login">  
-               <input type="button" name="register" value="Register" onclick="create_account()">
+            <div class="loginBtns">
+               <input type="submit" value="Login">  
+               <input type="button" name="register" value="Register" onClick="window.location.href='/create_account'">
             </div>
                 
-        </form>
-       
-        
-        <script>
-            function create_account(){
-                window.location.href="create_account";
-            }
-            
-            function guest(){
-                window.location.href="guest";
-            }
-            
-            function intro(){
-                window.location.href="intro";
-            }
-            
-        </script>
-        
-         
+        </form>      
     </body>
 </html>

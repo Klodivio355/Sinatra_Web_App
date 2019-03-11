@@ -34,6 +34,19 @@ get '/home' do
     erb :home
 end
 
+get '/login' do
+    erb :login
+end
+
+get '/create_account' do
+     @submitted = false
+    erb :create_account 
+end
+
+get '/contact' do
+    erb :contact
+end
+
 get '/admin_section' do
     query = %{SELECT car_registration, type, number_of_seats, availability FROM car_details}
     @car_results = @database.execute query
@@ -46,15 +59,7 @@ get '/admin_section' do
     erb :admin_section
 end
 
-get '/login' do
-    erb :login
-end
-
-# Junfan Chen, 04/03/2019 7.00 add one handler fot historyPage
-get '/historyPage' do
-    erb :historyPage
-end
-
-get '/contact' do
-    erb :contact
+get '/session_clear' do
+    session.clear
+    redirect '/'
 end

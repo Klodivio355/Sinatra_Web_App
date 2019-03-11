@@ -5,61 +5,54 @@
     padding:0;
 }
 
-body{
+body {
    background-color: #ffcc99;
-   display:grid;
-   grid-template-columns: repeat(6,[col-start]1fr);
-   grid-template-rows:50px repeat(2,1fr);
 }
 
-
-body h1{
-    text-align:center;
-    grid-column:col-start 1/span 6;
-    grid-row:1;
+h1 {
+    font-size: 2.5em;
+    padding-top: 4%;
 }
 
-form{
-    position:relative;
+form {
+    position:absolute;
     top:15%;
-    left:-10%;
+    left:25%;
     border:solid 1px orange;
-    grid-column:col-start 3/span 2;
-    grid-row:2;
     border-radius:50px;
-    width:120%;
-    height:130%;
-    margin:130px 40px 10px 10px;
+    width:50%;
+    height:60%;
 }
 
-input[type=text],input[type=password]{ 
-  position:relative;
-  left:10%;
-  top:10%;
-  width:80%;
-  height:15%;
-  margin:8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing:border-box;
+input[type=text],input[type=password] { 
+    position:relative;
+    left:0;
+    top:10%;
+    width:80%;
+    height:10%;
+    margin:8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing:border-box;
+    font-size: 1.5em;
 }
 
-input[type=submit]{
+input[type=submit] {
     background-color:lightskyblue;
     position:relative;
     border-radius:4px;
     top:10%;
-    left:20%;
+    left:0;
     width:20%;
     height:10%;
 }
 
-input[type=button]{
+input[type=button] {
     background-color:lightgray;
     position:relative;
     border-radius:4px;
-    left:30%;
+    left:0;
     width:20%;
     height:10%;
     top:10%;

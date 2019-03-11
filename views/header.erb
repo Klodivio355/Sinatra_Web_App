@@ -1,17 +1,26 @@
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <header>
 	<div>
-		<ul class = "nav-mask">
-            <li class="HomeUpperHeadBox"><a href="/home">Home</a></li>
-			<li class="HomeUpperHeadBox"><a href="*****">Help</a></li>
-            <!-- Junfan Chen, 04/03/2019 6.00pm change one link fot historyPage -->
-			<li class="HomeUpperHeadBox"><a href="/historyPage">My History</a></li>
-            <% if session[:logged_in] %>   
+		<ul class="nav-mask">
+            <li><a href="/home">Home</a></li>
+            <% if session[:logged_in] && !session[:logged_isadmin] %>   
             <li>
-                <img src = "imgs/accountNickPhoto.jpg" alt="accountNickPhoto" width = "35px"> 
-                <a href="/personalInformationPage">Personal information</a>
+                <a href="/accountInfo">Account Info</a>
             </li>
             <% end %>
+            <% if !session[:logged_in] %>
+            <li>
+                <a href="/login">Login</a>
+            </li>
+            <% end %>
+            <% if session[:logged_isadmin] %> 
+                <li>
+                    <a href="/admin_section">Administrator</a>
+                </li>
+            <% end %>
+            <li>
+                <a href="/contact">Contact Us</a>
+            </li>
 		</ul>
 		</div>
 	</header>

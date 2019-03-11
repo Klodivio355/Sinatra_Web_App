@@ -2,29 +2,28 @@
 <html>
     
     <head>
-        <link rel="stylesheet" href="css/contact.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/contact.css">
         <title>Contact Page</title>
-        <meta http-equiv="refresh" content="120">
     </head>
     
     <body>
         <%= erb :header %>
         <main>
         
-    <h1>Help us to get feedback about our website. In this form, include everything you think might assist us.</h1>
+            <h1>Help us by sending feedback about our website, using the form below.</h1>
             <br>
         
-    <p>A Form to send comments about our website</p>
-        <form action="mailto:mfontana1@sheffield.ac.uk" method="post" enctype="text/plain" id="contact_form">
-        Name:<br>
-        <input type="text" name="name" placeholder="Your name goes here..."><br>
-        E-mail:<br>
-        <input type="text" name="mail" placeholder="Your e-mail goes here..."><br>
-        Comment:<br>
-        <textarea name="comment" rows="10" cols="30" placeholder="Tell us how to improve our website..."></textarea> <br>
-        <input type="submit" value="Send">
-        <input type="reset" value="Reset">
-        </form>
+            <form action="mailto:mfontana1@sheffield.ac.uk" method="post" enctype="text/plain" id="contact_form">
+                Name:<br>
+                <input type="text" name="name" placeholder="Your name goes here..."><br>
+                E-mail:<br>
+                <input type="text" name="mail" placeholder="Your e-mail goes here..."><br>
+                Comment:<br>
+                <textarea name="comment" rows="10" cols="30" placeholder="Tell us how to improve our website..."></textarea> <br>
+                <input type="submit" value="Send">
+                <input type="reset" value="Reset">
+            </form>
             
         </main>
         

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/accountInfo.css">
+        <title>Account Information</title>
+    </head>
+    
+    <%= erb :header %>
+    <body>
+        <main>
+            <div class="informationBar">
+                <img src="imgs/service.png" href="imgs/service.png">
+				<p>Account Details</p>
+                <br>
+            </div>
+            <form action="changeinfo" method = "post">
+                <table>
+                    <tr>
+                        <th>Twitter Handle:</th>
+                            <td><input type="text" name="username" value="<%=h @user_handle %>"></td>
+                    </tr>
+                    <tr>
+                        <th>Password:</th>
+                            <td><input type="text" name="password" value="<%=h @user_pass %>"></td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td><input type="text" name="email" value="<%=h @user_email %>"></td>
+                        </tr>
+                    </table>
+                <input type="submit" value="Edit">
+            </form>
+        </main>
+        <%= erb :footer %>            
+    
