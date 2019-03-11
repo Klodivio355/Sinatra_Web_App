@@ -98,36 +98,6 @@
                 </div>                
 
                 
-                 <!-- contact us part, if you do not like it, just delete it-->
-                <div id="ContactUs" class="grid-container" style="border-top: solid;">
-                    <div class="item1">
-                        <p></p>
-                    </div>
-                    <div class="item2">
-                        <form action="mailto:mfontana1@sheffield.ac.uk" method="post" enctype="text/plain" class="wordAreaContactForm">
-                            Name:<br>
-                            <input type="text" name="name" placeholder="Your name goes here..."><br>
-                            E-mail:<br>
-                            <input type="text" name="mail" placeholder="Your e-mail goes here..."><br>
-                            Comment:<br>
-                            <textarea name="comment" placeholder="Tell us how to improve our website..." style="width: 100%; max-width: 100%;  height: 100px; max-height: 200px;"></textarea>
-                            <br>
-                            <input type="submit" value="Send">
-                            <input type="reset" value="Reset">
-                        </form>
-                    </div>
-                    <div class="item3">
-                        <div class="wordAreaContact" style="font-size:1.5em">
-                            <p>Help us to get feedback about our website. In this form, include everything you think might assist us.</p>
-                            <br><p>2. A Form to send comments about our website</p>
-                        </div>
-                    </div>
-
-                </div>
-        
-                
-                
-                
                 <!-- for session logged in -->
                 <% if session[:logged_in] %>
                     <p>You are logged in since <%= session[:logged_time].strftime("%d-%m-%Y %H:%M:%S") %></p>
