@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: #FFCC99;
+   background-color: #ffcc99;
    display:grid;
    grid-template-columns: repeat(12,[col-start]1fr);
    grid-template-rows:50px repeat(2,1fr);
@@ -77,8 +77,8 @@ div{
 }
 
 input[type=text],input[type=password]{ 
-    width:80%;
-    height:80%;
+  width:80%;
+  height:80%;
   margin:8px 0;
   display: inline-block;
   border: 1px solid #ccc;
