@@ -2,9 +2,37 @@
 <html>
     
     <head>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="stylesheet" type="text/css" href="css/accountInfo.css">
+        
         <title>Account Information</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <!-- homepage_layout.css -->
+        <link rel="stylesheet" type="text/css" href="css/homepage_style.css">
+        <!-- accountInfo.css -->
+        <link rel="stylesheet" type="text/css" href="css/accountInfo.css">
+        
+        
+        
+        
+        
+        <!-- for click fuciton of history -->
+		<script type="text/javascript">
+			function Show_Hidden(obj) {
+				if (obj.style.display == "block") {
+					obj.style.display = 'none';
+				} else {
+					obj.style.display = 'block';
+				}
+			}
+			window.onload = function() {
+				var olink = document.getElementById("link");
+				var odiv = document.getElementById("thediv");
+				olink.onclick = function() {
+					Show_Hidden(odiv);
+					return false;
+				}
+			}
+		</script>        
+                               
     </head>
     
     <%= erb :header %>
@@ -14,6 +42,8 @@
                 <img src="imgs/service.png" href="imgs/service.png">
 				<p>Account Details</p>
                 <br>
+ 				<br>
+				<p><a href="#" id="link">history</a></p>
             </div>
             <form action="changeinfo" method = "post">
                 <table>
@@ -32,6 +62,37 @@
                     </table>
                 <input type="submit" value="Edit">
             </form>
+            
+			<!-- history part -->
+			<div id="thediv">
+				<table class="table2">
+					<tr align="center">
+						<th width="120" class="table2">Time</th>
+						<th width="600" class="table2">Driver</th>
+						<th width="200" class="table2">Start Location</th>
+						<th width="200" class="table2">End Location</th>
+					</tr>
+					<tr align="center">
+						<td class="table2">
+							 history.Time
+						</td>
+						<td class="table2">
+							<a href=" driver.user.uri " target="_blank">
+								history.drivername
+							</a>
+						</td>
+						<td class="table2">
+							 history.startLocation 
+						</td>
+						<td class="table2">
+							 history.endLocation 
+						</td>
+					</tr>
+				</table>
+				<br />
+
+			</div>
+            
         </main>
         <%= erb :footer %>            
     
