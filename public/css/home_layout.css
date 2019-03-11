@@ -1,39 +1,140 @@
 /* LAYOUT OF HOMEPAGE ONLY */
 
-.item1 { grid-area: header; }
-.item2 { grid-area: Activities; }
-.item3 { grid-area: main; }
-.item4 { grid-area: right; }
-.item5 { grid-area: contact; }
+.item1 {
+	grid-area: header;
+}
 
-body {
-	text-align:center;
-	margin-top:0;
-	margin-left: 0;
-	width:100%;
-	height:0;
+.item2 {
+	grid-area: right;
+}
+
+.item3 {
+	grid-area: main;
+}
+
+.item4 {
+	grid-area: footer;
 }
 
 .grid-container {
-  display: grid;
-  margin:3% auto;
-  margin-top:0;
-  width: 60%;
-  grid-template-areas:
-    'header header header '
-    'Activities  main right'
-    'Activities  contact contact';
-  grid-gap: 5px;
-  grid-template-columns: auto auto auto ;
-  grid-template-rows: auto auto auto;
-  padding: 10px;
+	display: grid;
+	margin: 0 auto;
+	width: 90%;
+	height: 500px;
+	grid-template-areas:
+		'header header header header header header '
+		'. main main right right . '
+		'footer footer footer footer footer footer ';
+	grid-template-columns: 10% 20% 15% 15% 20% 10%;
+	grid-template-rows: 20% 60% 20%;
+	grid-gap: 2%;
+	padding: 10px;
 }
 
 .grid-container > div {	
- text-align:center;
-  padding: 20px 0;
-  font-size: 30px;
-  border: solid;
+     text-align:center;
+}
+
+.wordAreaRight {
+	font-size: 1.1em;
+	border-left: solid;
+	margin-left: 30%;
+	text-align: left;
+	padding-left: 3%;
+}
+
+.wordAreaLeft {
+	font-size: 1.1em;
+	border-right: solid;
+	margin-right: 30%;
+	text-align: left;
+}
+
+.wordAreaContact {
+	margin-top: 0;
+	font-size: 1.5em;
+	border-right: solid;
+	margin-right: 30%;
+	text-align: left;
+}
+
+.wordAreaContactForm {
+	margin-top: 0;
+	font-size: 1.5em;
+	margin-right: 0;
+	text-align: left;
+}
+
+/* Nav Bar */
+
+.navBar {
+	background: #000000;
+	padding-top: 1em;
+	margin: 0 auto;
+	width: 92%;
+	font-size: 1.5em;
+	text-align: right;
+	font-weight: bold;
+}
+
+.SpaceOfNav {
+	color: #FEFEFE;
+	padding-top: 0.5em;
+	padding-right: 5%;
+}
+
+/* Car type */
+.cartype1 {
+	grid-area: header;
+}
+
+.cartype2 {
+	grid-area: car1;
+}
+
+.cartype3 {
+	grid-area: car2;
+}
+
+.cartype4 {
+	grid-area: car3;
+}
+
+.cartype5 {
+	grid-area: explain1;
+}
+.cartype6 {
+	grid-area: explain2;
+}
+.cartype7 {
+	grid-area: explain3;
+}
+
+
+.grid-CarTpyeBox {
+	display: grid;
+	margin: 0 auto;
+	width: 90%;
+	height: 500px;
+	grid-template-areas:
+		'header header header'
+		'car1 car2 car3 '
+		'explain1 explain2 explain3';
+	grid-template-columns: 31% 31% 31%;
+	grid-template-rows: 18%  40% auto;
+	grid-gap: 2%;
+	padding: 10px;
+}
+
+.grid-CarTpyeBox>div {
+	text-align: center;
+}
+
+/* etc */
+
+.contactLayout {
+	text-align: left;
+	height: :300px;
 }
 
 .activities {
@@ -45,11 +146,13 @@ body {
 }
 
 .abc {
-    height:80px;
+    width:100%;
+    height:60px;
 }
 
 .marqueeBox {
     width:100%;
+    height:30px;
     font-size:2em;
 }
 
