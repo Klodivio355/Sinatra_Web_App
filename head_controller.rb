@@ -11,6 +11,10 @@ set :bind, '0.0.0.0'
 include ERB::Util
 
 before do 
+    @database = SQLite3::Database.new './database.sqlite'
+end
+
+before do 
     config = {
         :consumer_key => '1aheI4yHG8uYkbmSz7zgHzOui',
         :consumer_secret => '1bsUvd7kgVOG0kvMFhLGfynUuZhCQ9ntN10t0wXX15Q2KpFQM0',
@@ -30,13 +34,16 @@ get '/home' do
     erb :home
 end
 
-get '/twitter_search' do
+get '/admin_section' do
+    query = %{SELECT car_registration, type, number_of_seats, availability FROM car_details}
+    @car_results = @database.execute query
+    
     unless params[:search].nil?
         search_string = params[:search]
         results = @client.search(search_string)
         @tweets = results.take(20)
     end
-    erb :twitter_search
+    erb :admin_section
 end
 
 get '/login' do

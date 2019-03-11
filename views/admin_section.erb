@@ -2,17 +2,15 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="stylesheet" type="text/css" href="css/searchpage.css">
+        <link rel="stylesheet" type="text/css" href="css/admin_section.css">
         <script src="js/table_menu.js"></script>
-        <title>Incoming Tweets</title>
+        <title>Administrator Access</title>
         <meta http-equiv="refresh" content="120">
     </head>
     <body>
         <%= erb :header %>
+        <a href="../">Back to Home Page</a>
         <h1>Administrator System</h1>
-        <br />
-        <a href="../">HomePage</a>
-        <br />
         <form method="get">
             Search:<input type="text" name="search" value="<%=h params[:search] %>"/>
             <input type="submit" name="submit" value="Update"/>
@@ -23,7 +21,7 @@
                 <p>No tweets found.</p>
             <% else %>
                 <br />
-                <table>
+                <table id="searchTable">
                     <tr>
                         <th width="120">User</th>
                         <th width="600">Tweet</th>
@@ -59,8 +57,50 @@
                             </td>
                         </tr>
                     <% end %>
-                </table>   
+                </table>
             <% end %>
         <% end %>
+        <div>
+            <% unless @car_results.nil? %>  
+                <% if @car_results.length == 0 %>
+                    <p>No cars found.</p>
+                <% else %>
+                    <table id="carTable">
+                        <tr>
+                            <th>Reg.</th>
+                            <th>Type</th>
+                            <th>No. of Seats</th>
+                            <th>Available?</th>
+                        </tr>
+                        <% @car_results.each do |car| %>
+                            <tr>
+                                <td>
+                                    <%= car[0] %>
+                                </td>
+                                <td>
+                                    <%= car[1] %>
+                                </td>
+                                <td>
+                                    <%= car[2] %>
+                                </td>
+                                <td>
+                                    <% if(car[3] == 0) %>
+                                        <form action="">
+                                            <input type="radio" name="available" value="free" onChange="makeFree(car[0])" checked>Free<br>
+                                            <input type="radio" name="available" value="busy" onChange="makeBusy(car[1])">Busy
+                                        </form>
+                                    <% else %>
+                                        <form action="">
+                                            <input type="radio" name="available" value="free" onChange="makeFree(car[0])">Free<br>
+                                            <input type="radio" name="available" value="busy" onChange="makeBusy(car[1])" checked>Busy
+                                        </form>
+                                    <% end %>
+                                </td>
+                            </tr>
+                        <% end %>
+                    </table>
+                <% end %>
+            <% end %>
+        </div>
         <br />
     <%= erb :footer %>
