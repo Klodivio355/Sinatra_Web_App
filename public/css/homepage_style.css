@@ -12,14 +12,14 @@ img {
 	max-width: 100%;
 	max-height: 100%;
 }
-
+    
 a {
 	text-decoration: none;
 }
 
 header {
 	width: 100%;
-	background: url('../img/header.jpg');
+	background: url('../imgs/header.jpg');
 	height: 200px;
 	background-size: cover;
 }
