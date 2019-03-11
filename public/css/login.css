@@ -1,4 +1,4 @@
-/* LOGIN LAYOUT ONLY */
+
 
 *{
     margin:0;
@@ -6,6 +6,7 @@
 }
 
 body{
+    background-color: #FFCC99;
    display:grid;
    grid-template-columns: repeat(12,[col-start]1fr);
    grid-template-rows:50px repeat(2,1fr);
@@ -19,23 +20,25 @@ h1{
 }
 
 section{
+    position:relative;
+    top:27%;
     border:solid 1px red;
     text-align:space-evenly;
     grid-column:col-start 3/span 3;
     grid-row:2;
     width:100%;
-    height:100%;
-    margin:130px 40px 10px 10px;
+    height:80%;
+    margin:30% 40% 5% 10%;
 }
 
 button{
-    position:absolute;
-    top:55%;
-    background-color:blue;
+    position:relative;
+    top:100px;
+    background-color:blueviolet;
     border-radius:4px;
-    height:6%;
-    width:7%;
-    right:60%;
+    height:13%;
+    width:25%;
+    right:-70%;
 }
 
 section p{
@@ -44,14 +47,14 @@ section p{
 
 form{
     position:relative;
-    top:50%;
+    top:15%;
     border:solid 1px red;
     grid-column:col-start 7/span 4;
     grid-row:2;
     border-radius:50px;
     width:100%;
-    height:100%;
-    margin:130px 40px 10px 10px;
+    height:80%;
+    margin:30% 40% 5% 10%;
 }
 
 
