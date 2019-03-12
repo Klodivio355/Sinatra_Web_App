@@ -95,7 +95,7 @@ post '/changeinfo' do
         @query = 'UPDATE user_details 
              SET twitter_handle = ?,email = ?,password = ?
              WHERE email = ?;'
-        @database.execute @query, params[:username], params[:email], params[:password], session[:logged_email]
+        @database.execute @query, @firstname, @email, @password, session[:logged_email]
         redirect '/session_clear'
     else
         erb :accountInfo
