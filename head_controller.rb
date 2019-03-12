@@ -61,7 +61,7 @@ get '/contact' do
 end
 
 get '/admin_section' do
-    unless session[:logged_admin]
+    unless session[:logged_isadmin]
         redirect '/'
     end
     query = %{SELECT car_registration, type, number_of_seats, availability FROM car_details}
