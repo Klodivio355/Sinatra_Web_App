@@ -19,22 +19,3 @@ table {
 tr {
 	height: 40px;
 }
-
-#thediv {
-	border-top: solid;
-	padding-top: 3%;
-	padding-left: 18%;
-	margin: 0 auto;
-	float: left;
-	width:82%;
-	margin-bottom: 30px;
-}
-
-.table2 {
-	padding: 0;
-	border: 1px solid #b7b7b7;
-}
-
-a:hover {
-    font-weight: bold;
-}

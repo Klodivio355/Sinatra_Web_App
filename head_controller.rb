@@ -26,21 +26,25 @@ end
 
 #views
 get '/' do
-    @wrong = false
-    erb :login
+    unless session[:logged_in] 
+        @wrong = false
+        erb :login
+    else
+        redirect '/home'
+    end
 end
 
 get '/home' do
     erb :home
 end
 
-get '/login' do
-    erb :login
-end
-
 get '/create_account' do
-     @submitted = false
-    erb :create_account 
+    unless session[:logged_in]
+        @submitted = false
+        erb :create_account 
+    else
+        redirect '/home'
+    end
 end
 
 get '/contact' do
@@ -48,6 +52,9 @@ get '/contact' do
 end
 
 get '/admin_section' do
+    unless session[:logged_admin]
+        redirect '/'
+    end
     query = %{SELECT car_registration, type, number_of_seats, availability FROM car_details}
     @car_results = @database.execute query
     

@@ -1,19 +1,33 @@
 /*THIS CSS FOR OVERALL LAYOUT, COLOURS, FONTS ETC OF ALL PAGES*/
 
-* {
-    font-family: "Arial",sans-serif;
-}
-
 body {
-	background-color: #FFCC99;
-	text-align: center;
-	margin-top: 0;
-	margin-left: 0;
-	width: 100%;
-	height: 0;
-    
+    margin: 0;
+    background-color: #FFCC99;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 3em;
+    font-family: "Arial";
+}
+
+#scrollbar {
+	text-align: center;
+    font-family: "Arial";
+    font-size: 1.5em;
+    border: 1px solid black;
+    padding: none;
+    margin: none;
+}
+
+.loginBox {
+    float:right;
+    padding-right:5%;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+    /*junfan chen changed in 04/03/2019 deleted the background color */
 }
