@@ -3,14 +3,20 @@
     
     <head>
         <link rel="stylesheet" type="text/css" href="css/main.css">
-        <!-- homepage_layout.css -->
         <link rel="stylesheet" type="text/css" href="css/homepage_style.css">
+        <script src="js/table_menu.js"></script>
         <title>Homepage</title>
+        <meta http-equiv="refresh" content="120">
     </head>
     
     <body>
         <%= erb :header %>
             <main>
+                <!-- session debugging-->
+                <% if session[:logged_in] %>
+                    <p>You are logged in since <%= session[:logged_time].strftime("%d-%m-%Y %H:%M:%S") %></p>
+                <% end %>
+                
                 <div style="width: 100%;">
                     <!-- part 1 -->
                     <div class="grid-container">
@@ -89,12 +95,5 @@
                         </div>
                     </div>
                 </div>         
-
-                
-                <!-- for session logged in -->
-                <% if session[:logged_in] %>
-                    <p>You are logged in since <%= session[:logged_time].strftime("%d-%m-%Y %H:%M:%S") %></p>
-                    <a href="/session_clear">Log Out</a>
-                <% end %>
              </main>
          <%= erb :footer %>

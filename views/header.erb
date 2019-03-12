@@ -12,6 +12,10 @@
             <li>
                 <a href="/login">Login</a>
             </li>
+            <% else %>
+            <li>
+                <a href="/session_clear">Log Out</a>
+            </li>
             <% end %>
             <% if session[:logged_isadmin] %> 
                 <li>
