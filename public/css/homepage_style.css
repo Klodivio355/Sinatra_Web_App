@@ -74,142 +74,45 @@ header div ol li {
 }
 
 .item1 {
-	grid-area: header;
+	grid-area: part11;
 }
 
 .item2 {
-	grid-area: right;
+	grid-area: part12;
 }
 
 .item3 {
-	grid-area: main;
+	grid-area: part21;
 }
 
 .item4 {
-	grid-area: footer;
+	grid-area: part22;
 }
 
+.item5 {
+	grid-area: part31;
+	
+}
+.item6 {
+	grid-area: part32;
+}
 
 .grid-container {
+    font-size:1.1em;
 	display: grid;
 	margin: 0 auto;
-	width: 90%;
-	height: 500px;
+	padding-left: 3%;
+	margin-bottom: 30px;
+    margin-top: 30px;
+	height: 1050px;
 	grid-template-areas:
-		'header header header header header header '
-		'. main main right right . '
-		'footer footer footer footer footer footer ';
-	grid-template-columns: 10% 20% 15% 15% 20% 10%;
-	grid-template-rows: 20% 60% 20%;
+		'part11 part21 part31'
+		'part12 part22 part32';
+	grid-template-columns: 30% 30% 30%;
+	grid-template-rows: 40% auto;
 	grid-gap: 2%;
-	padding: 10px;
 }
 
 .grid-container>div {
-	text-align: center;
-}
-
-.wordAreaRight {
-	font-size: 1.1em;
-	border-left: solid;
-	margin-left: 30%;
-	text-align: left;
-	padding-left: 3%;
-}
-
-.wordAreaLeft {
-	font-size: 1.1em;
-	border-right: solid;
-	margin-right: 30%;
-	text-align: left;
-}
-
-
-.bookingArea {
-	margin: 0 0 0 0;
-}
-
-
-.contactLayout {
-	text-align: left;
-	height: :300px;
-}
-
-.wordAreaContact {
-	margin-top: 0;
-	font-size: 1.5em;
-	border-right: solid;
-	margin-right: 30%;
-	text-align: left;
-}
-
-.wordAreaContactForm {
-	margin-top: 0;
-	font-size: 1.5em;
-	margin-right: 0;
-	text-align: left;
-}
-
-.navBar {
-	background: #000000;
-	padding-top: 1em;
-	margin: 0 auto;
-	width: 92%;
-	font-size: 1.5em;
-	text-align: right;
-	font-weight: bold;
-}
-
-.SpaceOfNav {
-	color: #FEFEFE;
-	padding-top: 0.5em;
-	padding-right: 5%;
-}
-
-
-/* Car Type part-----part3 */
-.cartype1 {
-	grid-area: header;
-}
-
-.cartype2 {
-	grid-area: car1;
-}
-
-.cartype3 {
-	grid-area: car2;
-}
-
-.cartype4 {
-	grid-area: car3;
-}
-
-.cartype5 {
-	grid-area: explain1;
-}
-.cartype6 {
-	grid-area: explain2;
-}
-.cartype7 {
-	grid-area: explain3;
-}
-
-
-.grid-CarTpyeBox {
-	display: grid;
-	margin: 0 auto;
-	width: 90%;
-	height: 500px;
-	grid-template-areas:
-		'header header header'
-		'car1 car2 car3 '
-		'explain1 explain2 explain3';
-	grid-template-columns: 31% 31% 31%;
-	grid-template-rows: 18%  40% auto;
-	grid-gap: 2%;
-	padding: 10px;
-}
-
-.grid-CarTpyeBox>div {
 	text-align: center;
 }
