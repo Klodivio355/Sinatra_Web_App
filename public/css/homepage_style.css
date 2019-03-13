@@ -116,3 +116,27 @@ header div ol li {
 .grid-container>div {
 	text-align: center;
 }
+
+
+
+/* For dealing the sytle in home.erb */
+
+#textLeft {
+    text-align: left;
+}
+
+#messageTitle {
+    font-size: 1.5em;
+}
+
+#partTitle {
+    font-size: 2em;
+}
+
+#messageBox {
+    border-right: solid;
+}
+
+#totalPart {
+    width:100%;
+}

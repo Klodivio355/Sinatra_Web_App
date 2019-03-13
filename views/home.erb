@@ -17,7 +17,7 @@
                     <p>You are logged in since <%= session[:logged_time].strftime("%d-%m-%Y %H:%M:%S") %></p>
                 <% end %>
                 
-                <div style="width: 100%;">
+                <div id="totalPart">
                     <!-- part 1 -->
                     <div class="grid-container">
 
@@ -26,18 +26,18 @@
                         <div class="item1">
                             <img src="imgs/bookingInstruction.png" href="img/bookingInstruction.png">
                         </div>
-                        <div class="item2" style="border-right: solid;">
-                            <p style="font-size: 2em;">Booking Instructions</p>
+                        <div class="item2" id="messageBox">
+                            <p id="partTitle">Booking Instructions</p>
                             <br>
-                            <div style="text-align: left;">
+                            <div id="textLeft">
 
-                                <p style="font-size: 1.5em;">Twitter: </p>							
+                                <p id="messageTitle">Twitter: </p>							
                                 <p>Firstly, the booking system is based entirely on Twitter, which can help us to transmit inforamtion quicker and more conveniently.
                                  So your twitter handle is needed for creating account.</p>
                                 <br>
                                 <br>
 
-                                <p style="font-size: 1.5em;">Booking : </p>							
+                                <p id="messageTitle">Booking : </p>							
                                 <p>Our team can learn any extra information via replies, and create the booking after user interactions.</p>
                                 <br>
 
@@ -50,20 +50,20 @@
                         <div class="item3">
                             <img src="imgs/whyAccount.png" href="img/whyAccount.png">
                         </div>
-                        <div class="item4" style="border-right: solid;">
-                            <p style="font-size: 2em;">Why you need an account?</p>
+                        <div class="item4" id="messageBox">
+                            <p id="partTitle">Why you need an account?</p>
                             <br>
-                            <div style="text-align: left;">
+                            <div id="textLeft">
 
-                                <p style="font-size: 1.5em;">One: </p>
+                                <p id="messageTitle">One: </p>
                                 <p>You can enjoy the extra benefits provied by our team, like future bonuses and discounts.</p>
                                 <br />
 
-                                <p style="font-size: 1.5em;">Two: </p>
+                                <p id="messageTitle">Two: </p>
                                 <p>Helps you to deal with the booking easily and record the information from previous rides.</p>
                                 <br />
 
-                                <p style="font-size: 1.5em;">Three: </p>
+                                <p id="messageTitle">Three: </p>
                                 <P>Saves time for people by choosing the car which is in the best interest of the user.</p>
                                 <br />
 
@@ -76,18 +76,18 @@
                             <img src="imgs/bookingArea.png" href="img/bookingArea.png">
                         </div>
                         <div class="item6">
-                            <p style="font-size: 2em;">Car Type</p>
+                            <p id="partTitle">Car Type</p>
                             <br>
-                            <div style="text-align: left;">
-                                <p style="font-size: 1.5em;">Standard: </p>
+                            <div id="textLeft">
+                                <p id="messageTitle">Standard: </p>
                                 <p>Suitable for 1-4 people.</p>
                                 <br />
 
-                                <p style="font-size: 1.5em;">Luxury: </p>
+                                <p id="messageTitle">Luxury: </p>
                                 <p>Similar to the standard, but the car will have better quality, which can provide a more comfortable experience, with a slight cost increase.</p>
                                 <br />
 
-                                <P style="font-size: 1.5em;">Mini Van: </p>
+                                <p id="messageTitle">Mini Van: </p>
                                 <p>Larger model will have more seats, which is suitable for group activities and events.</p>
                                 <br />
 
