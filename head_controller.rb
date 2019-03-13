@@ -6,6 +6,7 @@ require 'erb'
 require 'sqlite3'
 require_relative 'error_handling'
 require_relative 'account'
+require_relative 'admin'
 set :bind, '0.0.0.0'
 
 include ERB::Util
@@ -58,21 +59,6 @@ end
 
 get '/contact' do
     erb :contact
-end
-
-get '/admin_section' do
-    unless session[:logged_isadmin]
-        redirect '/'
-    end
-    query = %{SELECT car_registration, type, number_of_seats, availability FROM car_details}
-    @car_results = @database.execute query
-    
-    unless params[:search].nil?
-        search_string = params[:search]
-        results = @client.search(search_string)
-        @tweets = results.take(20)
-    end
-    erb :admin_section
 end
 
 get '/session_clear' do

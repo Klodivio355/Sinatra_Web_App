@@ -3,9 +3,9 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/admin_section.css">
-        <script src="js/table_menu.js"></script>
+        <script src="js/admin_functions.js"></script>
         <title>Administrator Access</title>
-        <meta http-equiv="refresh" content="120">
+        <meta http-equiv="refresh" content="200">
     </head>
     <body>
         <%= erb :header %>
@@ -42,7 +42,7 @@
                             </td>
                             <td align="center">
                                 <div id="menu">
-                                    <select onchange="menuChange(this)">
+                                    <select onchange="openReply(this)">
                                         <option selected>Select...</option>
                                         <option id="book" value="">Book Ride</option>
                                         <option id="reply" value="<%= tweet.uri %>">Reply (External)</option>
@@ -70,7 +70,7 @@
                         </tr>
                         <% @car_results.each do |car| %>
                             <tr>
-                                <td>
+                                <td name = "reg" value="<%= car[0] %>">
                                     <%= car[0] %>
                                 </td>
                                 <td>
@@ -81,15 +81,9 @@
                                 </td>
                                 <td>
                                     <% if(car[3] == 0) %>
-                                        <form action="">
-                                            <input type="radio" name="available" value="free" onChange="makeFree(car[0])" checked>Free<br>
-                                            <input type="radio" name="available" value="busy" onChange="makeBusy(car[1])">Busy
-                                        </form>
+                                        <p id="free">Free</p>
                                     <% else %>
-                                        <form action="">
-                                            <input type="radio" name="available" value="free" onChange="makeFree(car[0])">Free<br>
-                                            <input type="radio" name="available" value="busy" onChange="makeBusy(car[1])" checked>Busy
-                                        </form>
+                                        <p id="busy">Busy</p>
                                     <% end %>
                                 </td>
                             </tr>

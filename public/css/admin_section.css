@@ -56,15 +56,11 @@ thead th {
     font-size: 15px;
 }
 
-#dropdownButton {
-    border: none;
-    background-color: lightgray;
+#free {
+    color: green;
+    font-style: bold;
 }
-
-.dropdownOptions {
-    display: none;
-    position: absolute;
-}
-.showOptions {
-    display:block;
+#busy {
+    color: red;
+    font-style: bold;
 }
