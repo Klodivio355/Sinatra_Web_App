@@ -35,8 +35,8 @@ UPDATE user_details SET email = "#new email" WHERE twitter_handle = "#twit hand"
 SELECT ride_count FROM user_details WHERE twitter_handle = "#twit hand";
 UPDATE user_details SET ride_count = "#count + 1" WHERE twitter_handle = "#twit hand";
 
-->add ride to ride history  (date is text in form dd-mm-yyyy) (price again is 0.00)
-INSERT INTO ride_history VALUES ("#admin id","#twit hand","#car reg","#start point","#end point","#date","#price");
+->add ride to ride history  (date is text in form dd-mm-yyyy) (time in form hh:mm)
+INSERT INTO ride_history VALUES ("#admin id","#twit hand","#car reg","#start point","#end point","#strt time", #"end time",#date","#price");
 
 ->Find all previous rides
 SELECT * FROM ride_history;
