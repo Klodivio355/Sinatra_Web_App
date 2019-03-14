@@ -12,7 +12,6 @@ config = {
 client = Twitter::REST::Client.new(config)
 
 get '/' do
-    @remember_me2 = false
     erb :button
 end
 
