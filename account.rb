@@ -55,11 +55,13 @@ post '/login' do
         end
     elsif @check_admin_count == 1 
         @pass = @database.get_first_value('SELECT password FROM admin_details WHERE email = ? ;',[@user_email])
+        @id = @database.get_first_value('SELECT admin_id FROM admin_details WHERE email = ? ;',[@user_email])
         if @pass == params[:password]
             session[:logged_in]=true
             session[:logged_email]=@user_email
             session[:logged_time]=Time.now
             session[:logged_isadmin]=true
+            session[:logged_adminid]=@id
             redirect '/home'
         else
             @wrong = true

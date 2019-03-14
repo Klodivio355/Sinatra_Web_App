@@ -39,21 +39,37 @@ thead th {
 #searchTable {
     float: left;
     width: 50%;
-    left: 10px;
+    left: 0;
+    position: absolute;
+}
+
+#bookingForm {
+    position: absolute;
+    left: 51%;
+    width: 32%;
+    text-align: left;
+    border: 1px solid black;
+    padding: 2px;
+    background-color: white;
+    opacity: 9%;
+}
+#bookingForm input {
+    
 }
 
 #carTable {
-    width: 15%;
-    right: 40px;
+    right: 0;
+    position: absolute;
     float: right;
+    width: 16%;
 }
 #carTable th {
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
 }
 #carTable td {
     text-align: center;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #free {

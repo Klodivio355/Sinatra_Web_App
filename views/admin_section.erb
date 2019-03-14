@@ -15,6 +15,7 @@
             <input type="submit" name="submit" value="Update"/>
         </form>
         <br />
+        <div>
         <% unless @tweets.nil? %>
             <% if @tweets.length == 0 %>
                 <p>No tweets found.</p>
@@ -56,6 +57,30 @@
                 </table>
             <% end %>
         <% end %>
+        </div>
+        <div id="bookingForm">
+            <form action="/updateBooking" method="post">
+                <label for="handleIn">User Handle</label>
+                <input type="text" maxLength="15" name="handleIn"/><br><br>
+                <label for="regIn">Car Registration</label>
+                <input type="text" maxLength="7" name="regIn"/><br><br>
+                <label for="startTimeIn">Start Time</label>
+                <input type="time" name="startTimeIn"/>
+                <label for="endTimeIn">End Time</label>
+                <input type="time" name="endTimeIn"/><br><br>
+                <label for="dateIn">Date</label>
+                <input type="date" name="dateIn"/><br><br>
+                <label for="startPosIn">Start Location</label>
+                <input type="text" name="startPosIn"/>
+                <label for="endPosIn">End Location</label>
+                <input type="text" name="endPosIn"/><br><br>
+                <label for="priceIn">Price</label>
+                <input type="number" step="0.01" name="priceIn" defaultValue="0"/><br><br>
+                <input type="submit" value="Save"/>
+                <input type="submit" value="Submit"/>
+                <input type="reset" value="Cancel"/>
+            </form>
+        </div>
         <div>
             <% unless @car_results.nil? %>  
                 <% if @car_results.length == 0 %>
@@ -65,7 +90,7 @@
                         <tr>
                             <th>Reg.</th>
                             <th>Type</th>
-                            <th>No. of Seats</th>
+                            <th>Seats</th>
                             <th>Available?</th>
                         </tr>
                         <% @car_results.each do |car| %>
