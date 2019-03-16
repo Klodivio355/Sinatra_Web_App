@@ -31,7 +31,7 @@ tbody td {
   background: #FFFFFF;
 }
 #carTable th {
-    background-color: #CCFFCC;
+    background: #CCFFCC;
 }
 
 #searchTable {
@@ -53,9 +53,6 @@ tbody td {
     padding: 2px;
     background-color: white;
     opacity: 9%;
-}
-#bookingForm input {
-    
 }
 
 #carTable {
@@ -84,7 +81,6 @@ tbody td {
     font-style: bold;
     border: none;
     background-color: white;
-    text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
 }
