@@ -15,7 +15,7 @@
             <input type="submit" name="submit" value="Update"/>
         </form>
         <br />
-        <div>
+        <div id="bodyDiv">
             <table id="searchTable">
                 <tr>
                     <th width="120">User</th>
@@ -43,7 +43,7 @@
                                 </td>
                                 <td align="center">
                                     <div id="menu">
-                                        <select onchange="openReply(this)">
+                                        <select onchange="menuChange(this)">
                                             <option selected>Select...</option>
                                             <option id="book" value="">Book Ride</option>
                                             <option id="reply" value="<%= tweet.uri %>">Reply (External)</option>
@@ -57,7 +57,6 @@
                     <% end %>
                 <% end %>
             </table>
-        </div>
         <div id="bookingForm">
             <form action="/updateBooking" method="post">
                 <label for="handleIn">User Handle</label>
@@ -117,6 +116,5 @@
                 <% end %>
             <% end %>
         </div>
-        <br />
-    </body>
+    </div>
     <%= erb :footer %>

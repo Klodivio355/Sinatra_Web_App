@@ -1,5 +1,10 @@
 /* ADMIN PAGE LAYOUT ONLY */
 
+#bodyDiv {
+    margin-bottom: 45px;
+    
+}
+
 h1 {
     font-size: 3em;
     font-family: "Arial";
@@ -40,7 +45,7 @@ thead th {
     float: left;
     width: 50%;
     left: 0;
-    position: absolute;
+    position: relative;
 }
 
 #bookingForm {
