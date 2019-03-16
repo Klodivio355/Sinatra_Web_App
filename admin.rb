@@ -12,10 +12,11 @@ get '/admin_section' do
     query = %{SELECT car_registration, type, number_of_seats, availability FROM car_details ORDER BY availability ASC}
     @car_results = @database.execute query
     
+    
     unless params[:search].nil?
         search_string = params[:search]
         results = @client.search(search_string)
-        @tweets = results.take(15)
+        @tweets = results.take(30)
     end
     erb :admin_section
 end

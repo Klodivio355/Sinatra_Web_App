@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="css/admin_section.css">
         <script src="js/admin_functions.js"></script>
         <title>Administrator Access</title>
-        <meta http-equiv="refresh" content="200">
+        <meta http-equiv="refresh" content="300">
     </head>
     <body>
         <%= erb :header %>
@@ -14,7 +14,7 @@
             Search:<input type="text" name="search" value="<%=h params[:search] %>"/>
             <input type="submit" name="submit" value="Update"/>
         </form>
-        <br />
+        <br>
         <div id="bodyDiv">
             <table id="searchTable">
                 <tr>
@@ -27,7 +27,6 @@
                     <% if @tweets.length == 0 %>
                         <p>No tweets found.</p>
                     <% else %>
-                        <br />
                         <% @tweets.each do |tweet| %>
                             <tr>
                                 <td>
@@ -45,7 +44,7 @@
                                     <div id="menu">
                                         <select onchange="menuChange(this)">
                                             <option selected>Select...</option>
-                                            <option id="book" value="">Book Ride</option>
+                                            <option id="book" value="<%= tweet.user.screen_name %>">Book Ride</option>
                                             <option id="reply" value="<%= tweet.uri %>">Reply (External)</option>
                                             <option id="warn" value="">Apply Warning</option>
                                             <option id="block" value="">Block User</option>
@@ -60,7 +59,7 @@
         <div id="bookingForm">
             <form action="/updateBooking" method="post">
                 <label for="handleIn">User Handle</label>
-                <input type="text" maxLength="15" name="handleIn" required/><br><br>
+                <input type="text" maxLength="15" name="handleIn" id="handleIn" required/><br><br>
                 <label for="regIn">Car Registration</label>
                 <input type="text" maxLength="7" name="regIn" required/><br><br>
                 <label for="startTimeIn">Start Time</label>
@@ -80,6 +79,7 @@
                 <input type="reset" value="Cancel"/>
             </form>
         </div>
+            
         <div>
             <% unless @car_results.nil? %>  
                 <% if @car_results.length == 0 %>
@@ -107,7 +107,7 @@
                                     <% if(car[3] == 0) %>
                                         <p id="free">Free</p>
                                     <% else %>
-                                        <p id="busy">Busy</p>
+                                        <a id="busy" href="#" onclick="currentDetails()">Busy</a>
                                     <% end %>
                                 </td>
                             </tr>
