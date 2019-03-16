@@ -39,7 +39,7 @@ tbody td {
     width: 50%;
     left: 0;
     position: relative;
-    height: 600px;
+    height: 550px;
     display: block;
     overflow-y: scroll;
 }
@@ -70,6 +70,7 @@ tbody td {
     text-align: center;
     font-size: 14px;
     height: 40px;
+    background-color: white;
 }
 
 #free {
@@ -82,5 +83,15 @@ tbody td {
     border: none;
     background-color: white;
     text-decoration: none;
-    display: block;
+}
+
+.flash {
+    width: 100%;
+    border: 1px solid black;
+}
+.error {
+    background-color: red;
+}
+.success {
+    background-color: green;
 }

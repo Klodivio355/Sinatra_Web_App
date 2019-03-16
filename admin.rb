@@ -1,4 +1,5 @@
 require 'sqlite3'
+require 'sinatra/flash'
 enable :sessions
 set :session_secret, 'super secret'
 
@@ -34,27 +35,39 @@ end
 
 post '/updateBooking' do
     @adminID = session[:logged_adminid]
-    @handle = params[:handleIn]
-    @reg = params[:regIn]
+    @handle = params[:handleIn].strip
+    @reg = params[:regIn].strip
     @startTime = params[:startTimeIn]
     @endTime = params[:endTimeIn]
     @date = params[:dateIn]
     @startPos = params[:startPosIn]
     @endPos = params[:endPosIn]
-    @price = params[:priceIn]
+    @price = params[:priceIn].strip
     
     if(params[:enterForm] == 'Submit')
-        @availUpdate = 0
-        @updateQuery = 'UPDATE ride_history SET end_point = ?, end_time = ?, price = ? WHERE twitter_handle = ? AND date = ? AND car_registration = ?'
-        @database.execute @updateQuery, @endPos, @endTime, @price, @handle, @date, @reg
+        @timeCheck = !@endTime.nil? && @endTime!=""
+        @posCheck = !@endPos.nil? && @endPos!=""
+        @priceCheck = !@price.nil? && @price!=""
+        if(@timeCheck && @posCheck && @priceCheck)
+            @availUpdate = 0
+            @updateQuery = 'UPDATE ride_history SET end_point = ?, end_time = ?, price = ? WHERE twitter_handle = ? AND date = ? AND car_registration = ?'
+            @database.execute @updateQuery, @endPos, @endTime, @price, @handle, @date, @reg
+            
+            @carUpdate = 'UPDATE car_details SET availability = ? WHERE car_registration = ?'
+            @database.execute @carUpdate, @availUpdate, @reg
+            flash[:success] = "Ride complete, details saved, car is now free to allocate."
+        else
+            flash[:error] = "Failed to submit booking, not all information was correct."
+        end
     else
         @availUpdate = 1
         @updateQuery = 'INSERT INTO ride_history VALUES(?,?,?,?,?,?,?,?,?)'
         @database.execute @updateQuery, @adminID, @handle, @reg,@startPos, @endPos, @startTime, @endTime, @date, @price
+        
+        @carUpdate = 'UPDATE car_details SET availability = ? WHERE car_registration = ?'
+        @database.execute @carUpdate, @availUpdate, @reg
+        flash[:success] = "Details saved, awaiting completion."
     end
-    
-    @carUpdate = 'UPDATE car_details SET availability = ? WHERE car_registration = ?'
-    @database.execute @carUpdate, @availUpdate, @reg
     
     redirect '/admin_section'
 end

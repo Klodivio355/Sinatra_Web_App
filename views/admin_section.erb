@@ -10,6 +10,11 @@
     <body>
         <%= erb :header %>
         <h1>Administrator System</h1>
+        <% flash.keys.each do |type| %>
+            <div data-alert class="flash <%= type %> alert-box radius">
+                <%= flash[type] %>
+            </div>
+        <% end %>
         <form method="get">
             Search:<input type="text" name="search" value="<%=h params[:search] %>" required/>
             <input type="submit" name="submit" value="Update"/>
@@ -85,7 +90,7 @@
                 
                 <input type="submit" name="enterForm" value="Save"/>
                 <input type="submit" name="enterForm" value="Submit"/>
-                <input type="reset" value="Cancel"/>
+                <button value="Cancel" onlick="clear()">Cancel</button>
             </form>
         </div>
             
