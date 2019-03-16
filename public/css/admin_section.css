@@ -30,11 +30,8 @@ tbody td {
 #searchTable tr:nth-child(odd) {
   background: #FFFFFF;
 }
-#carTable tr:nth-child(even) {
-    background: #ccffcc;
-}
-#carTable tr:nth-child(odd) {
-  background: #FFFFFF;
+#carTable th {
+    background-color: #CCFFCC;
 }
 
 #searchTable {
@@ -85,4 +82,9 @@ tbody td {
 #busy {
     color: red;
     font-style: bold;
+    border: none;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }

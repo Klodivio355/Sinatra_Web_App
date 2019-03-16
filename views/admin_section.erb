@@ -11,7 +11,7 @@
         <%= erb :header %>
         <h1>Administrator System</h1>
         <form method="get">
-            Search:<input type="text" name="search" value="<%=h params[:search] %>"/>
+            Search:<input type="text" name="search" value="<%=h params[:search] %>" required/>
             <input type="submit" name="submit" value="Update"/>
         </form>
         <br>
@@ -56,24 +56,33 @@
                     <% end %>
                 <% end %>
             </table>
+            
         <div id="bookingForm">
             <form action="/updateBooking" method="post">
                 <label for="handleIn">User Handle</label>
-                <input type="text" maxLength="15" name="handleIn" id="handleIn" required/><br><br>
+                <input type="text" maxLength="15" name="handleIn" id="handleIn" value="<%= @queryHandle %>" required/><br><br>
+                
                 <label for="regIn">Car Registration</label>
-                <input type="text" maxLength="7" name="regIn" required/><br><br>
+                <input type="text" maxLength="7" name="regIn" id="regIn" value="<%= @queryReg %>" required/><br><br>
+                
                 <label for="startTimeIn">Start Time</label>
-                <input type="time" name="startTimeIn" required/>
+                <input type="time" name="startTimeIn" id="startTimeIn" value="<%= @queryTime %>" required/>
+                
                 <label for="endTimeIn">End Time</label>
-                <input type="time" name="endTimeIn"/><br><br>
+                <input type="time" name="endTimeIn" id="endTimeIn"/><br><br>
+                
                 <label for="dateIn">Date</label>
-                <input type="date" name="dateIn" required/><br><br>
+                <input type="date" name="dateIn" id="dateIn" value="<%= @queryDate %>" required/><br><br>
+                
                 <label for="startPosIn">Start Location</label>
-                <input type="text" name="startPosIn" required/>
+                <input type="text" name="startPosIn" id="startPosIn" value="<%= @queryStart %>" required/>
+                
                 <label for="endPosIn">End Location</label>
-                <input type="text" name="endPosIn"/><br><br>
+                <input type="text" name="endPosIn" id="endPosIn"/><br><br>
+                
                 <label for="priceIn">Price</label>
-                <input type="number" step="0.01" name="priceIn" defaultValue="0"/><br><br>
+                <input type="number" step="0.01" name="priceIn" defaultValue="0" id="priceIn"/><br><br>
+                
                 <input type="submit" name="enterForm" value="Save"/>
                 <input type="submit" name="enterForm" value="Submit"/>
                 <input type="reset" value="Cancel"/>
@@ -107,7 +116,9 @@
                                     <% if(car[3] == 0) %>
                                         <p id="free">Free</p>
                                     <% else %>
-                                        <a id="busy" href="#" onclick="currentDetails()">Busy</a>
+                                    <form action="/admin_section" method="get">
+                                        <button type="submit" id="busy" name="busy" value="<%= car[0] %>">Busy</button>
+                                    </form>
                                     <% end %>
                                 </td>
                             </tr>

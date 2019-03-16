@@ -13,13 +13,3 @@ function menuChange(selectObj) {
         selectObj.selectedIndex = 0;
     }
 }
-
-function currentDetails() {
-    var x = confirm('Yes or no?')
-    if(x) { 
-        alert('You picked Yes.') 
-    }
-    else { 
-        alert('You picked No.') 
-    }
-}

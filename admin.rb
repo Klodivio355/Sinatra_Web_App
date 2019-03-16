@@ -12,6 +12,17 @@ get '/admin_section' do
     query = %{SELECT car_registration, type, number_of_seats, availability FROM car_details ORDER BY availability ASC}
     @car_results = @database.execute query
     
+    unless params[:busy].nil?
+        query = %{SELECT twitter_handle, car_registration, start_point, start_time, date FROM ride_history WHERE car_registration = ? ORDER BY date DESC LIMIT 1;}
+        @carReg = params[:busy]
+        @currentRide = @database.execute query, @carReg
+        
+        @queryHandle = @currentRide[0][0]
+        @queryReg = @currentRide[0][1]
+        @queryStart = @currentRide[0][2]
+        @queryTime = @currentRide[0][3]
+        @queryDate = @currentRide[0][4]
+    end
     
     unless params[:search].nil?
         search_string = params[:search]
