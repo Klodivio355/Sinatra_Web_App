@@ -30,9 +30,19 @@ post '/updateBooking' do
     @startPos = params[:startPosIn]
     @endPos = params[:endPosIn]
     @price = params[:priceIn]
-    puts @adminID
-    @updateQuery = 'INSERT INTO ride_history VALUES(?,?,?,?,?,?,?,?,?)'
-    @database.execute @updateQuery, @adminID, @handle, @reg,@startPos, @endPos, @startTime, @endTime, @date, @price
+    
+    if(params[:enterForm] == 'Submit')
+        @availUpdate = 0
+        @updateQuery = 'UPDATE ride_history SET end_point = ?, end_time = ?, price = ? WHERE twitter_handle = ? AND date = ? AND car_registration = ?'
+        @database.execute @updateQuery, @endPos, @endTime, @price, @handle, @date, @reg
+    else
+        @availUpdate = 1
+        @updateQuery = 'INSERT INTO ride_history VALUES(?,?,?,?,?,?,?,?,?)'
+        @database.execute @updateQuery, @adminID, @handle, @reg,@startPos, @endPos, @startTime, @endTime, @date, @price
+    end
+    
+    @carUpdate = 'UPDATE car_details SET availability = ? WHERE car_registration = ?'
+    @database.execute @carUpdate, @availUpdate, @reg
     
     redirect '/admin_section'
 end
