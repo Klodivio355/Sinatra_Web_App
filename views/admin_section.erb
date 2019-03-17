@@ -15,7 +15,7 @@
                 <%= flash[type] %>
             </div>
         <% end %>
-        <form method="get">
+        <form method="get" autocomplete="off">
             Search:<input type="text" name="search" value="<%=h params[:search] %>" required/>
             <input type="submit" name="submit" value="Update"/>
         </form>
@@ -63,7 +63,7 @@
             </table>
             
         <div id="bookingForm">
-            <form action="/updateBooking" method="post">
+            <form action="/updateBooking" method="post" autocomplete="off">
                 <label for="handleIn">User Handle</label>
                 <input type="text" maxLength="15" name="handleIn" id="handleIn" value="<%= @queryHandle %>" required/><br><br>
                 
