@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="admin_page_two.css">
+		<title>Admin page two</title>
+        <script src="js/page_two.js"></script>
+	</head>
+	
+	<body>
+		<button type="button" id="addT">Add taxi</button>
+		<button type="button" id="removeT">Remove taxi</button>
+		<button type="button" id="updateT">Update taxi</button>
+		<button type="button" id="updatePr">Update Prices</button>
+		<button type="button" id="unban">Un-ban</button>
+		<button type="button" id="updateE">Update email</button>
+		<button type="button" id="updatePa">Update password</button>
+		<button type="button" id="addA">Add admin</button>
+		<button type="button" id="removeA">Remove admin</button>
+		
+		
+		<form name="form">
+			<label id="labelOne">Input</label>
+			<input id="inputOne" type="Text">
+			<br>
+			<label id="labelTwo">Input</label>
+			<input id="inputTwo" type="Text">
+			<br>
+			<label id="labelThree">Input</label>
+			<input id="inputThree" type="Text">
+			<br>
+			<label id="labelFour">Input</label>
+			<input id="inputFour" type="Text">
+			<br>
+			<input type="submit" value="Submit">
+		</form>
+        
+        
+        <table id="carTable">
+            <tr>
+                <th>Reg</th>
+                <th>Type</th>
+                <th>Seats</th>
+                <th>Price</th>
+            </tr>
+            <% @car_results.each do |car| %>
+                <tr>
+                    <td>
+                        <%= car[0] %>
+                    </td>
+                    <td>
+                        <%= car[1] %>
+                    </td>
+                    <td>
+                        <%= car[2] %>
+                    </td>
+                    <td>
+                         <%= car[3] %>
+                    </td>
+                </tr>
+        </table>
+        
+        <table id="misuseTable">
+            <tr>
+                <th>Twitter Handle</th>
+                <th>Count</th>
+                <th>Banned</th>
+            </tr>
+            <% @misuseResults.each do|mis| %>
+                <tr>
+                    <td>
+                        <%= mis[0] %>
+                    </td>
+                    <td>
+                        <%= mis[1] %>
+                    </td>
+                    <td>
+                        <% if(mis[3] == 0) %>
+                            Not banned
+                        <% else %>
+                            Bannned
+                    </td>
+                </tr>
+        </table>
+        
+	</body>
+</html>
