@@ -17,23 +17,19 @@ end
 
 get '/loginwithoutcheck' do
     @remember_me2 = false
-    response.delete_cookie 'pass'
-    response.delete_cookie 'mail'
     erb :button
-    #response.set_cookies[]
-    #"Cookie 1 has a value of: #{request.cookies['email_checked']}." 
-    #"Cookie 2. has a value of: #{request.cookies['password_checked']}."
+    "Cookie 1 has a value of: #{request.cookies['mail']}." 
+    "Cookie 2 has a value of: #{request.cookies['pass']}."
 end
 
 get '/loginwithcheck' do
     @remember_me2 = true
-    @mail_value = 'null'
-    @pass_value = 'null'
-    response.set_cookie('mail', @mail_value)
-    response.set_cookie('pass', @pass_value)
+    @mail_value = "ana"
+    @pass_value = "dd"
     erb :button
-    #"Cookie 1 has a value of: #{request.cookies['email_checked']}." 
-    #"Cookie 2. has a value of: #{request.cookies['password_checked']}."
+    "pass cookie has a value of: #{request.cookies['pass']}."
+    "mail cookie has a value of: #{request.cookies['mail']}."
+    
 end
 
 

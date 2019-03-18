@@ -4,11 +4,12 @@
 <body>
     
     <% if @remember_me2 == true %>
-
     <form action="loginwithcheck" method="post">
             
             <!--<label id=lab1 for="logger">Username</label><br>-->
-            
+            <% response.set_cookie('mail', @mail_value) %>
+            <% response.set_cookie('pass', @pass_value) %>
+
             <div class="in">
                 <input type="text" name="userlog" value="<%= request.cookies['mail'] %>" placeholder="Username" id="logger" maxlength=""><br>
             </div>                                  
@@ -33,14 +34,17 @@
                 
         </form>
     
-    <% else %>
+    <% elsif @remember_me2 = false%>
 
     <form action="loginwithoutcheck" method="post">
             
             <!--<label id=lab1 for="logger">Username</label><br>-->
-            
+        
+            <% response.delete_cookie 'pass' %>
+            <% response.delete_cookie 'mail' %>
+
             <div class="in">
-                <input type="text" name="userlog" value="" placeholder="Username" id="logger" maxlength=""><br>
+                <input type="text" name="userlog" id="mailmail" value="" placeholder="Username" id="logger" maxlength=""><br>
             </div>                                  
 
             <!--<label id=lab2 for="pass1">Password</label><br>-->
@@ -62,6 +66,36 @@
             </div>
                 
         </form>
+        <% else %>
+        <form action="loginwithoutcheck" method="post">
+            
+            <!--<label id=lab1 for="logger">Username</label><br>-->
+       
+
+            <div class="in">
+                <input type="text" name="userlog" id="mailmail" value="" placeholder="Username" id="logger" maxlength=""><br>
+            </div>                                  
+
+            <!--<label id=lab2 for="pass1">Password</label><br>-->
+            
+            <div class="in1">
+               <input type="password" name="password1" placeholder="password"
+                      id="pass1" maxlength="" value=""><br> 
+            </div>
+
+            <div class="remember_me">
+              <input type="checkbox" name = "remember_me"
+                     id = "myCheck" value="" onclick="is_it_checked()"><br>
+            </div>
+            
+            <div class="allnav">
+                <input type="button" name="login" value="Login" onclick="redirect()">  
+               <input type="button" name="register" value="Register" onclick="window.location.href='/'">
+                <input type="button" name="guest" value="Guest">
+            </div>
+                
+        </form>
+
     
     <% end %>
     
@@ -88,12 +122,10 @@
      }
         
      function retrieve_value() {
-         var value = document.getElementById("")
+         var value = document.getElementById("mailmail");
+         return value.value;
      }
-             
         
-            
-
     </script>
     
 </body>
