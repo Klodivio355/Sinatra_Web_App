@@ -44,7 +44,7 @@ post '/updateBooking' do
     @endPos = params[:endPosIn]
     @price = params[:priceIn].strip
     
-    if(params[:enterForm] == 'Submit')
+    if(params[:enterForm] == 'Complete Booking')
         @timeCheck = !@endTime.nil? && @endTime!=""
         @posCheck = !@endPos.nil? && @endPos!=""
         @priceCheck = !@price.nil? && @price!=""
@@ -59,14 +59,14 @@ post '/updateBooking' do
         else
             flash[:error] = "Failed to submit booking, not all information was correct."
         end
-    else
+     elsif(params[:enterForm] == 'Save Booking')
         @availUpdate = 1
         @updateQuery = 'INSERT INTO ride_history VALUES(?,?,?,?,?,?,?,?,?)'
         @database.execute @updateQuery, @adminID, @handle, @reg,@startPos, @endPos, @startTime, @endTime, @date, @price
         
         @carUpdate = 'UPDATE car_details SET availability = ? WHERE car_registration = ?'
         @database.execute @carUpdate, @availUpdate, @reg
-        flash[:success] = "Details saved, awaiting completion."
+        flash[:success] = "Details saved, awaiting completion."      
     end
     
     redirect '/admin_section'
