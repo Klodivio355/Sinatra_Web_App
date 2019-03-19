@@ -1,5 +1,5 @@
 require 'sqlite3'
-require 'sinatra/flash'
+require 'sinatra'
 enable :sessions
 set :session_secret, 'super secret'
 

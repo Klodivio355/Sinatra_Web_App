@@ -1,5 +1,7 @@
 require 'tilt/erubis'
 require 'sqlite3'
+require 'sinatra'
+
 enable :sessions
 set :session_secret, 'super secret'
 
