@@ -13,7 +13,7 @@
         
             <h1>Help us by sending feedback about our website, using the form below.</h1>
             <br>
-        
+            <!---
             <form action="mailto:mfontana1@sheffield.ac.uk" method="post" enctype="text/plain" id="contact_form">
                 Name:<br>
                 <input type="text" name="name" placeholder="Your name goes here..."><br>
@@ -24,10 +24,40 @@
                 <input type="submit" value="Send">
                 <input type="reset" value="Reset">
             </form>
+            -->
+            <form action="https://formspree.io/mfontana1@sheffield.ac.uk" method="post" enctype="text/plain" id="contact_form">
+                Name:<br>
+                <input type="text" name="name" placeholder="Your name goes here..." id="namevalue"><br>
+                E-mail:<br>
+                <input type="text" name="mail" placeholder="Your e-mail goes here..." id="emailvalue"><br>
+                Comment:<br>
+                <textarea name="comment" rows="10" cols="30" placeholder="Tell us how to improve our website..." id="messagevalue"></textarea> <br>
+                <input type="submit" value="Send">
+                <input type="reset" value="Reset">
+            </form>
+            
+            
             
         </main>
         
     </body>
     
+    <script>
+        $('#contact_form').submit(function(e)) {
+          var nameinput = document.getElementById('namevalue');
+          var mailinput = document.getElementById('emailvalue');
+          var messageinput = document.getElementById('messagevalue');
+        
+        e.preventDefault()
+        $(this).get(0).reset()
+        alertify.success('Message Sent')
+
+            $.ajax({
+          url: "https://formspree.io/contact_form",
+          method: "POST",
+          data: $(this).serialize(),
+          dataType: "json"
+        });
+    </script>
     <%= erb :footer %>
 
