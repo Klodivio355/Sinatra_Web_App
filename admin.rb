@@ -37,7 +37,7 @@ end
 post '/updateBooking' do
     @adminID = session[:logged_adminid]
     @handle = params[:handleIn].strip
-    @reg = params[:regIn].strip
+    @reg = params[:regIn]
     @startTime = params[:startTimeIn]
     @endTime = params[:endTimeIn]
     @date = params[:dateIn]
