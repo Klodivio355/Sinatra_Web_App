@@ -13,6 +13,8 @@ module NavigationHelpers
                 '/makeaccount'
             when /the\s?contact\s?page/
                 '/contact'
+            when /the\s?admin\s?page/
+                '/admin_section'
             else
                 raise "Can't find mapping"
         end

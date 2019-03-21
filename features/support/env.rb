@@ -1,11 +1,11 @@
 require 'capybara'
 require 'rspec'
 require 'capybara/cucumber'
-#require 'simplecov'
+require 'simplecov'
 
-#SimpleCov.start do
-#  add_filter 'features/'
-#end
+SimpleCov.start do
+  add_filter 'features/'
+end
 
 require_relative '../../head_controller'
 require_relative '../../account'

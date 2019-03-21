@@ -1,6 +1,6 @@
 Feature: Header
     
-    #Different Header bottom(accountInfor) after login
+    #Different nav buttons (accountInfo) after login
     Scenario: Header of Homepage after Login
         Given I am on the login page
         When I fill in "useremail" with "test10@qq.com"
@@ -8,13 +8,13 @@ Feature: Header
         When I press "Login" within "form"
         Then I should see "Account Info"
     
-    #Accouny Home button
+    #Account Home button
     Scenario: header link from Homepage to homepage
         Given I am on the home page
         When I follow "Home"
         Then I should see "Booking Instructions"
     
-    #Accouny Infor button
+    #Account Info button
     Scenario: header link from Homepage to accountInformation
         Given I am on the login page
         When I fill in "useremail" with "test10@qq.com"
@@ -38,7 +38,7 @@ Feature: Header
         When I follow "Login"
         Then I should see "Login"
         
-    #Contact US button
+    #Contact us button
     Scenario: Header of Contact Us
         Given I am on the home page
         When I follow "Contact Us"
