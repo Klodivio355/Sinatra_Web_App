@@ -65,22 +65,22 @@
         <div id="bookingForm">
             <form action="/updateBooking" method="post" autocomplete="off">
                 <label for="handleIn">User Handle</label>
-                <input type="text" maxLength="15" name="handleIn" id="handleIn" value="<%= @queryHandle %>" required/><br><br>
+                <input type="text" maxLength="15" name="handleIn" id="handleIn" value="<%=h @queryHandle %>" required/><br><br>
                 
                 <label for="regIn">Car Registration</label>
-                <input type="text" maxLength="8" name="regIn" id="regIn" value="<%= @queryReg %>" required/><br><br>
+                <input type="text" maxLength="8" name="regIn" id="regIn" value="<%=h @queryReg %>" required/><br><br>
                 
                 <label for="startTimeIn">Start Time</label>
-                <input type="time" name="startTimeIn" id="startTimeIn" value="<%= @queryTime %>" required/>
+                <input type="time" name="startTimeIn" id="startTimeIn" value="<%=h @queryTime %>" required/>
                 
                 <label for="endTimeIn">End Time</label>
                 <input type="time" name="endTimeIn" id="endTimeIn" value=""/><br><br>
                 
                 <label for="dateIn">Date</label>
-                <input type="date" name="dateIn" id="dateIn" value="<%= @queryDate %>" required/><br><br>
+                <input type="date" name="dateIn" id="dateIn" value="<%=h @queryDate %>" required/><br><br>
                 
                 <label for="startPosIn">Start Location</label>
-                <input type="text" name="startPosIn" id="startPosIn" value="<%= @queryStart %>" required/>
+                <input type="text" name="startPosIn" id="startPosIn" value="<%=h @queryStart %>" required/>
                 
                 <label for="endPosIn">End Location</label>
                 <input type="text" name="endPosIn" id="endPosIn" value=""/><br><br>
