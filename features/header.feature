@@ -21,7 +21,8 @@ Feature: Header
         When I fill in "password" with "123123"
         When I press "Login" within "form"
         When I follow "Account Info"
-        Then I should see "Account Details"
+        Then the "email" field within "form" should contain "test10@qq.com"
+        Then the "password" field within "form" should contain "123123"
     
     #Log Out button
     Scenario: Header of Log out after Login
