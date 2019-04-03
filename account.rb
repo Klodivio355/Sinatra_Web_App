@@ -14,25 +14,28 @@ end
 
 post '/makeaccount' do
   @submitted=true
-  @firstname = params[:userhandle].strip
+  @handle = params[:userhandle].strip
   @email = params[:email].strip
   @password = params[:password].strip
   @password_c = params[:repeat_password].strip
   
-  @firstname_ok = !@firstname.nil? && @firstname != ""    
+  @handle_ok = !@handle.nil? && @handle != ""
   @email_ok =!@email.nil? && @email =~ VALID_EMAIL_REGEX
+  @unique = false
+  if @handle_ok && @email_ok
+    @unique = @database.get_first_value('SELECT COUNT(*) FROM user_details WHERE twitter_handle = ? AND email = ?',[@handle,@email]) == 0 
+  end
   @password_ok = !@password.nil? && @password != "" && @password == @password_c
-  @all_ok = @firstname_ok && @password_ok && @email_ok
+  
+  @all_ok = @handle_ok && @password_ok && @email_ok && @unique
     
    if @submitted && @all_ok 
-    puts 'all ok'  
     @query = 'INSERT INTO user_details 
               VALUES (? , ? , ? ,0);'
-    @database.execute @query, params[:userhandle], params[:email], params[:password]
+    @database.execute @query, [@handle, @email, @password]
        
     redirect '/'
    else   
-    puts @password_ok
     erb :create_account
    end
    
