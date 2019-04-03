@@ -27,12 +27,7 @@ end
 
 #views
 get '/' do
-    unless session[:logged_in] 
-        @wrong = false
-        redirect '/login'
-    else
-        redirect '/home'
-    end
+   redirect '/home'
 end
 
 get '/login' do
