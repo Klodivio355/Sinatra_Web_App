@@ -58,6 +58,7 @@
                          <%= car[3] %>
                     </td>
                 </tr>
+            <% end %>
         </table>
         
         <table id="misuseTable">
@@ -66,7 +67,7 @@
                 <th>Count</th>
                 <th>Banned</th>
             </tr>
-            <% @misuseResults.each do|mis| %>
+            <% @misuse_results.each do|mis| %>
                 <tr>
                     <td>
                         <%= mis[0] %>
@@ -79,8 +80,10 @@
                             Not banned
                         <% else %>
                             Bannned
+                        <% end %>
                     </td>
                 </tr>
+            <% end %>
         </table>
         
 	</body>

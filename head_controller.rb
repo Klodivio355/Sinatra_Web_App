@@ -7,6 +7,7 @@ require 'sqlite3'
 require_relative 'error_handling'
 require_relative 'account'
 require_relative 'admin'
+require_relative 'admin_2'
 set :bind, '0.0.0.0'
 
 include ERB::Util
