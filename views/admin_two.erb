@@ -3,8 +3,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="admin_page_two.css">
-		<title>Admin page two</title>
-        <script src="js/page_two.js"></script>
+		<title>Administrator access</title>
 	</head>
 	
 	<body>
@@ -86,5 +85,34 @@
             <% end %>
         </table>
         
+        <table id="adminTable">
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Area</th>
+            </tr>
+            <% @admin_results.each do|ad| %>
+                <tr>
+                    <td>
+                        <%= ad[0] %>
+                    </td>
+                    <td>
+                        <%= ad[1] %>
+                    </td>
+                    <td>
+                        <%= ad[2] %>
+                    </td>
+                    <td>
+                        <%= ad[3] %>
+                    </td>
+                    <td>
+                        <%= ad[4] %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+        <script src="js/page_two.js"></script>
 	</body>
 </html>

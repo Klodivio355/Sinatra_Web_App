@@ -19,6 +19,7 @@ RemoveA.addEventListener('click', removeAdmin);
 
 var iOne = document.getElementById("inputOne");
 var lOne = document.getElementById("labelOne");
+
 var iTwo = document.getElementById("inputTwo");
 var lTwo = document.getElementById("labelTwo");
 var iThree = document.getElementById("inputThree");
@@ -31,12 +32,14 @@ hideAll();
 function hideAll() {
 	iOne.style.display = "none";
 	lOne.style.display = "none";
+    
 	iTwo.style.display = "none";
 	lTwo.style.display = "none";
 	iThree.style.display = "none";
 	lThree.style.display = "none";
 	iFour.style.display = "none";
 	lFour.style.display = "none";
+    
 }
 
 function addTaxi() {
