@@ -4,7 +4,7 @@ require 'sinatra/flash'
 include ERB::Util
 
 get '/admin_two' do
-    query = %{SELECT car_registration, type, number_of_seats, base_price FROM car_details ORDER BY type DESC}
+    query = %{SELECT car_registration, type, number_of_seats, base_price, description FROM car_details ORDER BY type DESC}
     @car_results = @database.execute query
     
     query = %{SELECT * FROM misuse_list ORDER BY banned}

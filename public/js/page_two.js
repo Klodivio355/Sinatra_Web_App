@@ -19,13 +19,14 @@ RemoveA.addEventListener('click', removeAdmin);
 
 var iOne = document.getElementById("inputOne");
 var lOne = document.getElementById("labelOne");
-
 var iTwo = document.getElementById("inputTwo");
 var lTwo = document.getElementById("labelTwo");
 var iThree = document.getElementById("inputThree");
 var lThree = document.getElementById("labelThree");
 var iFour = document.getElementById("inputFour");
 var lFour = document.getElementById("labelFour");
+var iFive = document.getElementById("inputFive");
+var lFive = document.getElementById("labelFive");
 
 hideAll();
 
@@ -39,6 +40,8 @@ function hideAll() {
 	lThree.style.display = "none";
 	iFour.style.display = "none";
 	lFour.style.display = "none";
+    iFive.style.display = "none";
+	lFive.style.display = "none";
     
 }
 
@@ -47,6 +50,7 @@ function addTaxi() {
 	lTwo.innerHTML = "Type: ";
 	lThree.innerHTML = "Price: ";
 	lFour.innerHTML = "Seats: ";
+    lFive.innerHTML = "Description";
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
@@ -56,6 +60,8 @@ function addTaxi() {
 	lThree.style.display = "inline";
 	iFour.style.display = "inline";
 	lFour.style.display = "inline";
+    iFive.style.display = "inline";
+	lFive.style.display = "inline";
 }
 
 function removeTaxi() {
@@ -112,6 +118,18 @@ function addAdmin() {
 	lTwo.innerHTML = "Surname: ";
 	lThree.innerHTML = "Email: ";
 	lFour.innerHTML = "Password: ";
+    lFive.innerHTML = "Area";
+    
+    iOne.style.display = "inline";
+	lOne.style.display = "inline";
+	iTwo.style.display = "inline";
+	lTwo.style.display = "inline";
+	iThree.style.display = "inline";
+	lThree.style.display = "inline";
+	iFour.style.display = "inline";
+	lFour.style.display = "inline";
+    iFive.style.display = "inline";
+	lFive.style.display = "inline";
 }
 
 function removeAdmin() {

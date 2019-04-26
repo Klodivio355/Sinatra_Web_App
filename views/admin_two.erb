@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<link rel="stylesheet" href="admin_page_two.css">
+		<link rel="stylesheet" href="css/main.css">
 		<title>Administrator access</title>
 	</head>
 	
@@ -31,6 +31,9 @@
 			<label id="labelFour">Input</label>
 			<input id="inputFour" type="Text">
 			<br>
+            <label id="labelFive">Input</label>
+            <input id="inputFive" type="Text">
+            <br>
 			<input type="submit" value="Submit">
 		</form>
         
@@ -41,6 +44,7 @@
                 <th>Type</th>
                 <th>Seats</th>
                 <th>Price</th>
+                <th>Description</th>
             </tr>
             <% @car_results.each do |car| %>
                 <tr>
@@ -55,6 +59,9 @@
                     </td>
                     <td>
                          <%= car[3] %>
+                    </td>
+                    <td>
+                        <%= car[4] %>
                     </td>
                 </tr>
             <% end %>
@@ -113,6 +120,9 @@
                 </tr>
             <% end %>
         </table>
+        
+        
+        
         <script src="js/page_two.js"></script>
 	</body>
 </html>
