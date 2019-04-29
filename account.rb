@@ -84,6 +84,10 @@ get '/accountInfo' do
         @user_pass = @database.get_first_value('SELECT password FROM user_details WHERE email = ? ;',[session[:logged_email]])
         @user_handle = @database.get_first_value('SELECT twitter_handle FROM user_details WHERE email = ? ;',[session[:logged_email]])
         @user_email = session[:logged_email]
+
+        
+        query = %{SELECT date, start_time, end_time, start_point, end_point, car_registration, price FROM ride_history WHERE twitter_handle = ? ORDER BY date DESC;}
+        @rideHistory = @database.execute query, @user_handle
         erb :accountInfo
     else
         redirect '/'

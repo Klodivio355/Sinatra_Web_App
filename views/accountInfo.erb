@@ -39,35 +39,38 @@
             </form>
                         
 			<!-- history part -->
-			<div id="thediv">
-                <p style="text-align: center; width:82%;">Your Ride History</p>
-				<table class="table2">
-					<tr align="center">
-						<th width="120" class="table2">Time</th>
-						<th width="600" class="table2">Driver</th>
-						<th width="200" class="table2">Start Location</th>
-						<th width="200" class="table2">End Location</th>
-					</tr>
-					<tr align="center">
-						<td class="table2">
-							 history.Time
-						</td>
-						<td class="table2">
-							<a href=" driver.user.uri " target="_blank">
-								history.drivername
-							</a>
-						</td>
-						<td class="table2">
-							 history.startLocation 
-						</td>
-						<td class="table2">
-							 history.endLocation 
-						</td>
-					</tr>
-				</table>
-				<br />
-
-			</div>
+            <% unless @rideHistory.nil? %>
+                <% if @rideHistory.length == 0 %>
+                    <p> You have not got ride yet. </p>
+                <% else %>
+                    <div id="thediv">
+                        <p style="text-align: center; width:82%;">Your Ride History</p>
+                        <table class="table2">
+                            <tr align="center">
+                                <th width="440" class="table2">Time</th>
+                                <th width="200" class="table2">Driver</th>
+                                <th width="200" class="table2">Start Location</th>
+                                <th width="200" class="table2">End Location</th>
+                                <th width="150" class="table2">Price</th>
+                            </tr>
+                            <% @rideHistory.each do |record| %>
+                                <tr align="center">
+                                    <td class="table2"> <%=h record[0]%> from  <%=h record[1]%> to <%=h record[2]%></td>
+                                    <td class="table2">
+                                            <a href=" driver.user.uri " target="_blank">
+                                            <%=h record[5]%>
+                                        </a>
+                                    </td>
+                                    <td class="table2"> <%=h record[3]%> </td>
+                                    <td class="table2"> <%=h record[4]%> </td>
+                                    <td class="table2"> <%=h record[6]%> pounds</td>
+                                </tr>
+                            <% end %>
+                        </table>
+                        <br />
+                    </div>
+                <% end %>
+            <% end %>
         </main>
     </body>
         <%= erb :footer %>            
