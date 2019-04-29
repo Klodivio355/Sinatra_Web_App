@@ -10,6 +10,9 @@ get '/admin_section' do
         redirect '/'
     end
     
+    @area = session[:logged_adminarea]
+    puts @area
+    
     query = %{SELECT car_registration, type, number_of_seats, availability FROM car_details ORDER BY availability ASC}
     @car_results = @database.execute query
     

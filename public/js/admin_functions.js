@@ -24,3 +24,8 @@ function clear() {
     document.getElementById("endPosIn").value = "";
     document.getElementById("priceIn").value = "";
 }
+
+function autosearch(term) {
+    document.getElementById("searchbar").value = "#TaxisIn" + term;
+    document.getElementById("searchform").submit();
+}

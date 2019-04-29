@@ -51,7 +51,7 @@ post '/login' do
             session[:logged_in]=true
             session[:logged_email]=@user_email
             session[:logged_time]=Time.now
-            session[:logged_isadmin]=false
+            session[:logged_isadmin]=0
             redirect '/home'
         else
             @wrong = true
@@ -60,12 +60,18 @@ post '/login' do
     elsif @check_admin_count == 1 
         @pass = @database.get_first_value('SELECT password FROM admin_details WHERE email = ? ;',[@user_email])
         @id = @database.get_first_value('SELECT admin_id FROM admin_details WHERE email = ? ;',[@user_email])
+        @area = @database.get_first_value('SELECT area FROM admin_details WHERE email = ? ;',[@user_email])
         if @pass == params[:password]
             session[:logged_in]=true
             session[:logged_email]=@user_email
             session[:logged_time]=Time.now
-            session[:logged_isadmin]=true
             session[:logged_adminid]=@id
+            session[:logged_adminarea]=@area
+            if(@area == 'both')
+                session[:logged_isadmin]=2
+            else 
+                session[:logged_isadmin]=1
+            end
             redirect '/home'
         else
             @wrong = true
