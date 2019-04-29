@@ -1,4 +1,3 @@
-require 'sinatra'
 disable :raise_errors
 disable :show_exceptions
 

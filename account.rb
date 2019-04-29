@@ -1,5 +1,3 @@
-require 'tilt/erubis'
-require 'sqlite3'
 enable :sessions
 set :session_secret, 'super secret'
 
