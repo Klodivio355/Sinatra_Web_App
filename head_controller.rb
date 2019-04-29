@@ -1,6 +1,7 @@
 # COM1001 Team 07 application controller
 #Default setup code
 require 'sinatra'
+require 'sinatra/flash'
 require 'twitter'
 require 'erb'
 require 'sqlite3'

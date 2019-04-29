@@ -1,6 +1,3 @@
-require 'sqlite3'
-require 'sinatra/flash'
-
 include ERB::Util
 
 get '/admin_two' do
