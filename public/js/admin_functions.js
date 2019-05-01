@@ -1,8 +1,9 @@
 function menuChange(selectObj) {
     var x = selectObj.selectedIndex;
-    if(x == 1) {
+    if(x == 1) { 
         var box = document.getElementById('handleIn');
-        box.value = selectObj.options[x].value;
+        var value = selectObj.options[x].value;
+        box.value = value;
         selectObj.selectedIndex = 0;
     }
     else {
