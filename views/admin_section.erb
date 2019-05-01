@@ -71,7 +71,11 @@
                 <input type="text" maxLength="15" name="handleIn" id="handleIn" value="<%=h @queryHandle %>" required/><br><br>
                 
                 <label for="regIn">Car Registration</label>
-                <input type="text" maxLength="8" name="regIn" id="regIn" value="<%=h @queryReg %>" required/><br><br>
+                <select>
+                    <% @car2.each do |c| %>
+                        <option value="<%= c[0] %>"><%= c[0] %></option>
+                    <% end %>
+                </select><br><br>
                 
                 <label for="startTimeIn">Start Time</label>
                 <input type="time" name="startTimeIn" id="startTimeIn" value="<%=h @queryTime %>" required/>
