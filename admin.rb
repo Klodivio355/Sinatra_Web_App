@@ -9,10 +9,14 @@ get '/admin_section' do
     end
     
     @area = session[:logged_adminarea]
-    puts @area
-    
-    query = %{SELECT car_registration, type, number_of_seats, availability FROM car_details WHERE area='?' ORDER BY availability ASC}
-    @car_results = @database.execute query, @area
+
+    if @area.eql? 'both'
+        query = %{SELECT car_registration, type, number_of_seats, availability, area FROM car_details ORDER BY availability ASC}
+        @car_results = @database.execute query
+    else
+        query = %{SELECT car_registration, type, number_of_seats, availability, area FROM car_details WHERE area = ? ORDER BY availability ASC}
+        @car_results = @database.execute query, @area
+    end
     
     unless params[:busy].nil?
         query = %{SELECT twitter_handle, car_registration, start_point, start_time, date FROM ride_history WHERE car_registration = ? ORDER BY date DESC LIMIT 1;}

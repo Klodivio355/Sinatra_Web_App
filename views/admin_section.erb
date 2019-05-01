@@ -105,6 +105,7 @@
                     <table id="carTable">
                         <tr>
                             <th>Reg.</th>
+                            <th>Area</th>
                             <th>Type</th>
                             <th>Seats</th>
                             <th>Available?</th>
@@ -113,6 +114,13 @@
                             <tr>
                                 <td name = "reg" value="<%= car[0] %>">
                                     <%= car[0] %>
+                                </td>
+                                <td>
+                                    <% if car[4].eql? 'Manchester' %>
+                                        <p>M</p>
+                                    <% else %>
+                                        <p>S</p>
+                                    <% end %>
                                 </td>
                                 <td>
                                     <%= car[1] %>
