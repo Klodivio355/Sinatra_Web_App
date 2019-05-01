@@ -38,18 +38,6 @@ get '/admin_section' do
     erb :admin_section
 end
 
-get '/checkUser' do
-    @check_user = @database.get_first_value('SELECT COUNT(*) FROM user_details WHERE twitter_handle = ?', [params[:hiddenbox]])
-    if @check_user == 1
-        @result="Found"
-        puts @result
-    else
-        @result="Not"
-        puts @result
-    end
-    redirect "/admin_section"
-end
-
 post '/updateBooking' do
     @adminID = session[:logged_adminid]
     @handle = params[:handleIn].strip
