@@ -4,6 +4,10 @@ set :session_secret, 'super secret'
 include ERB::Util
 
 get '/admin_two' do
+    @cssURL = ["css/main.css"]
+    @title = "Database Updates"
+    @jsURL = ["js/page_two.js"]
+    
     unless session[:logged_isadmin]
         redirect '/'
     end

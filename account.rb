@@ -33,7 +33,7 @@ post '/makeaccount' do
        
     redirect '/'
    else   
-    erb :create_account
+    redirect '/create_account'
    end
    
 end
@@ -52,7 +52,7 @@ post '/login' do
             redirect '/home'
         else
             @wrong = true
-            erb :login
+            redirect '/login'
         end
     elsif @check_admin_count == 1 
         @pass = @database.get_first_value('SELECT password FROM admin_details WHERE email = ? ;',[@user_email])
@@ -72,7 +72,7 @@ post '/login' do
             redirect '/home'
         else
             @wrong = true
-            erb :login
+            redirect '/login'
         end
     else
         redirect '/'
@@ -80,6 +80,9 @@ post '/login' do
 end
     
 get '/accountInfo' do
+    @cssURL = ["css/main.css", "css/homepage_style.css", "css/accountInfo.css"]
+    @title = "Account Information"
+    @jsURL = []
     if session[:logged_in] 
         @user_pass = @database.get_first_value('SELECT password FROM user_details WHERE email = ? ;',[session[:logged_email]])
         @user_handle = @database.get_first_value('SELECT twitter_handle FROM user_details WHERE email = ? ;',[session[:logged_email]])
@@ -111,6 +114,6 @@ post '/changeinfo' do
         @database.execute @query, @firstname, @email, @password, session[:logged_email]
         redirect '/session_clear'
     else
-        erb :accountInfo
+        redirect '/accountInfo'
     end
 end
