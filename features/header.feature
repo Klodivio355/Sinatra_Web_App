@@ -44,3 +44,19 @@ Feature: Header
         Given I am on the home page
         When I follow "Contact Us"
         Then I should see "Help us"    
+     
+    #Administrator link 
+    Scenario: Logging in with admin details
+        Given I am on the login page
+        When I fill in "useremail" with "admin@gmail.com"
+        When I fill in "password" with "admin123"
+        When I press "Login" within "form"
+        Then I should see "Administrator"
+        
+    #Database Update link 
+    Scenario: Logging in with admin details
+        Given I am on the login page
+        When I fill in "useremail" with "admin@gmail.com"
+        When I fill in "password" with "admin123"
+        When I press "Login" within "form"
+        Then I should see "Database Updates"
