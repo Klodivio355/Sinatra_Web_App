@@ -19,7 +19,7 @@ AddA.addEventListener('click', addAdmin);
 var RemoveA = document.getElementById("removeA");
 RemoveA.addEventListener('click', removeAdmin);
 
-var query = document.getElementById("querylabel");
+var query = document.getElementById("queryLabel");
 query.style.display = "none";
 
 var iOne = document.getElementById("inputOne");
