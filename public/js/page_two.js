@@ -6,7 +6,7 @@ var AddTy = document.getElementById("addTy");
 AddTy.addEventListener('click', addType);
 var UpdatePr = document.getElementById("updatePr");
 UpdatePr.addEventListener('click', updatePr);
-var UpdateDe = document.getElementById("updateDescription");
+var UpdateDe = document.getElementById("updateDe");
 UpdateDe.addEventListener('click', updateDescription);
 var Unban = document.getElementById("unban");
 Unban.addEventListener('click', unbanUser);
@@ -20,7 +20,7 @@ var RemoveA = document.getElementById("removeA");
 RemoveA.addEventListener('click', removeAdmin);
 
 var query = document.getElementById("querylabel");
-query.style.display = "none"
+query.style.display = "none";
 
 var iOne = document.getElementById("inputOne");
 var lOne = document.getElementById("labelOne");
@@ -78,8 +78,8 @@ function addType() {
 	
 	lOne.innerHTML = "Type: ";
 	lTwo.innerHTML = "Description: ";
-    lthree.innerHTML = "Base price: ";
-    lfour.innerHTML = "Number of seats: "
+    lThree.innerHTML = "Base price: ";
+    lfour.innerHTML = "Number of seats: ";
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
@@ -112,8 +112,8 @@ function updateDescription() {
 	
 	lOne.innerHTML = "Type: ";
 	lTwo.innerHTML = "Description: ";
-    lthree.innerHTML = "Base price: ";
-    lfour.innerHTML = "Number of seats: "
+    lThree.innerHTML = "Base price: ";
+    lfour.innerHTML = "Number of seats: ";
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
