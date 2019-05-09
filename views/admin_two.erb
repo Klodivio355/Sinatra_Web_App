@@ -9,31 +9,30 @@
 		<button type="button" id="addT">Add taxi</button>
 		<button type="button" id="removeT">Remove taxi</button>
         <button type="button" id="addTy">Add Type</button>
-		<button type="button" id="updateT">Update taxi</button>
 		<button type="button" id="updatePr">Update Prices</button>
         <button type="button" id="updateDe">Update Description</button>
 		<button type="button" id="unban">Un-ban</button>
 		<button type="button" id="updateE">Update email</button>
 		<button type="button" id="updatePa">Update password</button>
-		<button type="button" id="addA">Add admin</button>
-		<button type="button" id="removeA">Remove admin</button>
-		
-		
-		<form name="form">
+        <button type="button" id="addA">Add admin</button>
+        <button type="button" id="removeA">Remove admin</button>
+		<label id="queryLabel">Query</label>
+        
+		<form name="form" action="runQuery" method="post">
 			<label id="labelOne">Input</label>
-			<input id="inputOne" type="Text">
+            <input id="inputOne" type="Text" value="<%= @inputOne %>">
 			<br>
 			<label id="labelTwo">Input</label>
-			<input id="inputTwo" type="Text">
+			<input id="inputTwo" type="Text" value="<%= @inputTwo %>">
 			<br>
 			<label id="labelThree">Input</label>
-			<input id="inputThree" type="Text">
+			<input id="inputThree" type="Text" value="<%= @inputThree %>">
 			<br>
 			<label id="labelFour">Input</label>
-			<input id="inputFour" type="Text">
+			<input id="inputFour" type="Text" value="<%= @inputFour %>">
 			<br>
             <label id="labelFive">Input</label>
-            <input id="inputFive" type="Text">
+            <input id="inputFive" type="Text" value="<%= @inputFive %>">
             <br>
 			<input type="submit" value="Submit">
 		</form>
@@ -43,9 +42,7 @@
             <tr>
                 <th>Reg</th>
                 <th>Type</th>
-                <th>Seats</th>
-                <th>Price</th>
-                <th>Description</th>
+                <th>Area</th>
             </tr>
             <% @car_results.each do |car| %>
                 <tr>
@@ -57,12 +54,6 @@
                     </td>
                     <td>
                         <%= car[2] %>
-                    </td>
-                    <td>
-                         <%= car[3] %>
-                    </td>
-                    <td>
-                        <%= car[4] %>
                     </td>
                 </tr>
             <% end %>
@@ -121,6 +112,7 @@
                 </tr>
             <% end %>
         </table>
+        
         <script src="js/page_two.js"></script>
 	</body>
 </html>
