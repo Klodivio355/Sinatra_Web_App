@@ -2,10 +2,14 @@ var AddT = document.getElementById("addT");
 AddT.addEventListener('click', addTaxi);
 var RemoveT = document.getElementById("removeT");
 RemoveT.addEventListener('click', removeTaxi);
+var AddTy = document.getElementById("addTy");
+AddTy.addEventListener('click', updateType);
 var UpdateT = document.getElementById("updateT");
 UpdateT.addEventListener('click', addTaxi);
 var UpdatePr = document.getElementById("updatePr");
 UpdatePr.addEventListener('click', updatePr);
+var updateDe = document.getElementById("updateDe");
+updateDe.addEventListener('click', updateDescription);
 var Unban = document.getElementById("unban");
 Unban.addEventListener('click', unbanUser);
 var UpdateE = document.getElementById("updateE");
@@ -50,7 +54,6 @@ function addTaxi() {
 	lTwo.innerHTML = "Type: ";
 	lThree.innerHTML = "Price: ";
 	lFour.innerHTML = "Seats: ";
-    lFive.innerHTML = "Description";
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
@@ -60,8 +63,6 @@ function addTaxi() {
 	lThree.style.display = "inline";
 	iFour.style.display = "inline";
 	lFour.style.display = "inline";
-    iFive.style.display = "inline";
-	lFive.style.display = "inline";
 }
 
 function removeTaxi() {
@@ -73,11 +74,35 @@ function removeTaxi() {
 	lOne.style.display = "inline";
 }
 
+function addType() {
+	hideAll();
+	
+	lOne.innerHTML = "Type: ";
+	lTwo.innerHTML = "Description: ";
+	
+	iOne.style.display = "inline";
+	lOne.style.display = "inline";
+	iTwo.style.display = "inline";
+	lTwo.style.display = "inline";
+}
+
 function updatePr() {
 	hideAll();
 	
 	lOne.innerHTML = "Type: ";
 	lTwo.innerHTML = "Price: ";
+	
+	iOne.style.display = "inline";
+	lOne.style.display = "inline";
+	iTwo.style.display = "inline";
+	lTwo.style.display = "inline";
+}
+
+function updateDescription() {
+	hideAll();
+	
+	lOne.innerHTML = "Type: ";
+	lTwo.innerHTML = "Description: ";
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";

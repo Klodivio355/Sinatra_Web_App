@@ -1,12 +1,17 @@
-	<title>Database Updates</title>
-    <script src="js/page_two.js"></script>
-
-    <%= erb :header %>
+<html>
+    <head>
+        <title>Database Updates</title>
+        <%= erb :header %>
+    </head>
+    
+    <body>
         <h1>Database Updates</h1>
 		<button type="button" id="addT">Add taxi</button>
 		<button type="button" id="removeT">Remove taxi</button>
+        <button type="button" id="addTy">Add Type</button>
 		<button type="button" id="updateT">Update taxi</button>
 		<button type="button" id="updatePr">Update Prices</button>
+        <button type="button" id="updateDe">Update Description</button>
 		<button type="button" id="unban">Un-ban</button>
 		<button type="button" id="updateE">Update email</button>
 		<button type="button" id="updatePa">Update password</button>
@@ -116,5 +121,6 @@
                 </tr>
             <% end %>
         </table>
+        <script src="js/page_two.js"></script>
 	</body>
 </html>
