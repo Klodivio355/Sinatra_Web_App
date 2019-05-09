@@ -6,19 +6,19 @@ get '/admin_two' do
     @area = session[:logged_adminarea]
     
     if(@area.eql? 'manchester')
-        query1 = %{SELECT car_registration, type, number_of_seats, base_price FROM car_details WHERE area = 'manchester' ORDER BY type DESC}
+        query1 = %{SELECT car_registration, type, area FROM car_details WHERE area = 'manchester' ORDER BY type DESC}
         query2 = %{SELECT admin_id, first_name, surname, email, area FROM admin_details WHERE area = 'manchester'}
     elsif(@area.eql? 'sheffield')  
-        query1 = %{SELECT car_registration, type, number_of_seats, base_price FROM car_details WHERE area = 'sheffield' ORDER BY type DESC}
+        query1 = %{SELECT car_registration, type, area FROM car_details WHERE area = 'sheffield' ORDER BY type DESC}
         query2 = %{SELECT admin_id, first_name, surname, email, area FROM admin_details WHERE area = 'sheffield'}
     else
-        query1 = %{SELECT car_registration, type, number_of_seats, base_price FROM car_details ORDER BY type DESC}
+        query1 = %{SELECT car_registration, type, area FROM car_details ORDER BY type DESC}
         query2 = %{SELECT admin_id, first_name, surname, email, area FROM admin_details}
     end
     @car_results = @database.execute query1
     
-    query = %{SELECT * FROM misuse_list ORDER BY banned}
-    @misuse_results = @database.execute query
+    query1 = %{SELECT * FROM misuse_list ORDER BY banned}
+    @misuse_results = @database.execute query1
     
     query2 = %{SELECT admin_id, first_name, surname, email, area FROM admin_details}
     @admin_results = @database.execute query2

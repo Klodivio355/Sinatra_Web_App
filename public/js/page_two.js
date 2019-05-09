@@ -3,13 +3,11 @@ AddT.addEventListener('click', addTaxi);
 var RemoveT = document.getElementById("removeT");
 RemoveT.addEventListener('click', removeTaxi);
 var AddTy = document.getElementById("addTy");
-AddTy.addEventListener('click', updateType);
-var UpdateT = document.getElementById("updateT");
-UpdateT.addEventListener('click', addTaxi);
+AddTy.addEventListener('click', addType);
 var UpdatePr = document.getElementById("updatePr");
 UpdatePr.addEventListener('click', updatePr);
-var updateDe = document.getElementById("updateDe");
-updateDe.addEventListener('click', updateDescription);
+var UpdateDe = document.getElementById("updateDescription");
+UpdateDe.addEventListener('click', updateDescription);
 var Unban = document.getElementById("unban");
 Unban.addEventListener('click', unbanUser);
 var UpdateE = document.getElementById("updateE");
@@ -20,6 +18,9 @@ var AddA = document.getElementById("addA");
 AddA.addEventListener('click', addAdmin);
 var RemoveA = document.getElementById("removeA");
 RemoveA.addEventListener('click', removeAdmin);
+
+var query = document.getElementById("querylabel");
+query.style.display = "none"
 
 var iOne = document.getElementById("inputOne");
 var lOne = document.getElementById("labelOne");
@@ -52,17 +53,13 @@ function hideAll() {
 function addTaxi() {
 	lOne.innerHTML = "Registration: ";
 	lTwo.innerHTML = "Type: ";
-	lThree.innerHTML = "Price: ";
-	lFour.innerHTML = "Seats: ";
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
 	iTwo.style.display = "inline";
 	lTwo.style.display = "inline";
-	iThree.style.display = "inline";
-	lThree.style.display = "inline";
-	iFour.style.display = "inline";
-	lFour.style.display = "inline";
+    
+    query.InnerHTML = "addTaxi";
 }
 
 function removeTaxi() {
@@ -72,6 +69,8 @@ function removeTaxi() {
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
+    
+    query.InnerHTML = "removeTaxi";
 }
 
 function addType() {
@@ -79,11 +78,19 @@ function addType() {
 	
 	lOne.innerHTML = "Type: ";
 	lTwo.innerHTML = "Description: ";
+    lthree.innerHTML = "Base price: ";
+    lfour.innerHTML = "Number of seats: "
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
 	iTwo.style.display = "inline";
 	lTwo.style.display = "inline";
+    iThree.style.display = "inline";
+	lThree.style.display = "inline";
+    iFour.style.display = "inline";
+	lFour.style.display = "inline";
+    
+    query.InnerHTML = "addType";
 }
 
 function updatePr() {
@@ -96,6 +103,8 @@ function updatePr() {
 	lOne.style.display = "inline";
 	iTwo.style.display = "inline";
 	lTwo.style.display = "inline";
+    
+    query.InnerHTML = "updatePrice";
 }
 
 function updateDescription() {
@@ -103,11 +112,19 @@ function updateDescription() {
 	
 	lOne.innerHTML = "Type: ";
 	lTwo.innerHTML = "Description: ";
+    lthree.innerHTML = "Base price: ";
+    lfour.innerHTML = "Number of seats: "
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
 	iTwo.style.display = "inline";
 	lTwo.style.display = "inline";
+    iThree.style.display = "inline";
+	lThree.style.display = "inline";
+    iFour.style.display = "inline";
+	lFour.style.display = "inline";
+    
+    query.InnerHTML = "addDescription";
 }
 
 function unbanUser() {
@@ -116,6 +133,8 @@ function unbanUser() {
 	lOne.innerHTML = "Twitter handle :";
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
+    
+    query.InnerHTML = "unbanUser";
 }
 
 function updateEmail() {
@@ -124,6 +143,8 @@ function updateEmail() {
 	lOne.innerHTML = "Email: ";
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
+    
+    query.InnerHTML = "updateEmail";
 }
 
 function updatePassword() {
@@ -136,6 +157,8 @@ function updatePassword() {
 	lOne.style.display = "inline";
 	iTwo.style.display = "inline";
 	lTwo.style.display = "inline";
+    
+    query.InnerHTML = "updatePassword";
 }
 
 function addAdmin() {
@@ -155,6 +178,8 @@ function addAdmin() {
 	lFour.style.display = "inline";
     iFive.style.display = "inline";
 	lFive.style.display = "inline";
+    
+    query.InnerHTML = "addAdmin";
 }
 
 function removeAdmin() {
@@ -163,4 +188,6 @@ function removeAdmin() {
 	lOne.innerHTML = "Id: ";
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
+    
+    query.InnerHTML = "removeAdmin";
 }
