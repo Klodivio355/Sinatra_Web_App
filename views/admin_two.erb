@@ -16,25 +16,25 @@
 		<button type="button" id="updatePa">Update password</button>
         <button type="button" id="addA">Add admin</button>
         <button type="button" id="removeA">Remove admin</button>
-		<label id="queryLabel" value="<%= @query %>"></label>
+		<label id="queryLabel" name="queryLabel" value="<%=h params[:label] %>"></label>
         
 		<form name="form" action="/runQuery" method="post">
 			<label id="labelOne">Input</label>
-            <input id="inputOne" type="Text" value="<%= @inputOne %>">
+            <input id="inputOne" name = "inputOne"type="Text" value="<%=h params[:inputOne] %>">
 			<br>
 			<label id="labelTwo">Input</label>
-			<input id="inputTwo" type="Text" value="<%= @inputTwo %>">
+			<input id="inputTwo" name="inputTwo" type="Text" value="<%=h params[:inputTwo] %>">
 			<br>
 			<label id="labelThree">Input</label>
-			<input id="inputThree" type="Text" value="<%= @inputThree %>">
+			<input id="inputThree" name="inputThree" type="Text" value="<%=h params[:inputThree] %>">
 			<br>
 			<label id="labelFour">Input</label>
-			<input id="inputFour" type="Text" value="<%= @inputFour %>">
+			<input id="inputFour" name="inputFour" type="Text" value="<%=h params[:inputFour] %>">
 			<br>
             <label id="labelFive">Input</label>
-            <input id="inputFive" type="Text" value="<%= @inputFive %>">
+            <input id="inputFive" name="inputFive" type="Text" value="<%=h params[:inputFive] %>">
             <br>
-			<input type="submit" value="Submit">
+			<input type="submit" value="Submit" id="submit">
 		</form>
         
         

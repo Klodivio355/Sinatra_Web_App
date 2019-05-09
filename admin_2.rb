@@ -27,11 +27,21 @@ get '/admin_two' do
 end
 
 post '/runQuery' do
-    case @query
-    when "addTaxi"
-        query1 = %{INSERT INTO car_details VALUES (?.?.0,?)}
-    else
+    @one = params[:inputOne]
+    @two= params[:inputTwo]
+    @three = params[:inputThree]
+    @four = params[:inputFour]
+    @five = params[:inputFive]
+    @label = params[:queryLabel]
+    
+    case @label
+        when "addTaxi"
+            query1 = %{INSERT INTO car_details VALUES (?,?,0,?)}
+            @database.execute query1, @one, @two, @three
+        when "removeTaxi"
+            query1 = %{DELETE FROM car_details WHERE car_registration = ?}
+            @database.execute query1, @one
+        when ""
     end
-    @database.execute query1, @input1, @input2, @input3
     redirect'/admin_two'
 end

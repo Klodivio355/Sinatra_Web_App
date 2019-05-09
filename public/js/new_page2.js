@@ -19,6 +19,11 @@ AddA.addEventListener('click', addAdmin);
 var RemoveA = document.getElementById("removeA");
 RemoveA.addEventListener('click', removeAdmin);
 
+
+var Submit = document.getElementById("submit");
+Submit.disabled = true;
+
+
 var query = document.getElementById("queryLabel");
 query.style.display = "none";
 
@@ -65,6 +70,9 @@ function addTaxi() {
 	lThree.style.display = "inline";
     
     query.value = "addTaxi";
+    
+    Submit.disabled = false;
+    
 }
 
 function removeTaxi() {
@@ -76,6 +84,8 @@ function removeTaxi() {
 	lOne.style.display = "inline";
     
     query.value = "removeTaxi";
+    
+    Submit.disabled = false;
 }
 
 function addType() {
@@ -96,6 +106,8 @@ function addType() {
 	lFour.style.display = "inline";
     
     query.value = "addType";
+    
+    Submit.disabled = false;
 }
 
 function updatePr() {
@@ -110,6 +122,8 @@ function updatePr() {
 	lTwo.style.display = "inline";
     
     query.value = "updatePrice";
+    
+    Submit.disabled = false;
 }
 
 function updateDescription() {
@@ -130,6 +144,8 @@ function updateDescription() {
 	lFour.style.display = "inline";
     
     query.value = "addDescription";
+    
+    Submit.disabled = false;
 }
 
 function unbanUser() {
@@ -140,6 +156,8 @@ function unbanUser() {
 	lOne.style.display = "inline";
     
     query.value = "unbanUser";
+    
+    Submit.disabled = false;
 }
 
 function updateEmail() {
@@ -150,6 +168,8 @@ function updateEmail() {
 	lOne.style.display = "inline";
     
     query.value = "updateEmail";
+    
+    Submit.disabled = false;
 }
 
 function updatePassword() {
@@ -164,6 +184,8 @@ function updatePassword() {
 	lTwo.style.display = "inline";
     
     query.value = "updatePassword";
+    
+    Submit.disabled = false;
 }
 
 function addAdmin() {
@@ -185,6 +207,8 @@ function addAdmin() {
 	lFive.style.display = "inline";
     
     query.value = "addAdmin";
+    
+    Submit.disabled = false;
 }
 
 function removeAdmin() {
@@ -195,4 +219,6 @@ function removeAdmin() {
 	lOne.style.display = "inline";
     
     query.value = "removeAdmin";
+    
+    Submit.disabled = false;
 }
