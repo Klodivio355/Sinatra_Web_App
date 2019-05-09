@@ -1,8 +1,3 @@
-enable :sessions
-set :session_secret, 'super secret'
-
-include ERB::Util
-
 get '/admin_section' do
     unless session[:logged_isadmin]
         redirect '/'
@@ -11,14 +6,14 @@ get '/admin_section' do
     @area = session[:logged_adminarea]
 
     if @area.eql? 'both'
-        query = %{SELECT car_registration, type, number_of_seats, availability, area FROM car_details ORDER BY availability ASC}
+        query = %{SELECT car_registration, type, availability, area FROM car_details ORDER BY availability ASC}
         @car_results = @database.execute query
-        query2 = %{SELECT car_registration, type, number_of_seats, availability, area FROM car_details WHERE availability = 0}
+        query2 = %{SELECT car_registration, type, availability, area FROM car_details WHERE availability = 0}
         @car2 = @database.execute query2
     else
-        query = %{SELECT car_registration, type, number_of_seats, availability, area FROM car_details WHERE area = ? ORDER BY availability ASC}
+        query = %{SELECT car_registration, type, availability, area FROM car_details WHERE area = ? ORDER BY availability ASC}
         @car_results = @database.execute query, @area
-        query2 = %{SELECT car_registration, type, number_of_seats, availability, area FROM car_details WHERE area = ? AND availability = 0}
+        query2 = %{SELECT car_registration, type, availability, area FROM car_details WHERE area = ? AND availability = 0}
         @car2 = @database.execute query2, @area
     end
     
@@ -40,6 +35,10 @@ get '/admin_section' do
         @tweets = results.take(30)
     end
     erb :admin_section
+end
+
+post '/reply' do
+    
 end
 
 post '/updateBooking' do

@@ -3,14 +3,15 @@
     <link rel="stylesheet" type="text/css" href="css/admin_section.css">
     <script src="js/admin_functions.js"></script>
     <title>Administrator Access</title>
-
     <%= erb :header %>
-        <h1>Administrator System</h1>
+    <h1>Administrator System</h1>
+
         <% flash.keys.each do |type| %>
             <div data-alert class="flash <%= type %> alert-box radius">
                 <%= flash[type] %>
             </div>
         <% end %>
+
         <form method="get" autocomplete="off" id="searchform">
             Search:<input type="text" id="searchbar" name="search" value="<%=h params[:search] %>" required/>
             <input type="submit" name="submit" value="Update"/>
@@ -18,18 +19,17 @@
                 <button onClick="autosearch('<%= @area %>')"><%= @area %></button>
             <% end %>
         </form>
-        <br>
+
         <div id="bodyDiv">
             <table id="searchTable">
                 <tr>
                     <th width="120">User</th>
-                    <th width="600">Tweet</th>
+                    <th width="501.5">Tweet</th>
                     <th width="200">Time</th>
-                    <th>Options</th>
+                    <th width="130">Options</th>
                 </tr>
                 <% unless @tweets.nil? %>
-                    <% if @tweets.length == 0 %>
-                        <p>No tweets found.</p>
+                    <% if @tweets.length == 0 %>                  
                     <% else %>
                         <% @tweets.each do |tweet| %>
                             <tr>
@@ -49,7 +49,7 @@
                                         <select onchange="menuChange(this)">
                                             <option selected>Select...</option>
                                             <option id="book" value="<%= tweet.user.screen_name %>">Book Ride</option>
-                                            <option id="reply" value="<%= tweet.uri %>">Reply (External)</option>
+                                            <option id="reply" value="<%= tweet.user.screen_name %>,<%= tweet.id %>">Reply</option>
                                             <option id="warn" value="">Apply Warning</option>
                                             <option id="block" value="">Block User</option>
                                         </select>
@@ -107,7 +107,6 @@
                             <th>Reg.</th>
                             <th>Area</th>
                             <th>Type</th>
-                            <th>Seats</th>
                             <th>Available?</th>
                         </tr>
                         <% @car_results.each do |car| %>
@@ -116,7 +115,7 @@
                                     <%= car[0] %>
                                 </td>
                                 <td>
-                                    <% if car[4].eql? 'Manchester' %>
+                                    <% if car[3].eql? 'Manchester' %>
                                         <p>M</p>
                                     <% else %>
                                         <p>S</p>
@@ -126,10 +125,7 @@
                                     <%= car[1] %>
                                 </td>
                                 <td>
-                                    <%= car[2] %>
-                                </td>
-                                <td>
-                                    <% if(car[3] == 0) %>
+                                    <% if(car[2] == 0) %>
                                         <p id="free">Free</p>
                                     <% else %>
                                     <form action="/admin_section" method="get">
@@ -142,6 +138,22 @@
                     </table>
                 <% end %>
             <% end %>
+        </div>
+            
+        <div id="replyform">
+            <form action="reply" method="post">
+                <label for="replyhandle">User Handle</label>
+                <input type="text" name="replyHandle" id="replyHandle" disabled/><br>
+                <input type="text" name="replyID" id="replyID" value="<%=h @replyID %>" hidden/><br>
+                <label for="replyText">Reply here...</label><br>
+                <textarea id="replyText" value="<%=h @replyContents %>" maxLength="280" rows="4"></textarea><br>
+                <input type="submit" name="replyBtn" value="Send Reply"/>
+                <input type="reset" name="replyBtn" value="Clear Form"/>
+            </form>     
+        </div>
+            
+        <div id="giveawayform">
+            
         </div>
     </div>
     <%= erb :footer %>

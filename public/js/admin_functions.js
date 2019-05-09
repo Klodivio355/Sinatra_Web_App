@@ -3,14 +3,17 @@ function menuChange(selectObj) {
     if(x == 1) { 
         var box = document.getElementById('handleIn');
         var value = selectObj.options[x].value;
-        box.value = value;
+        value = value.split(",");
+        box.value = value[0];
         selectObj.selectedIndex = 0;
     }
-    else {
-        var url = selectObj.options[x].value;
-        if(url != "") {
-           window.open(url);
-        }
+    else if(x == 2) {
+        var box = document.getElementById('replyHandle');
+        var box2 = document.getElementById('replyID');
+        var value = selectObj.options[x].value;
+        value = value.split(",");
+        box.value = value[0];
+        box2.value = value[1];
         selectObj.selectedIndex = 0;
     }
 }

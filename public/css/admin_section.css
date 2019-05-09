@@ -1,8 +1,15 @@
 /* ADMIN PAGE LAYOUT ONLY */
 
 #bodyDiv {
+    display: grid;
     margin-bottom: 45px;
-}
+    grid-template-columns: 50% 32% 16%;
+    grid-template-rows: 270px 190px 150px;
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
+    justify-items: stretch;
+    align-items: stretch;
+ }
 
 h1 {
     font-size: 3em;
@@ -15,7 +22,6 @@ table {
   border: 2px solid black;
   background-color: #FFE5CC;
   border-collapse: collapse;
-  position: absolute;
 }
 td, th {
   border: 1px solid #B7B7B7;
@@ -23,6 +29,13 @@ td, th {
 }
 tbody td {
   font-size: 13px;
+}
+
+#searchTable {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    display: block;
+    overflow-y: scroll;
 }
 #searchTable tr:nth-child(even) {
   background: #D0E4F5;
@@ -34,32 +47,42 @@ tbody td {
     background: #CCFFCC;
 }
 
-#searchTable {
-    float: left;
-    width: 50%;
-    left: 0;
-    position: relative;
-    height: 550px;
-    display: block;
-    overflow-y: scroll;
-}
-
 #bookingForm {
-    position: absolute;
-    left: 51%;
-    width: 32%;
+    grid-column: 2;
+    grid-row: 1;
     text-align: left;
     border: 1px solid black;
+    background-color: #FFE5CC;
     padding: 2px;
-    background-color: white;
+}
+
+#replyform {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
+    border: 1px solid black;
+    background-color: #FFE5CC;
+    padding: 2px;
+    opacity: 9%;
+}
+#replyText {
+    width: 100%;
+}
+
+#giveawayForm {
+    grid-column: 2;
+    grid-row: 3;
+    text-align: left;
+    border: 1px solid black;
+    background-color: #FFE5CC;
+    padding: 2px;
     opacity: 9%;
 }
 
 #carTable {
-    right: 0;
-    position: absolute;
-    float: right;
-    width: 16%;
+    grid-column: 3;
+    grid-row: 1 / 3;
+    width: 100%;
 }
 #carTable th {
     text-align: center;
