@@ -1,4 +1,10 @@
-        <%= erb :header %>
+
+    <title>Administrator Section</title>
+    <link rel="stylesheet" type="text/css" href="css/admin_section.css">
+    <script src="js/admin_functions.js"></script>
+    <title>Administrator Access</title>
+
+    <%= erb :header %>
         <h1>Administrator System</h1>
         <% flash.keys.each do |type| %>
             <div data-alert class="flash <%= type %> alert-box radius">

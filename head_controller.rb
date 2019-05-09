@@ -42,9 +42,6 @@ get '/login' do
 end
 
 get '/home' do
-    @cssURL = ["css/main.css", "css/homepage_style.css"]
-    @title = "Home"
-    @jsURL = []
     erb :home
 end
 
@@ -58,9 +55,6 @@ get '/create_account' do
 end
 
 get '/contact' do
-    @cssURL = ["css/main.css", "css/contact.css"]
-    @title = "Contact Page"
-    @jsURL = []
     erb :contact
 end
 

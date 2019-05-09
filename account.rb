@@ -80,9 +80,6 @@ post '/login' do
 end
     
 get '/accountInfo' do
-    @cssURL = ["css/main.css", "css/homepage_style.css", "css/accountInfo.css"]
-    @title = "Account Information"
-    @jsURL = []
     if session[:logged_in] 
         @user_pass = @database.get_first_value('SELECT password FROM user_details WHERE email = ? ;',[session[:logged_email]])
         @user_handle = @database.get_first_value('SELECT twitter_handle FROM user_details WHERE email = ? ;',[session[:logged_email]])
