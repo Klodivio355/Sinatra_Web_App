@@ -5,6 +5,8 @@ get '/admin_section' do
     
     @area = session[:logged_adminarea]
 
+    @car_results = ""
+    @car_results2 = ""
     if @area.eql? 'both'
         query = %{SELECT car_registration, type, availability, area FROM car_details ORDER BY availability ASC}
         @car_results = @database.execute query
@@ -38,7 +40,12 @@ get '/admin_section' do
 end
 
 post '/reply' do
+    @replytext = params[:replyText]
+    @id = params[:replyID].to_i
+    @client.retweet(@id)
+    @client.update(@replytext, :in_reply_to_status_id => @id)
     
+    redirect '/admin_section'
 end
 
 post '/updateBooking' do
@@ -77,5 +84,24 @@ post '/updateBooking' do
         flash[:success] = "Details saved, awaiting completion."      
     end
     
+    redirect '/admin_section'
+end
+
+get '/giveaway' do 
+        search_term = params[:prizeTerm]
+        giveaway_result = @client.search(search_term)
+        @entrytweets = giveaway_result.take(50)
+        unless @entrytweets.empty?
+            @random = rand(@entrytweets.size)
+            @winner = @entrytweets[@random].user.screen_name
+            while @winner == "ise19team07"
+                @random = rand(@entrytweets.size)
+                @winner = @entrytweets[@random].user.screen_name
+            end
+            flash[:success] = "The Winner is... @" + @winner
+            @client.update("CONGRATULATIONS to @" + @winner + ", you were the winner of the '" + search_term + "' competition!")
+            redirect '/admin_section'
+        end
+    flash[:warning] = 'Failed to successfully select a winner, please try again.'
     redirect '/admin_section'
 end

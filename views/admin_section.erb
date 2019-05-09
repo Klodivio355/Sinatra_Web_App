@@ -1,7 +1,7 @@
 
     <title>Administrator Section</title>
     <link rel="stylesheet" type="text/css" href="css/admin_section.css">
-    <script src="js/admin_functions.js"></script>
+    <script src="js/admin_javascript.js"></script>
     <title>Administrator Access</title>
     <%= erb :header %>
     <h1>Administrator System</h1>
@@ -142,18 +142,23 @@
             
         <div id="replyform">
             <form action="reply" method="post">
-                <label for="replyhandle">User Handle</label>
+                <label for="replyhandle">Replying to user:- </label>
                 <input type="text" name="replyHandle" id="replyHandle" disabled/><br>
-                <input type="text" name="replyID" id="replyID" value="<%=h @replyID %>" hidden/><br>
-                <label for="replyText">Reply here...</label><br>
-                <textarea id="replyText" value="<%=h @replyContents %>" maxLength="280" rows="4"></textarea><br>
+                <input type="text" name="replyID" id="replyID" value="<%=h params[:replyID] %>" hidden/><br>
+                <label for="replyText">Response Contents</label><br>
+                <textarea id="replyText" name="replyText" value="<%=h params[:replyText] %>" maxLength="280" rows="4" required></textarea><br>
                 <input type="submit" name="replyBtn" value="Send Reply"/>
                 <input type="reset" name="replyBtn" value="Clear Form"/>
             </form>     
         </div>
             
         <div id="giveawayform">
-            
+            <form id="giveaway" action="/giveaway" method="get">
+                <p id="giveawayText">Giveaway Winner Generator!</p><br>
+                <label for="replyhandle">Enter the contest phrase here: </label>
+                <input type="text" name="prizeTerm" id="prizeTerm" value="<%= params[:prizeTerm] %>" required/>
+                <input type="submit" name="randomBtn" value="Choose"/><br>        
+            </form>
         </div>
     </div>
     <%= erb :footer %>

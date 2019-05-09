@@ -11,6 +11,10 @@
     align-items: stretch;
  }
 
+p {
+    margin: 0;
+}
+
 h1 {
     font-size: 3em;
     font-family: "Arial";
@@ -78,6 +82,14 @@ tbody td {
     padding: 2px;
     opacity: 9%;
 }
+#giveawayText {
+    font-size: 19px;
+    font-style: bold;
+    text-align: center;
+}
+#winnername {
+    color: green;
+}
 
 #carTable {
     grid-column: 3;
@@ -113,8 +125,8 @@ tbody td {
     border: 1px solid black;
 }
 .error {
-    background-color: red;
+    background-color: #bc1414;
 }
 .success {
-    background-color: green;
+    background-color: #22e200;
 }

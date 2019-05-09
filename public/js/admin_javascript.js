@@ -10,10 +10,12 @@ function menuChange(selectObj) {
     else if(x == 2) {
         var box = document.getElementById('replyHandle');
         var box2 = document.getElementById('replyID');
+        var reply = document.getElementById('replyText');
         var value = selectObj.options[x].value;
         value = value.split(",");
         box.value = value[0];
         box2.value = value[1];
+        reply.value = "@" + value[0] + " ";
         selectObj.selectedIndex = 0;
     }
 }
