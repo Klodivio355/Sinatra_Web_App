@@ -25,3 +25,13 @@ get '/admin_two' do
     
     erb :admin_two
 end
+
+post '/runQuery' do
+    case @query
+    when "addTaxi"
+        query1 = %{INSERT INTO car_details VALUES (?.?.0,?)}
+    else
+    end
+    @database.execute query1, @input1, @input2, @input3
+    redirect'/admin_two'
+end

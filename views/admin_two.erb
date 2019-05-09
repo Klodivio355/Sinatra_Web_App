@@ -16,9 +16,9 @@
 		<button type="button" id="updatePa">Update password</button>
         <button type="button" id="addA">Add admin</button>
         <button type="button" id="removeA">Remove admin</button>
-		<label id="queryLabel">Query</label>
+		<label id="queryLabel" value="<%= @query %>"></label>
         
-		<form name="form" action="runQuery" method="post">
+		<form name="form" action="/runQuery" method="post">
 			<label id="labelOne">Input</label>
             <input id="inputOne" type="Text" value="<%= @inputOne %>">
 			<br>

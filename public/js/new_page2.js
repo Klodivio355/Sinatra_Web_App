@@ -51,15 +51,20 @@ function hideAll() {
 }
 
 function addTaxi() {
+    hideAll();
+    
 	lOne.innerHTML = "Registration: ";
 	lTwo.innerHTML = "Type: ";
+    lThree.innerHTML = "Area: ";
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
 	iTwo.style.display = "inline";
 	lTwo.style.display = "inline";
+    iThree.style.display = "inline";
+	lThree.style.display = "inline";
     
-    query.InnerHTML = "addTaxi";
+    query.value = "addTaxi";
 }
 
 function removeTaxi() {
@@ -70,7 +75,7 @@ function removeTaxi() {
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
     
-    query.InnerHTML = "removeTaxi";
+    query.value = "removeTaxi";
 }
 
 function addType() {
@@ -79,7 +84,7 @@ function addType() {
 	lOne.innerHTML = "Type: ";
 	lTwo.innerHTML = "Description: ";
     lThree.innerHTML = "Base price: ";
-    lfour.innerHTML = "Number of seats: ";
+    lFour.innerHTML = "Number of seats: ";
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
@@ -90,7 +95,7 @@ function addType() {
     iFour.style.display = "inline";
 	lFour.style.display = "inline";
     
-    query.InnerHTML = "addType";
+    query.value = "addType";
 }
 
 function updatePr() {
@@ -104,7 +109,7 @@ function updatePr() {
 	iTwo.style.display = "inline";
 	lTwo.style.display = "inline";
     
-    query.InnerHTML = "updatePrice";
+    query.value = "updatePrice";
 }
 
 function updateDescription() {
@@ -113,7 +118,7 @@ function updateDescription() {
 	lOne.innerHTML = "Type: ";
 	lTwo.innerHTML = "Description: ";
     lThree.innerHTML = "Base price: ";
-    lfour.innerHTML = "Number of seats: ";
+    lFour.innerHTML = "Number of seats: ";
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
@@ -124,7 +129,7 @@ function updateDescription() {
     iFour.style.display = "inline";
 	lFour.style.display = "inline";
     
-    query.InnerHTML = "addDescription";
+    query.value = "addDescription";
 }
 
 function unbanUser() {
@@ -134,7 +139,7 @@ function unbanUser() {
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
     
-    query.InnerHTML = "unbanUser";
+    query.value = "unbanUser";
 }
 
 function updateEmail() {
@@ -144,7 +149,7 @@ function updateEmail() {
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
     
-    query.InnerHTML = "updateEmail";
+    query.value = "updateEmail";
 }
 
 function updatePassword() {
@@ -158,7 +163,7 @@ function updatePassword() {
 	iTwo.style.display = "inline";
 	lTwo.style.display = "inline";
     
-    query.InnerHTML = "updatePassword";
+    query.value = "updatePassword";
 }
 
 function addAdmin() {
@@ -179,7 +184,7 @@ function addAdmin() {
     iFive.style.display = "inline";
 	lFive.style.display = "inline";
     
-    query.InnerHTML = "addAdmin";
+    query.value = "addAdmin";
 }
 
 function removeAdmin() {
@@ -189,5 +194,5 @@ function removeAdmin() {
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
     
-    query.InnerHTML = "removeAdmin";
+    query.value = "removeAdmin";
 }
