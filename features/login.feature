@@ -41,10 +41,10 @@ Feature: Login
     
     Scenario: Go to homepage without account    
         Given I am on the login page
-        When I press "Home without Login" within "section"
+        When I follow "Home without Login"
         Then I should be on the home page
        
     Scenario: Go to the register page 
         Given I am on the login page
-        When I press "Register" within "form"
+        When I follow "Register"
         Then I should be on the register page

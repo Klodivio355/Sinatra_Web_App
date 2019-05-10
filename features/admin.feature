@@ -6,7 +6,7 @@ Feature: Admin
         When I fill in "password" with "man123"
         When I press "Login" within "form"
         Then I should see "Administrator"
-        Then I should not see "Database Updates"
+        Then I should see "Database Updates"
         
     Scenario: Logging in with superadmin details
         Given I am on the login page

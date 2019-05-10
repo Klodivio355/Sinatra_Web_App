@@ -10,7 +10,9 @@
             <p> We ensure safe transfer of data and password protection when you sign up to be part of us.<br>
                 By clicking register,you agree to our terms.How we collect your data and share your information within our policy.  
             </p>
-            <button name="intro" id="Home without Login" onClick="window.location.href='/home'">Home without Login</button>
+            <a href="/home" id="Home without Login">
+                <button name="intro">Home without Login</button>
+            </a>
         </section>
        
         <form action="login" method="post">
@@ -29,7 +31,7 @@
             
             <div class="loginBtns">
                <input type="submit" value="Login">  
-               <input type="button" name="register" id="Register" value="Register" onClick="window.location.href='/create_account'">
+               <a href="/create_account" id="Register" ><input type="button" name="register" value="Register"></a>
             </div>
                
         </form>      
