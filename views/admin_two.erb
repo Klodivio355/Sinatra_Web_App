@@ -18,6 +18,17 @@
         <button type="button" id="removeA">Remove admin</button>
 		<label id="queryLabel" name="queryLabel" value="<%=h params[:label] %>"></label>
         
+        <% if @wrongPassword %>
+            <div>
+                Passwords do not match    
+            </div>   
+        <% end %> 
+        <% if @notSuperAdmin %>
+            <div>
+                Only super admins may add/remove other admins    
+            </div>   
+        <% end %> 
+        
 		<form name="form" action="/runQuery" method="post">
 			<label id="labelOne">Input</label>
             <input id="inputOne" name = "inputOne"type="Text" value="<%=h params[:inputOne] %>">
@@ -54,6 +65,31 @@
                     </td>
                     <td>
                         <%= car[2] %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+        
+        <table id="typeTable">
+            <tr>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Base price</th>
+                <th>Number of seats</th>
+            </tr>
+            <% @des_results.each do |des| %>
+                <tr>
+                    <td>
+                        <%= des[0] %>
+                    </td>
+                    <td>
+                        <%= des[1] %>
+                    </td>
+                    <td>
+                        <%= des[2] %>
+                    </td>
+                    <td>
+                        <%= des[3] %>
                     </td>
                 </tr>
             <% end %>

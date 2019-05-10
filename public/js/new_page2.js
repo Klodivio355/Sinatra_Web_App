@@ -143,7 +143,7 @@ function updateDescription() {
     iFour.style.display = "inline";
 	lFour.style.display = "inline";
     
-    query.value = "addDescription";
+    query.value = "updateDescription";
     
     Submit.disabled = false;
 }
@@ -163,9 +163,12 @@ function unbanUser() {
 function updateEmail() {
 	hideAll();
 	
-	lOne.innerHTML = "Email: ";
+    lOne.innerHTML = "Id";
+	lTwo.innerHTML = "Email: ";
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
+    iTwo.style.display = "inline";
+	lTwo.style.display = "inline";
     
     query.value = "updateEmail";
     
@@ -175,13 +178,16 @@ function updateEmail() {
 function updatePassword() {
 	hideAll();
 	
-	lOne.innerHTML = "Password: ";
-	lTwo.innerHTML = "Re-enter password: ";
+    lOne.innerHTML = "Id";
+	lTwo.innerHTML = "Password: ";
+	lThree.innerHTML = "Re-enter password: ";
 	
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
 	iTwo.style.display = "inline";
 	lTwo.style.display = "inline";
+    iThree.style.display = "inline";
+	lThree.style.display = "inline";
     
     query.value = "updatePassword";
     
