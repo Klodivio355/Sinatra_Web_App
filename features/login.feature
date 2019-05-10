@@ -21,13 +21,14 @@ Feature: Login
         When I fill in "password" with "wrong password"
         When I press "Login" within "form"
         Then I should be on the login page
+        Then I should see "Wrong email or password, please try again."
         
     Scenario: Correct email, but wrong password
         Given I am on the login page
         When I fill in "useremail" with "test10@qq.com"
         When I fill in "password" with "wrong password"
         When I press "Login" within "form"
-        Then I should be on the login page
+        Then I should see "Wrong email or password, please try again."
         
     Scenario: Trying to access login page while already logged in
         Given I am on the login page
