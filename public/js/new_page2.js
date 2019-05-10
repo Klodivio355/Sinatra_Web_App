@@ -25,7 +25,7 @@ Submit.disabled = true;
 
 
 var query = document.getElementById("queryLabel");
-query.style.display = "none";
+//query.style.display = "none";
 
 var iOne = document.getElementById("inputOne");
 var lOne = document.getElementById("labelOne");
@@ -163,7 +163,7 @@ function unbanUser() {
 function updateEmail() {
 	hideAll();
 	
-    lOne.innerHTML = "Id";
+    lOne.innerHTML = "Id: ";
 	lTwo.innerHTML = "Email: ";
 	iOne.style.display = "inline";
 	lOne.style.display = "inline";
@@ -178,7 +178,7 @@ function updateEmail() {
 function updatePassword() {
 	hideAll();
 	
-    lOne.innerHTML = "Id";
+    lOne.innerHTML = "Id: ";
 	lTwo.innerHTML = "Password: ";
 	lThree.innerHTML = "Re-enter password: ";
 	

@@ -37,9 +37,10 @@ post '/runQuery' do
     @five = params[:inputFive]
     @label = params[:queryLabel]
     
-    value = @label.to_s
     
-    case value
+    puts("label = " + @label.to_s)
+    
+    case @label
         when "addTaxi"
             query1 = %{INSERT INTO car_details VALUES (?,?,0,?)}
             @database.execute query1, @one, @two, @three

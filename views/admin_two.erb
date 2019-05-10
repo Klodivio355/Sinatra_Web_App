@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>    
+<html> 
+    
     <head>
     <title>Database Updates</title>
     <%= erb :header %>
-    
+    </head>
     <body>
         <h1>Database Updates</h1>
 		<button type="button" id="addT">Add taxi</button>
@@ -16,7 +17,6 @@
 		<button type="button" id="updatePa">Update password</button>
         <button type="button" id="addA">Add admin</button>
         <button type="button" id="removeA">Remove admin</button>
-		<label id="queryLabel" name="queryLabel" value="<%=h params[:label] %>"></label>
         
         <% if @wrongPassword %>
             <div>
@@ -30,6 +30,8 @@
         <% end %> 
         
 		<form name="form" action="/runQuery" method="post">
+            <input id="queryLabel" name="queryLabel" value="<%=h params[:queryLabel] %>">
+            
 			<label id="labelOne">Input</label>
             <input id="inputOne" name = "inputOne"type="Text" value="<%=h params[:inputOne] %>">
 			<br>
