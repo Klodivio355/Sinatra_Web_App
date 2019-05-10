@@ -42,6 +42,8 @@ get '/login' do
 end
 
 get '/home' do
+    car_description_query = %{SELECT DISTINCT type, description FROM car_description}
+    @types = @database.execute car_description_query
     erb :home
 end
 
