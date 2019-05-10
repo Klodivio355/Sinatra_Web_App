@@ -33,8 +33,8 @@ get '/' do
 end
 
 get '/login' do
+   @wronglogin = false
    unless session[:logged_in] 
-        @wrong = false
         erb :login
     else
         redirect '/home'

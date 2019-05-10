@@ -51,8 +51,8 @@ post '/login' do
             session[:logged_isadmin]=0
             redirect '/home'
         else
-            @wrong = true
-            redirect '/login'
+            @wronglogin = true
+            erb :login
         end
     elsif @check_admin_count == 1 
         @pass = @database.get_first_value('SELECT password FROM admin_details WHERE email = ? ;',[@user_email])
@@ -71,11 +71,12 @@ post '/login' do
             end
             redirect '/home'
         else
-            @wrong = true
-            redirect '/login'
+            @wronglogin = true
+            erb :login
         end
     else
-        redirect '/'
+        @wronglogin = true
+        erb :login
     end
 end
     
