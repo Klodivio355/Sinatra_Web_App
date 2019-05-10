@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>    
+    <head>
     <link rel="stylesheet" type="text/css" href="css/homepage_style.css">
     <link rel="stylesheet" type="text/css" href="css/accountInfo.css">  
     <title>Account Information</title>
@@ -30,7 +33,7 @@
 			<!-- history part -->
             <% unless @rideHistory.nil? %>
                 <% if @rideHistory.length == 0 %>
-                    <p> You have not got ride yet. </p>
+                    <p> You have no previous rides on record. </p>
                 <% else %>
                     <div id="thediv">
                         <p style="text-align: center; width:82%;">Your Ride History</p>

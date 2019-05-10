@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-    
+<html>    
     <head>
         <link rel="stylesheet" type="text/css" href="css/login.css">
         <title>Login</title>
@@ -15,8 +14,11 @@
         </section>
        
         <form action="login" method="post">
-            
-            
+            <% if @wronglogin %>
+                <div>
+                    Wrong email or password, please try again.    
+                </div>   
+            <% end %> 
             <div class="emailDiv">
                 <input type="text" name="useremail" placeholder="Email Address" id="idEmail" maxlength="" value="" required><br>
             </div>                                  
@@ -29,7 +31,7 @@
                <input type="submit" value="Login">  
                <input type="button" name="register" id="Register" value="Register" onClick="window.location.href='/create_account'">
             </div>
-                
+               
         </form>      
     </body>
 <%= erb :footer %>
