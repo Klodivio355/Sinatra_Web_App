@@ -97,7 +97,7 @@ end
 post '/updateBooking' do
     @adminID = session[:logged_adminid]
     @handle = params[:handleIn].strip
-    @reg = params[:regIn]
+    @reg = params[:regValue]
     @startTime = params[:startTimeIn]
     @endTime = params[:endTimeIn]
     @date = params[:dateIn]
@@ -115,19 +115,26 @@ post '/updateBooking' do
             @database.execute @updateQuery, @endPos, @endTime, @price, @handle, @date, @reg
             
             @carUpdate = 'UPDATE car_details SET availability = ? WHERE car_registration = ?'
-            @database.execute @carUpdate, @availUpdate, @reg
+            @database.execute @carUpdate, @availUpdate ,@reg
             flash[:success] = "Ride complete, details saved, car is now free to allocate."
         else
             flash[:error] = "Failed to submit booking, not all information was correct."
         end
-     elsif(params[:enterForm] == 'Save Booking')
+    elsif(params[:enterForm] == 'Save Booking')
         @availUpdate = 1
         @updateQuery = 'INSERT INTO ride_history VALUES(?,?,?,?,?,?,?,?,?)'
         @database.execute @updateQuery, @adminID, @handle, @reg,@startPos, @endPos, @startTime, @endTime, @date, @price
         
         @carUpdate = 'UPDATE car_details SET availability = ? WHERE car_registration = ?'
         @database.execute @carUpdate, @availUpdate, @reg
-        flash[:success] = "Details saved, awaiting completion."      
+        flash[:success] = "Details saved, awaiting completion."    
+    #!elsif(params[:enterForm] == 'Cancel Booking')
+        #!@cancelQuery = 'DELETE FROM ride_history WHERE twitter_handle = ? AND date = ? AND car_registration = ?'
+        #!@database.execute @cancelQuery, @handle, @date, @reg
+        #!@carUpdate = 'UPDATE car_details SET availability = ? WHERE car_registration = ?'
+        #!@availUpdate = 0
+        #!@database.execute @carUpdate, @availUpdate, @reg
+        #!flash[:success] = "Booking cancelled." 
     end
     
     redirect '/admin_section'

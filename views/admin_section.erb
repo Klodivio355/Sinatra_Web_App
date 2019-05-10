@@ -3,7 +3,7 @@
     <head>
     <title>Administrator Section</title>
     <link rel="stylesheet" type="text/css" href="css/admin_section.css">
-    <script src="js/admin_javascript.js"></script>
+    <script src="js/temp.js"></script>
     <title>Administrator Access</title>
     <%= erb :header %>
     <h1>Administrator System</h1>
@@ -68,10 +68,11 @@
                 <input type="text" maxLength="15" name="handleIn" id="handleIn" value="<%=h @queryHandle %>" required/><br><br>
                 
                 <label for="regIn">Car Registration</label>
-                <select>
+                <select onchange="carDropdown(this)">
                     <% @car2.each do |c| %>
-                        <option value="<%= c[0] %>"><%= c[0] %></option>
+                        <option name="regIn" id="regIn" value="<%= c[0] %>"><%= c[0] %></option>
                     <% end %>
+                    <input type="text" name="regValue" id="regValue" value="<%= params[:regValue] %>" hidden/>
                 </select><br><br>
                 
                 <label for="startTimeIn">Start Time</label>
@@ -94,6 +95,7 @@
                 
                 <input type="submit" name="enterForm" value="Save Booking"/>
                 <input type="submit" name="enterForm" value="Complete Booking"/>
+                <!-- <input type="submit" name="enterForm" value="Cancel Booking"/> -->
                 <input type="reset" name="enterForm" value="Clear Form"/>
             </form>
         </div>
