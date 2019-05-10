@@ -67,20 +67,18 @@ tbody td {
     border: 1px solid black;
     background-color: #FFE5CC;
     padding: 2px;
-    opacity: 9%;
 }
 #replyText {
     width: 100%;
 }
 
-#giveawayForm {
+#giveawayform {
     grid-column: 2;
     grid-row: 3;
     text-align: left;
     border: 1px solid black;
     background-color: #FFE5CC;
     padding: 2px;
-    opacity: 9%;
 }
 #giveawayText {
     font-size: 19px;
