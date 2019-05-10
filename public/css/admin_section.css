@@ -69,7 +69,14 @@ tbody td {
     padding: 2px;
 }
 #replyText {
-    width: 100%;
+    width: 95%;
+}
+#warnBan {
+    grid-column: 2;
+    grid-row: 2;
+    border: 1px solid black;
+    background-color: #FFE5CC;
+    padding: 2px;
 }
 
 #giveawayform {

@@ -1,3 +1,8 @@
+var banArea;
+window.onload = function() { 
+                  banArea = document.getElementById("warnBan");
+              };
+
 function menuChange(selectObj) {
     var x = selectObj.selectedIndex;
     if(x == 1) { 
@@ -17,6 +22,13 @@ function menuChange(selectObj) {
         box2.value = value[1];
         reply.value = "@" + value[0] + " ";
         selectObj.selectedIndex = 0;
+    }
+    else if(x == 3) {
+        banArea.style.display = 'block';
+        var handle = selectObj.options[x].value;
+        var handleBox = document.getElementById("warnHandle");
+        handleBox.value = handle;
+        document.getElementById("warnLabel").innerHTML = "Issue Warning for: " + handle;
     }
 }
 

@@ -34,7 +34,21 @@ get '/admin_section' do
     unless params[:search].nil?
         search_string = params[:search]
         results = @client.search(search_string)
-        @tweets = results.take(30)
+        @tweets = results.take(50)
+        bannedquery = 'SELECT twitter_handle FROM misuse_list WHERE banned=1'
+        @banned = @database.execute bannedquery
+        @banned.each do |b|
+            x = @tweets.length - 1
+            while x >= 0
+                puts x
+                if @tweets[x].user.screen_name.eql? b[0]
+                        @tweets.delete_at(x)
+                end
+                x = x - 1
+            end
+        end
+            
+            
     end
     erb :admin_section
 end
@@ -44,6 +58,38 @@ post '/reply' do
     @id = params[:replyID].to_i
     @client.retweet(@id)
     @client.update(@replytext, :in_reply_to_status_id => @id)
+    
+    redirect '/admin_section'
+end
+
+post '/issueWarning' do
+    @selectedWarning = params[:misuseSubmit]
+    @user = params[:warnHandle]
+    checkQuery = 'SELECT COUNT(*) FROM misuse_list WHERE twitter_handle = ?'
+    @existing = @database.get_first_value(checkQuery, @user) == 1
+    if @selectedWarning.eql? 'Warn'
+        if @existing
+            getCount = 'SELECT misuse_count FROM misuse_list WHERE twitter_handle = ?'
+            currentCount = @database.get_first_value(getCount, @user)
+            currentCount = currentCount + 1
+            updateQuery = 'UPDATE misuse_list SET misuse_count = ? WHERE twitter_handle = ?'
+            @database.execute updateQuery, currentCount, @user
+        else
+            addMisuse = 'INSERT INTO misuse_list VALUES (?,1,0)'
+            @database.execute addMisuse, @user
+            currentCount = 1
+        end
+        flash[:success] = @user + " was warned, warning count = " + currentCount.to_s
+    else 
+        if @existing
+            banUser = 'UPDATE misuse_list SET banned = 1 WHERE twitter_handle = ?'
+            @database.execute banUser, @user
+        else
+            addBan = 'INSERT INTO misuse_list VALUES (?,0,1)'
+            @database.execute addBan, @user
+        end
+         flash[:success] = @user + " was successfully banned, and tweets will not be displayed."
+    end
     
     redirect '/admin_section'
 end
