@@ -73,18 +73,11 @@
                             <p id="partTitle">Car Type</p>
                             <br>
                             <div id="textLeft">
-                                <p id="messageTitle">Standard: </p>
-                                <p>Suitable for 1-4 people.</p>
+                                <% @types.each do |all| %>
+                                <p id="messageTitle"><%=h all[0] %>: </p>
+                                <p><%=h all[1] %> </p>
                                 <br />
-
-                                <p id="messageTitle">Luxury: </p>
-                                <p>Similar to the standard, but the car will have better quality, which can provide a more comfortable experience, with a slight cost increase.</p>
-                                <br />
-
-                                <p id="messageTitle">Mini Van: </p>
-                                <p>Larger model will have more seats, which is suitable for group activities and events.</p>
-                                <br />
-
+                                <% end %>   
                             </div>
                         </div>
                     </div>
