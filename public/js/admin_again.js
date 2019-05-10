@@ -1,8 +1,3 @@
-var banArea;
-window.onload = function() { 
-                  banArea = document.getElementById("warnBan");
-              };
-
 function menuChange(selectObj) {
     var x = selectObj.selectedIndex;
     if(x == 1) { 
@@ -27,8 +22,8 @@ function menuChange(selectObj) {
         banArea.style.display = 'block';
         var handle = selectObj.options[x].value;
         var handleBox = document.getElementById("warnHandle");
+        console.log(handle);
         handleBox.value = handle;
-        document.getElementById("warnLabel").innerHTML = "Issue Warning for: " + handle;
     }
 }
 

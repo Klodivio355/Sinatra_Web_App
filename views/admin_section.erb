@@ -52,8 +52,7 @@
                                             <option selected>Select...</option>
                                             <option id="book" value="<%= tweet.user.screen_name %>">Book Ride</option>
                                             <option id="reply" value="<%= tweet.user.screen_name %>,<%= tweet.id %>">Reply</option>
-                                            <option id="warn" value="">Apply Warning</option>
-                                            <option id="block" value="">Block User</option>
+                                            <option id="warn" value="<%= tweet.user.screen_name %>">Apply Warning</option>
                                         </select>
                                     </div>
                                 </td>
@@ -143,7 +142,7 @@
         </div>
             
         <div id="replyform">
-            <form action="reply" method="post">
+            <form action="/reply" method="post">
                 <label for="replyhandle">Replying to user:- </label>
                 <input type="text" name="replyHandle" id="replyHandle" disabled/><br>
                 <input type="text" name="replyID" id="replyID" value="<%=h params[:replyID] %>" hidden/><br>
@@ -152,6 +151,15 @@
                 <input type="submit" name="replyBtn" value="Send Reply"/>
                 <input type="reset" name="replyBtn" value="Clear Form"/>
             </form>     
+        </div>
+            
+        <div id="warnBan" style="display: none">
+            <form action="/issueWarning" method="post">
+                <label id="warnLabel"></label><br>
+                <input type="text" id="warnHandle" name="warnHandle" value="<%= params[:warnHandle] %>" hidden/>
+                <input type="submit" name="misuseSubmit" value="Warn"/>
+                <input type="submit" name="misuseSubmit" value="Ban"/>
+            </form>
         </div>
             
         <div id="giveawayform">
