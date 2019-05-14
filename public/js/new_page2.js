@@ -25,7 +25,7 @@ Submit.disabled = true;
 
 
 var query = document.getElementById("queryLabel");
-//query.style.display = "none";
+query.style.display = "none";
 
 var iOne = document.getElementById("inputOne");
 var lOne = document.getElementById("labelOne");
