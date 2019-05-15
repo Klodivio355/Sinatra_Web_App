@@ -33,7 +33,7 @@ function menuChange(selectObj) {
 }
 
 function carDropdown(selectObj) {
-    var x = document.getElementById("regValue");
+    var x = document.getElementById("carBooking");
     x.value = selectObj.options[selectObj.selectedIndex].value;  
 }
 
