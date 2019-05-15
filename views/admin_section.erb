@@ -72,7 +72,7 @@
                     <% @car2.each do |c| %>
                         <option name="regIn" id="regIn" value="<%= c[0] %>"><%= c[0] %></option>
                     <% end %>
-                    <input type="text" name="regValue" id="regValue" value="<%= params[:regValue] %>" hidden/>
+                    <input type="text" name="regValue" id="regValue" value="<%= @regValue %>" hidden/>
                 </select><br><br>
                 
                 <label for="startTimeIn">Start Time</label>

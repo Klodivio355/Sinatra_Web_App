@@ -25,7 +25,7 @@ get '/admin_section' do
         @currentRide = @database.execute query, @carReg
         
         @queryHandle = @currentRide[0][0]
-        @queryReg = @currentRide[0][1]
+        @regValue = @currentRide[0][1]
         @queryStart = @currentRide[0][2]
         @queryTime = @currentRide[0][3]
         @queryDate = @currentRide[0][4]
