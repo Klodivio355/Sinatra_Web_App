@@ -1,30 +1,38 @@
-<link rel="stylesheet" type="text/css" href="css/header.css">
-<header>
-	<div>
-		<ul class="nav-mask">
-            <li><a href="/home">Home</a></li>
-            <% if session[:logged_in] && !session[:logged_isadmin] %>   
-            <li>
-                <a href="/accountInfo">Account Info</a>
-            </li>
-            <% end %>
-            <% if !session[:logged_in] %>
-            <li>
-                <a href="/login">Login</a>
-            </li>
-            <% else %>
-            <li>
-                <a href="/session_clear">Log Out</a>
-            </li>
-            <% end %>
-            <% if session[:logged_isadmin] %> 
-                <li>
-                    <a href="/admin_section">Administrator</a>
-                </li>
-            <% end %>
-            <li>
-                <a href="/contact">Contact Us</a>
-            </li>
-		</ul>
-		</div>
-	</header>
+        <link rel="stylesheet" type="text/css" href="css/header.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <meta http-equiv="refresh" content="300">
+    </head>
+    
+    <body>
+         <header>
+            <div>
+                <ul class="nav-mask">
+                    <li><a href="/home">Home</a></li>
+                    <% if session[:logged_in] && session[:logged_isadmin] == 0 %>   
+                    <li>
+                        <a href="/accountInfo">Account Info</a>
+                    </li>
+                    <% end %>
+                    <% if !session[:logged_in] %>
+                    <li>
+                        <a href="/login">Login</a>
+                    </li>
+                    <% else %>
+                    <li>
+                        <a href="/session_clear">Log Out</a>
+                    </li>
+                    <% end %>
+                    <% if session[:logged_isadmin] == 1 || session[:logged_isadmin] == 2 %> 
+                        <li>
+                            <a href="/admin_section">Administrator</a>
+                        </li>
+                        <li>
+                            <a href="/admin_two">Database Updates</a>
+                        </li>
+                    <% end %>
+                    <li>
+                        <a href="/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+         </header>

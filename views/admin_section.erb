@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html>    
     <head>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="stylesheet" type="text/css" href="css/admin_section.css">
-        <script src="js/admin_functions.js"></script>
-        <title>Administrator Access</title>
-        <meta http-equiv="refresh" content="300">
-    </head>
-    <body>
-        <%= erb :header %>
-        <h1>Administrator System</h1>
+    <title>Administrator Section</title>
+    <link rel="stylesheet" type="text/css" href="css/admin_section.css">
+    <script src="js/admin_javascript.js"></script>
+    <title>Administrator Access</title>
+    <%= erb :header %>
+    <h1>Administrator System</h1>
+
         <% flash.keys.each do |type| %>
             <div data-alert class="flash <%= type %> alert-box radius">
                 <%= flash[type] %>
             </div>
         <% end %>
-        <form method="get" autocomplete="off">
-            Search:<input type="text" name="search" value="<%=h params[:search] %>" required/>
+
+        <form method="get" autocomplete="off" id="searchform">
+            Search:<input type="text" id="searchbar" name="search" value="<%=h params[:search] %>" required/>
             <input type="submit" name="submit" value="Update"/>
+            <% if session[:logged_adminarea] != 'both' %>
+                <button onClick="autosearch('<%= @area %>')"><%= @area %></button>
+            <% end %>
         </form>
-        <br>
+
         <div id="bodyDiv">
             <table id="searchTable">
                 <tr>
                     <th width="120">User</th>
-                    <th width="600">Tweet</th>
+                    <th width="501.5">Tweet</th>
                     <th width="200">Time</th>
-                    <th>Options</th>
+                    <th width="130">Options</th>
                 </tr>
                 <% unless @tweets.nil? %>
-                    <% if @tweets.length == 0 %>
-                        <p>No tweets found.</p>
+                    <% if @tweets.length == 0 %>                  
                     <% else %>
                         <% @tweets.each do |tweet| %>
                             <tr>
@@ -50,9 +51,8 @@
                                         <select onchange="menuChange(this)">
                                             <option selected>Select...</option>
                                             <option id="book" value="<%= tweet.user.screen_name %>">Book Ride</option>
-                                            <option id="reply" value="<%= tweet.uri %>">Reply (External)</option>
-                                            <option id="warn" value="">Apply Warning</option>
-                                            <option id="block" value="">Block User</option>
+                                            <option id="reply" value="<%= tweet.user.screen_name %>,<%= tweet.id %>">Reply</option>
+                                            <option id="warn" value="<%= tweet.user.screen_name %>">Apply Warning</option>
                                         </select>
                                     </div>
                                 </td>
@@ -68,7 +68,12 @@
                 <input type="text" maxLength="15" name="handleIn" id="handleIn" value="<%=h @queryHandle %>" required/><br><br>
                 
                 <label for="regIn">Car Registration</label>
-                <input type="text" maxLength="8" name="regIn" id="regIn" value="<%=h @queryReg %>" required/><br><br>
+                <select id="carBooking" onchange="carDropdown(this)">
+                    <% @car2.each do |c| %>
+                        <option name="regIn" id="regIn" value="<%= c[0] %>"><%= c[0] %></option>
+                    <% end %>
+                    <input type="text" name="regValue" id="regValue" value="<%= @regValue %>" hidden/>
+                </select><br><br>
                 
                 <label for="startTimeIn">Start Time</label>
                 <input type="time" name="startTimeIn" id="startTimeIn" value="<%=h @queryTime %>" required/>
@@ -91,6 +96,7 @@
                 <input type="submit" name="enterForm" value="Save Booking"/>
                 <input type="submit" name="enterForm" value="Complete Booking"/>
                 <input type="reset" name="enterForm" value="Clear Form"/>
+                <!-- <input type="submit" name="enterForm" value="Cancel Booking"/> -->
             </form>
         </div>
             
@@ -102,8 +108,8 @@
                     <table id="carTable">
                         <tr>
                             <th>Reg.</th>
+                            <th>Area</th>
                             <th>Type</th>
-                            <th>Seats</th>
                             <th>Available?</th>
                         </tr>
                         <% @car_results.each do |car| %>
@@ -112,13 +118,17 @@
                                     <%= car[0] %>
                                 </td>
                                 <td>
+                                    <% if car[3].eql? 'Manchester' %>
+                                        <p>M</p>
+                                    <% else %>
+                                        <p>S</p>
+                                    <% end %>
+                                </td>
+                                <td>
                                     <%= car[1] %>
                                 </td>
                                 <td>
-                                    <%= car[2] %>
-                                </td>
-                                <td>
-                                    <% if(car[3] == 0) %>
+                                    <% if(car[2] == 0) %>
                                         <p id="free">Free</p>
                                     <% else %>
                                     <form action="/admin_section" method="get">
@@ -131,6 +141,36 @@
                     </table>
                 <% end %>
             <% end %>
+        </div>
+            
+        <div id="replyform">
+            <form action="/reply" method="post">
+                <label for="replyhandle">Replying to user:- </label>
+                <input type="text" name="replyHandle" id="replyHandle" disabled/><br>
+                <input type="text" name="replyID" id="replyID" value="<%=h params[:replyID] %>" hidden/><br>
+                <label for="replyText">Response Contents</label><br>
+                <textarea id="replyText" name="replyText" value="<%=h params[:replyText] %>" maxLength="280" rows="4" required></textarea><br>
+                <input type="submit" name="replyBtn" value="Send Reply"/>
+                <input type="reset" name="replyBtn" value="Clear Form"/>
+            </form>     
+        </div>
+            
+        <div id="warnBan" style="display: none">
+            <form action="/issueWarning" method="post">
+                <label id="warnLabel"></label><br>
+                <input type="text" id="warnHandle" name="warnHandle" value="<%= params[:warnHandle] %>" hidden/>
+                <input type="submit" name="misuseSubmit" value="Warn"/>
+                <input type="submit" name="misuseSubmit" value="Ban"/>
+            </form>
+        </div>
+            
+        <div id="giveawayform">
+            <form id="giveaway" action="/giveaway" method="get">
+                <p id="giveawayText">Giveaway Winner Generator!</p><br>
+                <label for="replyhandle">Enter the contest phrase here: </label>
+                <input type="text" name="prizeTerm" id="prizeTerm" value="<%= params[:prizeTerm] %>" required/>
+                <input type="submit" name="randomBtn" value="Choose"/><br>        
+            </form>
         </div>
     </div>
     <%= erb :footer %>

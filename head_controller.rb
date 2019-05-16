@@ -1,6 +1,7 @@
 # COM1001 Team 07 application controller
 #Default setup code
 require 'sinatra'
+require 'sinatra/flash'
 require 'twitter'
 require 'erb'
 require 'sqlite3'
@@ -8,7 +9,11 @@ require 'pony'
 require_relative 'error_handling'
 require_relative 'account'
 require_relative 'admin'
+<<<<<<< HEAD
 require_relative 'contact'
+=======
+require_relative 'admin_2'
+>>>>>>> 2f26c65335fdee1065c80d7bc50a999d07de4962
 set :bind, '0.0.0.0'
 
 include ERB::Util
@@ -29,17 +34,12 @@ end
 
 #views
 get '/' do
-    unless session[:logged_in] 
-        @wrong = false
-        redirect '/login'
-    else
-        redirect '/home'
-    end
+   redirect '/home'
 end
 
 get '/login' do
+   @wronglogin = false
    unless session[:logged_in] 
-        @wrong = false
         erb :login
     else
         redirect '/home'
@@ -47,6 +47,8 @@ get '/login' do
 end
 
 get '/home' do
+    car_description_query = %{SELECT DISTINCT type, description FROM car_description}
+    @types = @database.execute car_description_query
     erb :home
 end
 

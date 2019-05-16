@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-      <head>
+<html>    
+    <head>
           <title>Create Account</title>
           <meta charset="UTF-8">
           <link rel="stylesheet" href="css/main.css">
@@ -11,7 +11,7 @@
         
         <h1>Create Account</h1>
         
-        <form action="makeaccount" method="post">       
+        <form action="makeaccount" method="post"> 
             <% if @submitted && !@firstname_ok %> 
                 <style>input[name=userhandle]::placeholder{color:red;}</style>
             <%end%>
@@ -34,12 +34,18 @@
             <% if @password_c!=@password %>
                 <style>input[name=repeat_password],input[name=password]::placeholder{color:red;}</style>
             <%= @password=null %>
-            <%= @password_check=null %>
+            <%= @password_c=null %>
             <% end %>
-       
+            <div>
+                <input type="radio" id="area1" name="area" value="Sheffield" checked="true">
+                <label for="area1">Sheffield</label>
+                <input type="radio" id="area2"name="area" value="Manchester">
+                <label for="area2">Manchester</label> 
+            </div>
             <input type="submit" value="submit">
-            <input type="button" name="logger" value="login page" onclick="window.location.href='/login'">  
-            
+            <a href="/login" id="Login Page">
+                <input type="button" name="logger">  
+            </a>
         </form> 
     </body>
     <%= erb :footer %>

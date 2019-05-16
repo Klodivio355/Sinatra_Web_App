@@ -1,38 +1,53 @@
 <!DOCTYPE html>
-
-<html>
-	<head>
-		<link rel="stylesheet" href="admin_page_two.css">
-		<title>Admin page two</title>
-        <script src="js/page_two.js"></script>
-	</head>
-	
-	<body>
+<html> 
+    
+    <head>
+    <title>Database Updates</title>
+    <%= erb :header %>
+    </head>
+    <body>
+        <h1>Database Updates</h1>
 		<button type="button" id="addT">Add taxi</button>
 		<button type="button" id="removeT">Remove taxi</button>
-		<button type="button" id="updateT">Update taxi</button>
+        <button type="button" id="addTy">Add Type</button>
 		<button type="button" id="updatePr">Update Prices</button>
+        <button type="button" id="updateDe">Update Description</button>
 		<button type="button" id="unban">Un-ban</button>
 		<button type="button" id="updateE">Update email</button>
 		<button type="button" id="updatePa">Update password</button>
-		<button type="button" id="addA">Add admin</button>
-		<button type="button" id="removeA">Remove admin</button>
-		
-		
-		<form name="form">
+        <button type="button" id="addA">Add admin</button>
+        <button type="button" id="removeA">Remove admin</button>
+        
+        <% if @wrongPassword %>
+            <div>
+                Passwords do not match    
+            </div>   
+        <% end %> 
+        <% if @notSuperAdmin %>
+            <div>
+                Only super admins may add/remove other admins    
+            </div>   
+        <% end %> 
+        
+		<form name="form" action="/runQuery" method="post">
+            <input id="queryLabel" name="queryLabel" value="<%=h params[:queryLabel] %>">
+            
 			<label id="labelOne">Input</label>
-			<input id="inputOne" type="Text">
+            <input id="inputOne" name = "inputOne"type="Text" value="<%=h params[:inputOne] %>">
 			<br>
 			<label id="labelTwo">Input</label>
-			<input id="inputTwo" type="Text">
+			<input id="inputTwo" name="inputTwo" type="Text" value="<%=h params[:inputTwo] %>">
 			<br>
 			<label id="labelThree">Input</label>
-			<input id="inputThree" type="Text">
+			<input id="inputThree" name="inputThree" type="Text" value="<%=h params[:inputThree] %>">
 			<br>
 			<label id="labelFour">Input</label>
-			<input id="inputFour" type="Text">
+			<input id="inputFour" name="inputFour" type="Text" value="<%=h params[:inputFour] %>">
 			<br>
-			<input type="submit" value="Submit">
+            <label id="labelFive">Input</label>
+            <input id="inputFive" name="inputFive" type="Text" value="<%=h params[:inputFive] %>">
+            <br>
+			<input type="submit" value="Submit" id="submit">
 		</form>
         
         
@@ -40,8 +55,7 @@
             <tr>
                 <th>Reg</th>
                 <th>Type</th>
-                <th>Seats</th>
-                <th>Price</th>
+                <th>Area</th>
             </tr>
             <% @car_results.each do |car| %>
                 <tr>
@@ -54,10 +68,33 @@
                     <td>
                         <%= car[2] %>
                     </td>
+                </tr>
+            <% end %>
+        </table>
+        
+        <table id="typeTable">
+            <tr>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Base price</th>
+                <th>Number of seats</th>
+            </tr>
+            <% @des_results.each do |des| %>
+                <tr>
                     <td>
-                         <%= car[3] %>
+                        <%= des[0] %>
+                    </td>
+                    <td>
+                        <%= des[1] %>
+                    </td>
+                    <td>
+                        <%= des[2] %>
+                    </td>
+                    <td>
+                        <%= des[3] %>
                     </td>
                 </tr>
+            <% end %>
         </table>
         
         <table id="misuseTable">
@@ -66,7 +103,7 @@
                 <th>Count</th>
                 <th>Banned</th>
             </tr>
-            <% @misuseResults.each do|mis| %>
+            <% @misuse_results.each do|mis| %>
                 <tr>
                     <td>
                         <%= mis[0] %>
@@ -79,9 +116,41 @@
                             Not banned
                         <% else %>
                             Bannned
+                        <% end %>
                     </td>
                 </tr>
+            <% end %>
         </table>
         
+        <table id="adminTable">
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Area</th>
+            </tr>
+            <% @admin_results.each do|ad| %>
+                <tr>
+                    <td>
+                        <%= ad[0] %>
+                    </td>
+                    <td>
+                        <%= ad[1] %>
+                    </td>
+                    <td>
+                        <%= ad[2] %>
+                    </td>
+                    <td>
+                        <%= ad[3] %>
+                    </td>
+                    <td>
+                        <%= ad[4] %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+        
+        <script src="js/new_page2.js"></script>
 	</body>
 </html>

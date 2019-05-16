@@ -15,6 +15,8 @@ module NavigationHelpers
                 '/contact'
             when /the\s?admin\s?page/
                 '/admin_section'
+            when /the\s?admin_two\s?page/
+                '/admin_two'
             else
                 raise "Can't find mapping"
         end

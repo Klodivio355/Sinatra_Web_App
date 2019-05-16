@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html>
-    
+<html>    
     <head>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="stylesheet" type="text/css" href="css/homepage_style.css">
-        <script src="js/table_menu.js"></script>
-        <title>Homepage</title>
-        <meta http-equiv="refresh" content="120">
-    </head>
-    
-    <body>
-        <%= erb :header %>
+    <link rel="stylesheet" type="text/css" href="css/homepage_style.css">
+    <title>Homepage</title>
+
+    <%= erb :header %>
             <main>
                 <!-- session debugging-->
                 <% if session[:logged_in] %>
@@ -79,18 +73,11 @@
                             <p id="partTitle">Car Type</p>
                             <br>
                             <div id="textLeft">
-                                <p id="messageTitle">Standard: </p>
-                                <p>Suitable for 1-4 people.</p>
+                                <% @types.each do |all| %>
+                                <p id="messageTitle"><%=h all[0] %>: </p>
+                                <p><%=h all[1] %> </p>
                                 <br />
-
-                                <p id="messageTitle">Luxury: </p>
-                                <p>Similar to the standard, but the car will have better quality, which can provide a more comfortable experience, with a slight cost increase.</p>
-                                <br />
-
-                                <p id="messageTitle">Mini Van: </p>
-                                <p>Larger model will have more seats, which is suitable for group activities and events.</p>
-                                <br />
-
+                                <% end %>   
                             </div>
                         </div>
                     </div>
