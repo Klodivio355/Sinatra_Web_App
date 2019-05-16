@@ -13,18 +13,19 @@
         
             <h1>Help us by sending feedback about our website, using the form below.</h1>
             <br>
-            <!---
-            <form action="mailto:mfontana1@sheffield.ac.uk" method="post" enctype="text/plain" id="contact_form">
+            
+            <form action="mailto:mfontana1@sheffield.ac.uk.com" method="post">
                 Name:<br>
-                <input type="text" name="name" placeholder="Your name goes here..."><br>
+                <input type="text" name="name" id="name" placeholder="Your name goes here..." required><br>
                 E-mail:<br>
-                <input type="text" name="mail" placeholder="Your e-mail goes here..."><br>
+                <input type="text" name="email" id="email" placeholder="Your e-mail goes here..." required><br>
                 Comment:<br>
-                <textarea name="comment" rows="10" cols="30" placeholder="Tell us how to improve our website..."></textarea> <br>
+                <textarea name="message" id="message" rows="10" cols="30" placeholder="Tell us how to improve our website..." required></textarea> <br>
                 <input type="submit" value="Send">
                 <input type="reset" value="Reset">
             </form>
-            -->
+            
+            <!---
             <form action="https://formspree.io/mfontana1@sheffield.ac.uk" method="post" enctype="text/plain" id="contact_form">
                 Name:<br>
                 <input type="text" name="name" placeholder="Your name goes here..." id="namevalue"><br>
@@ -35,14 +36,45 @@
                 <input type="submit" value="Send">
                 <input type="reset" value="Reset">
             </form>
+        --->
+                             <!---@referers = ('scriptarchive.com','143.167.203.162');
+
+
             
+             <form action="http://www.dcs.shef.ac.uk/cgi-intranet/public/FormMail.pl" method="post" enctype="text/plain" id="contact_form">
+             <input type="hidden" name="recipient" value="mfontana1@sheffield.ac.uk">
+                Name:<br>
+                <input type="text" name="name" placeholder="Your name goes here..." id="namevalue"><br>
+                E-mail:<br>
+                <input type="text" name="mail" placeholder="Your e-mail goes here..." id="emailvalue"><br>
+                Comment:<br>
+                <textarea name="comment" rows="10" cols="30" placeholder="Tell us how to improve our website..." id="messagevalue"></textarea> <br>
+                <input type="submit" value="Send">
+                <input type="reset" value="Reset">
+            </form>
+-->
+        
             
+     
             
         </main>
         
     </body>
     
     <script>
+   /*     function validateForm() {
+          var nameinput = document.getElementById('namevalue').value;
+          var mailinput = document.getElementById('emailvalue').value;
+          var messageinput = document.getElementById('messagevalue').value;
+          if (nameinput == "" || mailinput == "" || message input == "") {
+            alert("Please check your data in the form");
+            return false;
+          else
+             alert("e-mail sent!THank you!");
+        ;
+  }
+}
+        /*
         $('#contact_form').submit(function(e)) {
           var nameinput = document.getElementById('namevalue');
           var mailinput = document.getElementById('emailvalue');
@@ -57,7 +89,7 @@
           method: "POST",
           data: $(this).serialize(),
           dataType: "json"
-        });
+        });*/
     </script>
     <%= erb :footer %>
 

@@ -9,4 +9,6 @@ source 'https://rubygems.org' do
   gem 'cucumber'
   gem 'rspec'
   gem 'simplecov'
+  gem 'mail'
+  gem 'mailcatcher'
 end
