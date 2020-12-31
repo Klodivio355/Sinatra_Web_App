@@ -1,5 +1,5 @@
 source 'https://rubygems.org' do
-  gem 'nokogiri', '1.10.4'
+  gem 'nokogiri', '1.10.10'
   gem 'sinatra'
   gem 'sinatra-flash'
   gem 'sqlite3'
